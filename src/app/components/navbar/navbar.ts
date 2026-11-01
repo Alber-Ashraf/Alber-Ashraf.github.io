@@ -108,7 +108,7 @@ import { BrandLogoComponent } from '../brand-logo/brand-logo';
 
           <!-- LinkedIn Profile Link -->
           <a
-            href="https://linkedin.com/in/alber-ashraf"
+            href="https://www.linkedin.com/in/alber-ashraf-042531216/"
             target="_blank"
             rel="noopener noreferrer"
             class="hidden sm:flex p-2 rounded-xl bg-slate-900/80 border border-white/10 hover:border-indigo-400/50 text-slate-300 hover:text-white transition-all shadow-sm hover:scale-105 group"
@@ -239,7 +239,7 @@ import { BrandLogoComponent } from '../brand-logo/brand-logo';
                 <span>GitHub Profile</span>
               </a>
               <a
-                href="https://linkedin.com/in/alber-ashraf"
+                href="https://www.linkedin.com/in/alber-ashraf-042531216/"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="flex-1 py-2 px-3 rounded-xl bg-slate-900 border border-white/10 text-slate-200 hover:text-white text-xs font-semibold flex items-center justify-center gap-2"

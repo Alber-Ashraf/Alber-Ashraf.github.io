@@ -65,7 +65,7 @@ import { ScrollRevealDirective } from '../../directives/scroll-reveal.directive'
 
               <!-- LinkedIn Link -->
               <a
-                href="https://linkedin.com/in/alber-ashraf"
+                href="https://www.linkedin.com/in/alber-ashraf-042531216/"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-900/90 border border-white/10 hover:border-indigo-400/50 text-slate-200 hover:text-white text-xs font-mono font-medium transition-all shadow-sm hover:scale-[1.02] group"

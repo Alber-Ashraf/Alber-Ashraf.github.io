@@ -247,7 +247,7 @@ import { BrandLogoComponent } from '../brand-logo/brand-logo';
 
             <!-- LinkedIn Profile Link -->
             <a
-              href="https://linkedin.com/in/alber-ashraf"
+              href="https://www.linkedin.com/in/alber-ashraf-042531216/"
               target="_blank"
               rel="noopener noreferrer"
               class="w-8 h-8 rounded-lg bg-white/5 hover:bg-indigo-600/20 text-slate-300 hover:text-indigo-400 border border-white/10 flex items-center justify-center transition-colors"
