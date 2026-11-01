@@ -1,0 +1,46 @@
+{
+  "name": "portfolio",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "sync:data": "node -e \"const fs=require('fs'); fs.mkdirSync('public/assets/cv', {recursive:true}); fs.mkdirSync('public/data', {recursive:true}); fs.mkdirSync('public/cv', {recursive:true}); const copy=(s,d)=>{if(fs.existsSync(s)){fs.copyFileSync(s,d);}}; copy('../docs/master-profile.json', 'public/data/master-profile.json'); copy('../docs/master-profile.json', 'src/app/data/master-profile.json'); copy('../CV/one-page/Alber_Ashraf_CV_OnePage.pdf', 'public/cv/Alber_Ashraf_CV_OnePage.pdf'); copy('../CV/detailed/Alber_Ashraf_CV_Detailed.pdf', 'public/cv/Alber_Ashraf_CV_Detailed.pdf'); copy('../CV/one-page/Alber_Ashraf_CV_OnePage.pdf', 'public/assets/cv/Alber_Ashraf_CV_OnePage.pdf'); copy('../CV/detailed/Alber_Ashraf_CV_Detailed.pdf', 'public/assets/cv/Alber_Ashraf_CV_Detailed.pdf'); console.log('Assets & SSOT synced to Portfolio.');\"",
+    "prebuild": "npm run sync:data",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test"
+  },
+  "prettier": {
+    "printWidth": 100,
+    "singleQuote": true,
+    "overrides": [
+      {
+        "files": "*.html",
+        "options": {
+          "parser": "angular"
+        }
+      }
+    ]
+  },
+  "private": true,
+  "packageManager": "npm@11.8.0",
+  "dependencies": {
+    "@angular/common": "^21.1.0",
+    "@angular/compiler": "^21.1.0",
+    "@angular/core": "^21.1.0",
+    "@angular/forms": "^21.1.0",
+    "@angular/platform-browser": "^21.1.0",
+    "@angular/router": "^21.1.0",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0"
+  },
+  "devDependencies": {
+    "@angular/build": "^21.1.4",
+    "@angular/cli": "^21.1.4",
+    "@angular/compiler-cli": "^21.1.0",
+    "@tailwindcss/postcss": "^4.1.12",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^4.1.12",
+    "typescript": "~5.9.2"
+  }
+}

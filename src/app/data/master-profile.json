@@ -1,0 +1,1635 @@
+{
+  "$schema": "./master-profile.schema.json",
+  "version": "2.1.0",
+  "updatedAt": "2026-10-27",
+  "basics": {
+    "name": "Alber Ashraf",
+    "headline": "Full-Stack .NET Developer",
+    "email": "alber.ashraf.w@gmail.com",
+    "phone": "+20 122 834 2430",
+    "location": {
+      "city": "Cairo",
+      "region": "Cairo Governorate",
+      "country": "Egypt",
+      "countryCode": "EG",
+      "militaryStatus": "Completed",
+      "remotePreference": "Open to Remote, Hybrid, or Relocation"
+    },
+    "links": {
+      "github": "https://github.com/Alber-Ashraf",
+      "linkedin": "https://linkedin.com/in/alber-ashraf-042531216",
+      "portfolio": "https://alberashraf.dev"
+    },
+    "summaries": {
+      "fullstack": "Full-Stack .NET Developer with hands-on experience engineering scalable backend services in .NET 8/9 and responsive client applications in modern Angular. At Athhan Solutions, refactored complex SQL Server stored procedures and execution plans under enterprise ERP transactional workloads, optimizing query performance while delivering full-stack features from schema design to role-based UI workflows. Accomplished freelance systems engineer building cloud architectures with CQRS, secure token authorization, and optimized asset pipelines.",
+      "backend": ".NET Backend Developer specialized in ASP.NET Core Web APIs, SQL Server database optimization, and distributed architectures. At Athhan Solutions, modernized enterprise ERP modules and refactored critical SQL Server stored procedures and execution plans, optimizing query performance and reducing database lock contention under transactional workloads. Extensive experience architecting distributed cloud backends using CQRS with MediatR, Redis distributed caching, resilient Hangfire/Quartz.NET background jobs, and automated architecture testing.",
+      "executive": "Full-Stack .NET Developer with hands-on experience engineering scalable backend services in .NET 8/9 and responsive client applications in modern Angular. At Athhan Solutions, refactored complex SQL Server stored procedures and execution plans under enterprise ERP transactional workloads, optimizing query performance while delivering full-stack features from schema design to role-based UI workflows. Accomplished freelance systems engineer building cloud architectures with CQRS, secure token authorization, and optimized asset pipelines.",
+      "detailed": "Software Engineer and Full-Stack .NET Developer (GPA: 3.79, Graduation Project: A+) with extensive experience across the Microsoft .NET ecosystem (.NET 8/9, ASP.NET Core Web API, EF Core, Dapper) and modern web architectures (Angular 20/21, Angular Signals, SSR). Proven record at Athhan Solutions modernizing enterprise ERP systems, refactoring complex SQL Server stored procedures to optimize critical query execution, and delivering full-stack features across database schemas and responsive UIs. Experienced freelance systems engineer designing educational and e-commerce platforms with CQRS, MediatR, Redis caching, Hangfire, Quartz.NET, and S3-compatible cloud storage.",
+      "detailed_backend": "Software Engineer and .NET Backend Developer (GPA: 3.79, Graduation Project: A+) with extensive experience across the Microsoft .NET ecosystem (.NET 8/9, ASP.NET Core Web API, EF Core, Dapper) and distributed systems architectures. Proven record at Athhan Solutions modernizing enterprise ERP systems, refactoring complex SQL Server stored procedures and execution plans to optimize query execution, and mitigating database lock contention. Experienced freelance systems engineer architecting distributed backends with CQRS, MediatR, Redis caching, Hangfire, Quartz.NET, automated NetArchTest architecture validation, and S3-compatible cloud storage."
+    }
+  },
+  "skills": {
+    "categories": [
+      {
+        "category": "Backend & .NET",
+        "skills": "C# (.NET 8 / 9), ASP.NET Core, RESTful Web APIs, Minimal APIs, ASP.NET Core MVC, Entity Framework Core 8/9, Dapper Micro-ORM, LINQ, Async/Await"
+      },
+      {
+        "category": "Architecture & Patterns",
+        "skills": "Clean Architecture, Domain-Driven Design (DDD), CQRS, MediatR, Repository & Unit of Work, Result Pattern, Specification Pattern, Dependency Injection"
+      },
+      {
+        "category": "Frontend & UI",
+        "skills": "Angular (20 / 21), Angular Signals, Standalone Components, SSR, RxJS, Blazor WebAssembly, TypeScript, JavaScript, Tailwind CSS v4, Bootstrap 5.3, HTML5/CSS3"
+      },
+      {
+        "category": "Databases & Cloud/DevOps",
+        "skills": "SQL Server (T-SQL, Stored Procedures, Index Tuning), PostgreSQL, Redis, AWS S3, Backblaze B2, Cloudflare R2, Docker, Docker Compose, Git, GitHub Actions CI, xUnit, NetArchTest"
+      },
+      {
+        "category": "Security & Identity",
+        "skills": "ASP.NET Core Identity, JWT Bearer Auth, Refresh Token Family Rotation, PBKDF2 Hashing, OAuth2 / Social Logins, OWASP Security Hardening, BOLA/IDOR Prevention, Stripe Payments"
+      }
+    ],
+    "languages": [
+      {
+        "name": "C# (.NET 8 / 9)",
+        "level": "Expert",
+        "keywords": [
+          "LINQ",
+          "Async/Await",
+          "Generics",
+          "Memory Optimization",
+          "Reflection"
+        ]
+      },
+      {
+        "name": "TypeScript / JavaScript",
+        "level": "Expert",
+        "keywords": [
+          "ESNext",
+          "Signals",
+          "RxJS",
+          "Strict Typing",
+          "Modular TS"
+        ]
+      },
+      {
+        "name": "SQL (T-SQL & PostgreSQL)",
+        "level": "Expert",
+        "keywords": [
+          "Indexing",
+          "Execution Plans",
+          "Window Functions",
+          "ACID Transactions"
+        ]
+      },
+      {
+        "name": "HTML5 & CSS3 / SCSS",
+        "level": "Advanced",
+        "keywords": [
+          "Tailwind CSS v4",
+          "Bootstrap 5.3",
+          "Responsive Design",
+          "CSS Variables"
+        ]
+      }
+    ]
+  },
+  "experience": [
+    {
+      "id": "exp-athhan-solutions",
+      "company": "Athhan Solutions",
+      "role": "Full-Stack .NET Developer",
+      "employmentType": "Full-time",
+      "location": "Cairo, Egypt",
+      "startDate": "Nov 2025",
+      "endDate": "Oct 2026",
+      "current": false,
+      "tagline": "Enterprise ERP Modernization & Full-Stack .NET Engineering",
+      "highlights": [
+        {
+          "text": "Refactored complex enterprise SQL Server stored procedures, indexes, and execution plans under ERP transactional workloads, optimizing critical query performance and reducing database lock contention.",
+          "metrics": {
+            "latencyReduction": "45%",
+            "contention": "Eliminated locks"
+          },
+          "categories": [
+            "database",
+            "performance"
+          ],
+          "tier": "executive"
+        },
+        {
+          "text": "Engineered and maintained full-stack enterprise ERP modules using .NET Framework and ASP.NET Web Forms; built and optimized SQL queries, database schema migrations, and responsive, role-based UI workflows.",
+          "metrics": {
+            "delivery": "Full-stack features",
+            "architecture": "ERP Modernization"
+          },
+          "categories": [
+            "fullstack",
+            "architecture"
+          ],
+          "tier": "executive"
+        },
+        {
+          "text": "Engineered robust backend integration endpoints and data synchronization pipelines, enforcing strict input validation, structured logging with correlation IDs, and transaction rollback integrity.",
+          "metrics": {
+            "reliability": "100% integrity",
+            "logging": "Correlation IDs"
+          },
+          "categories": [
+            "backend",
+            "reliability"
+          ],
+          "tier": "executive"
+        },
+        {
+          "text": "Collaborated with product stakeholders to translate high-level business specifications into performant, scalable technical solutions backed by automated unit and integration tests.",
+          "metrics": {
+            "delivery": "On-time release",
+            "testing": "Automated test suites"
+          },
+          "categories": [
+            "process",
+            "testing"
+          ],
+          "tier": "detailed"
+        }
+      ],
+      "technologies": [
+        ".NET Framework",
+        "ASP.NET Web Forms",
+        "C#",
+        "SQL Server",
+        "T-SQL Stored Procedures",
+        "ADO.NET",
+        "JavaScript",
+        "HTML5/CSS3"
+      ]
+    },
+    {
+      "id": "exp-freelance-engineer",
+      "company": "Freelance .NET Software Engineer & Architect",
+      "role": "Freelance .NET Software Engineer & Architect",
+      "employmentType": "Contract / Freelance",
+      "location": "Remote",
+      "startDate": "Sep 2025",
+      "endDate": "Present",
+      "current": true,
+      "tagline": "Cloud Platforms & Distributed Systems Architecture",
+      "highlights": [
+        {
+          "text": "Architected RESTful Web APIs for EdTech and consultation platforms (EduCore & Mashoorti) in .NET 9 using CQRS with MediatR, separating read and write workloads and indexing relational data to maintain responsive query performance during peak exam and enrollment periods.",
+          "metrics": {
+            "latency": "<50ms",
+            "concurrency": "Peak exam traffic"
+          },
+          "categories": [
+            "architecture",
+            "scale"
+          ],
+          "tier": "executive"
+        },
+        {
+          "text": "Engineered secure media streaming and voucher redemption engines; integrated private Cloudflare R2 and Backblaze B2 storage with 240-minute pre-signed token authorization and .NET 9 Device Lock security protocols to restrict direct server asset streaming.",
+          "metrics": {
+            "storage": "Cloudflare R2 / Backblaze B2",
+            "tokenTtl": "240 mins",
+            "bandwidth": "65% reduction"
+          },
+          "categories": [
+            "security",
+            "streaming"
+          ],
+          "tier": "executive"
+        },
+        {
+          "text": "Built background job pipelines with Hangfire and dynamic PDF credential delivery engines using QuestPDF, streaming vector-rendered graduation certificates to cloud storage with retry policies and persistent execution state.",
+          "metrics": {
+            "speed": "<120ms/doc",
+            "reliability": "Zero job loss"
+          },
+          "categories": [
+            "cloud",
+            "devops"
+          ],
+          "tier": "detailed"
+        }
+      ],
+      "technologies": [
+        ".NET 9",
+        ".NET 8",
+        "C#",
+        "CQRS",
+        "MediatR",
+        "EF Core",
+        "SQL Server",
+        "Cloudflare R2",
+        "Backblaze B2",
+        "Hangfire",
+        "QuestPDF",
+        "JWT Auth",
+        "PayMob"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "id": "proj-flexfolio",
+      "name": "Flexfolio",
+      "subtitle": "Multi-Tenant SaaS Portfolio Builder",
+      "scope": "Full-Stack Solution",
+      "badge": "Full-Stack: .NET 9, Angular 21, SSR, Tailwind, Hangfire",
+      "role": "Lead Full-Stack Engineer",
+      "featured": true,
+      "tier": "both",
+      "url": "https://github.com/Alber-Ashraf/Flexfolio.API",
+      "localPath": "D:\\Projects\\Flexfolio",
+      "summary": "Dynamic SaaS portfolio and career builder platform featuring multi-provider OAuth2, UAParser telemetry analytics, Hangfire scheduling, and an Angular 21 SSR client with real-time vector PDF generation.",
+      "metrics": "Sub-30ms API response time; client-side vector PDF generation in <400ms; multi-provider OAuth2 integration",
+      "highlights": [
+        "Architected a multi-tenant portfolio creation engine in .NET 9 with MediatR CQRS, EF Core 9, and UAParser telemetry; integrated multi-provider OAuth2 (Google, Facebook, Microsoft) and Hangfire background jobs for scheduled processing.",
+        "Engineered an Angular 21 standalone client leveraging Server-Side Rendering (SSR), Tailwind CSS v4, dynamic reactive forms, and jsPDF integration to render client-side resume previews and vector PDF downloads.",
+        "Implemented ASP.NET Core Identity lockout policies, automated orphan media cleanup schedules, and OWASP-hardened security headers."
+      ],
+      "caseStudy": {
+        "problem": "Engineers need high-fidelity online portfolios and ATS-compliant PDF resumes that remain synchronized without maintaining dual codebases.",
+        "solution": "Constructed a unified platform with .NET 9 backend analytics and an Angular 21 SSR frontend enabling live portfolio editing and client-side vector PDF compilation via jsPDF.",
+        "architectureDecisions": [
+          "ADR-01: Angular 21 with Server-Side Rendering (SSR) for instant SEO indexing of public portfolio pages.",
+          "ADR-02: UAParser server-side telemetry to deliver visitor analytics without third-party tracking scripts.",
+          "ADR-03: Hangfire background jobs for automated orphan media cleanup and weekly analytics rollups."
+        ]
+      },
+      "technologies": [
+        ".NET 9",
+        "Angular 21",
+        "Angular SSR",
+        "Tailwind CSS v4",
+        "Hangfire",
+        "EF Core 9",
+        "SQL Server",
+        "OAuth2",
+        "jsPDF",
+        "UAParser",
+        "MailKit"
+      ],
+      "hasFrontend": true,
+      "backendHighlights": [
+        "Clean Architecture with MediatR CQRS separating portfolio profile queries from write commands.",
+        "EF Core 9 with SQL Server relational mapping, query split optimization, and automated migration management.",
+        "UAParser server-side telemetry capturing device, browser, and geo metrics per portfolio visitor without client script overhead.",
+        "Hangfire background job scheduler managing orphan asset garbage collection and weekly visitor rollups."
+      ],
+      "frontendHighlights": [
+        "Angular 21 Standalone Components with modern Angular SSR (Server-Side Rendering) for search-engine indexing of user portfolios.",
+        "Tailwind CSS v4 utility architecture with responsive dark mode and custom CSS variables.",
+        "Real-time reactive form engine with live resume preview and instantaneous validation feedback.",
+        "Client-side vector PDF compilation pipeline via jsPDF generating pixel-perfect downloadable resumes in <400ms."
+      ],
+      "securityAndCloudHighlights": [
+        "Multi-provider OAuth2 authentication supporting Google, Facebook, and Microsoft social sign-in.",
+        "ASP.NET Core Identity with account lockout policies (5 attempts) and email confirmation workflows.",
+        "OWASP-hardened HTTP security headers (CSP, HSTS, X-Content-Type-Options, Anti-Clickjacking).",
+        "Automated media lifecycle cleanup preventing orphaned S3/local file leaks."
+      ],
+      "architectureLayers": [
+        {
+          "name": "Client / UI Layer",
+          "tech": "Angular 21 + SSR + Tailwind v4",
+          "pattern": "Standalone Components, Angular SSR, jsPDF",
+          "responsibilities": [
+            "Interactive resume builder interface",
+            "Server-Side Rendering for SEO",
+            "Client-side vector PDF export",
+            "Reactive form validation"
+          ]
+        },
+        {
+          "name": "API & Auth Gateway",
+          "tech": "ASP.NET Core 9 Web API",
+          "pattern": "OAuth2 + Identity & JWT",
+          "responsibilities": [
+            "Google/Microsoft OAuth2 federation",
+            "Account lockout policies",
+            "Rate limiting & security headers",
+            "UAParser telemetry intake"
+          ]
+        },
+        {
+          "name": "Application & Domain Core",
+          "tech": ".NET 9 + MediatR CQRS",
+          "pattern": "Clean Architecture & CQRS Handlers",
+          "responsibilities": [
+            "Portfolio command/query segregation",
+            "Validation pipeline behaviors",
+            "Domain event dispatching",
+            "Resume template aggregation"
+          ]
+        },
+        {
+          "name": "Persistence & Background Jobs",
+          "tech": "SQL Server + EF Core 9 + Hangfire",
+          "pattern": "Relational Persistence & Cron Scheduling",
+          "responsibilities": [
+            "Multi-tenant portfolio data storage",
+            "Query split optimization",
+            "Hangfire orphan file garbage collection",
+            "Visitor telemetry analytics rollups"
+          ]
+        }
+      ],
+      "liveUrl": "https://flexfolio.tryasp.net",
+      "isPrivateApi": false,
+      "productOverview": "Flexfolio is an all-in-one SaaS portfolio builder and career management system engineered for technical professionals. It eliminates the fragmentation between maintaining a live online portfolio and updating ATS-compliant PDF resumes by synchronizing both from a single cloud-backed profile with real-time vector document generation and privacy-first visitor telemetry.",
+      "keyModules": [
+        {
+          "name": "Multi-Tenant Portfolio Engine",
+          "description": "Enables professionals to customize their portfolio with dynamic theme presets, custom domain slugs, and responsive layouts.",
+          "capabilities": [
+            "Dynamic vanity URL routing",
+            "Dark/Light design token styling",
+            "Configurable section visibility"
+          ]
+        },
+        {
+          "name": "Live Resume Builder & Vector PDF",
+          "description": "Interactive form editor rendering real-time resume previews and compiling client-side ATS-friendly vector PDFs.",
+          "capabilities": [
+            "Instant visual preview rendering",
+            "Client-side vector compilation via jsPDF",
+            "Standardized ATS typography and layout"
+          ]
+        },
+        {
+          "name": "Privacy-First Visitor Telemetry",
+          "description": "Server-side analytics subsystem tracking viewer engagement, referrer channels, and device demographics without tracking cookies.",
+          "capabilities": [
+            "UAParser server-side telemetry intake",
+            "Geo and browser breakdown reporting",
+            "Hangfire background analytics rollups"
+          ]
+        },
+        {
+          "name": "Federated Identity & Account Vault",
+          "description": "Enterprise authentication supporting Google, Microsoft, and Facebook social logins alongside ASP.NET Core Identity.",
+          "capabilities": [
+            "Multi-provider OAuth2 federation",
+            "Automated brute-force lockout protection",
+            "Granular claims and profile security"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "proj-acacia",
+      "name": "Acacia",
+      "subtitle": "Luxury Perfume Formulation & ERP System",
+      "scope": "Full-Stack Solution",
+      "badge": "Full-Stack: .NET 9, Angular 21, Tailwind, Backblaze B2",
+      "role": "Full-Stack Systems Architect",
+      "featured": true,
+      "tier": "both",
+      "url": "https://github.com/Alber-Ashraf/acacia-ui",
+      "localPath": "D:\\Projects\\Acacia",
+      "summary": "Luxury perfume formulation, raw material inventory, and scent SKU assembly platform with automated batch cost calculations and S3-compatible Backblaze B2 storage.",
+      "metrics": "100% calculation accuracy on multi-ingredient perfume recipe costs; S3 asset pipeline with zero egress fees",
+      "highlights": [
+        "Architected a chemical scent formulation and inventory engine in .NET 9 modeling recipe composition, batch unit costs, and TPH product SKUs with EF Core 9; integrated Backblaze B2 S3 storage with zero egress fees for cloud asset management.",
+        "Engineered an Angular 21 enterprise SPA featuring a Signal-based reactive AuthStore, Tailwind CSS v4 design tokens, radar scent visualizer charts, and debounced formulation calculation forms.",
+        "Implemented JWT authentication, anti-enumeration protections, and transactional Unit of Work pipelines to ensure consistent recipe formulation calculations."
+      ],
+      "caseStudy": {
+        "problem": "Perfume compounding requires precise fractional measurements, volatile oil density tracking, and real-time recipe re-costing when raw ingredient prices fluctuate.",
+        "solution": "Built an end-to-end management platform calculating dynamic SKU compounding costs, backed by Backblaze B2 cloud storage and an Angular 21 Signal-driven visualizer.",
+        "architectureDecisions": [
+          "ADR-01: Table-per-Hierarchy (TPH) inheritance modeling for raw materials and composite fragrances in EF Core 9.",
+          "ADR-02: Backblaze B2 S3 adapter to achieve affordable high-volume product image storage.",
+          "ADR-03: Angular Signal-based AuthStore for reactive, centralized session and role state."
+        ]
+      },
+      "technologies": [
+        ".NET 9",
+        "Angular 21",
+        "Tailwind CSS v4",
+        "Backblaze B2 (S3)",
+        "MediatR",
+        "EF Core 9",
+        "SQL Server",
+        "AutoMapper",
+        "FluentValidation",
+        "xUnit"
+      ],
+      "hasFrontend": true,
+      "backendHighlights": [
+        "Chemical scent formulation engine in .NET 9 calculating fractional raw ingredient concentrations and dynamic unit batch costs.",
+        "Table-per-Hierarchy (TPH) inheritance mapping in EF Core 9 modeling raw botanicals, aroma synthetics, and finished perfume SKUs.",
+        "MediatR CQRS pipeline with transactional Unit of Work guaranteeing atomicity during multi-ingredient recipe cost re-computations.",
+        "xUnit integration test suite validating formulation accuracy and boundary condition handling."
+      ],
+      "frontendHighlights": [
+        "Angular 21 enterprise SPA powered by a reactive Signal-based AuthStore for seamless user context and session management.",
+        "Tailwind CSS v4 design tokens providing a luxury dark cosmetic theme with glassmorphic accents.",
+        "Interactive SVG scent visualizer charts rendering aromatic note distribution (Top, Heart, Base) dynamically.",
+        "Debounced formulation calculators providing real-time cost-per-milliliter feedback during recipe composition."
+      ],
+      "securityAndCloudHighlights": [
+        "S3-compatible Backblaze B2 cloud storage adapter eliminating egress fees for high-resolution product imagery.",
+        "JWT Bearer authentication with claims-based authorization and anti-enumeration protections.",
+        "Role-based Angular route guards preventing unauthorized access to formulation formulas.",
+        "Docker multi-stage containerization with production-optimized Nginx frontend reverse proxy."
+      ],
+      "architectureLayers": [
+        {
+          "name": "Client / UI Layer",
+          "tech": "Angular 21 + Tailwind CSS v4",
+          "pattern": "Signals AuthStore & Radar Charts",
+          "responsibilities": [
+            "Scent note distribution visualizer",
+            "Debounced recipe cost calculator",
+            "Role-based catalog navigation",
+            "Responsive luxury dark UI"
+          ]
+        },
+        {
+          "name": "API & Security Layer",
+          "tech": "ASP.NET Core 9 Web API",
+          "pattern": "JWT Bearer & Anti-Enumeration",
+          "responsibilities": [
+            "Claims-based endpoint authorization",
+            "Input sanitation & FluentValidation",
+            "Anti-enumeration protections",
+            "Swagger/OpenAPI documentation"
+          ]
+        },
+        {
+          "name": "Application & Domain Core",
+          "tech": ".NET 9 + MediatR CQRS",
+          "pattern": "Clean Architecture & Formulation Engine",
+          "responsibilities": [
+            "Formula composition math engine",
+            "Dynamic SKU cost recalculation",
+            "Unit of Work transactional integrity",
+            "Domain validation with FluentValidation"
+          ]
+        },
+        {
+          "name": "Persistence & Cloud Storage",
+          "tech": "SQL Server + EF Core 9 + Backblaze B2",
+          "pattern": "TPH Relational Model & S3 Zero-Egress",
+          "responsibilities": [
+            "TPH inheritance for raw & composite scents",
+            "Zero-egress Backblaze B2 S3 storage",
+            "Catalog indexing & transaction rollbacks",
+            "Docker containerized SQL execution"
+          ]
+        }
+      ],
+      "liveUrl": "https://acacia.tryasp.net",
+      "isPrivateApi": false,
+      "productOverview": "Acacia is an enterprise formulation and inventory management ERP engineered for luxury perfume compounders and boutique fragrance manufacturers. It eliminates manual spreadsheet formulation errors by providing dynamic compounding math, raw botanical and aroma chemical inventory tracking, batch unit costing, and high-resolution cloud asset storage.",
+      "keyModules": [
+        {
+          "name": "Fragrance Recipe Formulation Engine",
+          "description": "Precision compounding calculator that tracks fractional aroma concentrations and auto-computes cost-per-milliliter.",
+          "capabilities": [
+            "Top, Heart, and Base note ratio balancing",
+            "Dynamic volume loss and evaporation compensation",
+            "Real-time cost recalculation during recipe edits"
+          ]
+        },
+        {
+          "name": "Raw Materials & TPH Inventory",
+          "description": "Comprehensive inventory management catalog organizing essential oils, aroma chemicals, and packaging materials using Table-per-Hierarchy mapping.",
+          "capabilities": [
+            "Single-table inheritance for raw & composite items",
+            "Supplier tracking and safety threshold alerts",
+            "Automated batch depletion logging"
+          ]
+        },
+        {
+          "name": "Interactive Scent Visualizer",
+          "description": "Angular 21 radar chart interface displaying olfactory profile curves across aromatic families.",
+          "capabilities": [
+            "Dynamic SVG scent distribution charts",
+            "Real-time olfactory classification",
+            "Visual composition balancing"
+          ]
+        },
+        {
+          "name": "Cloud Asset & Media Pipeline",
+          "description": "Zero-egress cloud asset storage integration with Backblaze B2 S3 for high-resolution packaging and formulation documentation.",
+          "capabilities": [
+            "S3 API compatible asset delivery",
+            "Automated image optimization",
+            "Anti-enumeration access controls"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "proj-merithr",
+      "name": "MeritHR",
+      "subtitle": "Enterprise HR & Automated Payroll Platform",
+      "scope": "Backend Architecture",
+      "badge": "Backend Architecture: .NET 9, Quartz.NET, Redis, ClosedXML",
+      "role": "Backend Architect",
+      "featured": true,
+      "tier": "both",
+      "url": "https://github.com/Alber-Ashraf/MeritHR",
+      "localPath": "D:\\Projects\\MeritHR",
+      "summary": "Enterprise Human Resources & Automated Payroll Management Platform with attendance tracking, overtime calculations, gamification credits, and automated Excel reporting.",
+      "metrics": "Zero calculation drift on multi-tier payroll runs; 70% faster organization-wide audit export via ClosedXML streams",
+      "highlights": [
+        "Engineered an automated enterprise payroll calculation and cron scheduling engine using Quartz.NET, orchestrating monthly payroll runs, disciplinary deductions, and overtime adjustments with strict calculation consistency across pay cycles.",
+        "Built a high-volume Excel reporting subsystem streaming organization-wide attendance and credit balance audits via ClosedXML and optimized EF Core projection queries, optimizing report generation and export streaming.",
+        "Hardened enterprise identity infrastructure implementing sliding-expiration JWTs with Cryptographic SHA-256 Refresh Token Family Rotation and Redis distributed caching for instant token revocation."
+      ],
+      "caseStudy": {
+        "problem": "Manual HR payroll calculations frequently suffer from human calculation error, stale attendance records, and slow export generation during enterprise audit windows.",
+        "solution": "Engineered an automated background pipeline with Quartz.NET to execute periodic payroll and gamification balances, paired with memory-efficient ClosedXML streaming exports.",
+        "architectureDecisions": [
+          "ADR-01: Quartz.NET hosted in-process with persistent SQL store for resilient cron scheduling.",
+          "ADR-02: Sliding JWTs with token family rotation to prevent replay attacks and allow instant device revocation.",
+          "ADR-03: Non-blocking ClosedXML file streaming to handle 10,000+ row employee attendance exports."
+        ]
+      },
+      "technologies": [
+        ".NET 9",
+        "Clean Architecture",
+        "Quartz.NET",
+        "StackExchange.Redis",
+        "ClosedXML",
+        "EF Core 9",
+        "SQL Server",
+        "ASP.NET Core Identity",
+        "Serilog",
+        "Seq",
+        "Docker"
+      ],
+      "hasFrontend": false,
+      "backendHighlights": [
+        "Enterprise payroll calculation engine in .NET 9 orchestrating automated monthly payroll runs, disciplinary deductions, and overtime tiers.",
+        "Quartz.NET cron scheduling hosted in-process with resilient SQL Server job store preventing missed executions during server restarts.",
+        "High-volume Excel audit export engine streaming 10,000+ attendance records via ClosedXML with minimal memory footprint.",
+        "Optimized EF Core 9 projection queries using AsNoTracking and select projections to minimize memory allocations."
+      ],
+      "frontendHighlights": [
+        "Comprehensive OpenAPI / Swagger 3.0 interactive documentation and Postman collections for enterprise client integration.",
+        "Real-time health check endpoints consumed by enterprise operations dashboards.",
+        "Structured JSON audit responses with correlation IDs for seamless HR dashboard integration.",
+        "Role-based permission schemas mapped for granular HR Manager, Employee, and Auditor roles."
+      ],
+      "securityAndCloudHighlights": [
+        "Cryptographic SHA-256 Refresh Token Family Rotation detecting token reuse and instantly invalidating compromised session trees.",
+        "Sliding-expiration JWT access tokens with Redis distributed cache for instantaneous sub-millisecond token blacklisting.",
+        "Serilog structured logging shipping telemetry and security audit logs to Seq log aggregator.",
+        "Docker Compose orchestration packaging API, SQL Server, Redis, and Seq in isolated network zones."
+      ],
+      "architectureLayers": [
+        {
+          "name": "API Gateway & Consumers",
+          "tech": "ASP.NET Core 9 Web API",
+          "pattern": "RESTful Endpoints & Swagger / OpenAPI",
+          "responsibilities": [
+            "Role-based authorization (Admin/HR/Staff)",
+            "Rate limiting & IP filtering",
+            "Correlation ID tracking per request",
+            "HealthChecks monitoring endpoints"
+          ]
+        },
+        {
+          "name": "Security & Identity Infrastructure",
+          "tech": "ASP.NET Core Identity + Redis",
+          "pattern": "Token Family Rotation & Blacklisting",
+          "responsibilities": [
+            "Sliding JWT issuance",
+            "SHA-256 Refresh Token Family Rotation",
+            "Sub-millisecond Redis token blacklisting",
+            "Password complexity & lockout policies"
+          ]
+        },
+        {
+          "name": "Application & Payroll Core",
+          "tech": ".NET 9 + MediatR CQRS",
+          "pattern": "Clean Architecture & Domain Rules",
+          "responsibilities": [
+            "Tiered overtime & deduction rules",
+            "Gamification credit balance ledger",
+            "Audit event publishing",
+            "Validation via FluentValidation"
+          ]
+        },
+        {
+          "name": "Persistence, Scheduling & Export",
+          "tech": "SQL Server + Quartz.NET + ClosedXML",
+          "pattern": "Clustered Cron & Streaming Export",
+          "responsibilities": [
+            "Quartz.NET persistent job scheduling",
+            "ClosedXML streaming Excel generator",
+            "EF Core 9 projection queries",
+            "Serilog / Seq structured log sink"
+          ]
+        }
+      ],
+      "liveUrl": "http://cleanarchitecture.runasp.net",
+      "isPrivateApi": true,
+      "productOverview": "MeritHR is an enterprise human resources and automated payroll management platform designed to eliminate payroll calculation drift and simplify workforce operations. It automates monthly compensation runs, complex multi-tier overtime rules, and disciplinary deductions while providing streaming Excel audit reporting and token family session security.",
+      "keyModules": [
+        {
+          "name": "Automated Payroll Calculation Engine",
+          "description": "Scheduled payroll pipeline running monthly compensation, tax withholdings, and disciplinary deductions across complex enterprise pay structures.",
+          "capabilities": [
+            "Quartz.NET persistent cron execution",
+            "Multi-tier overtime and deduction formulas",
+            "Strict audit trail recording across pay cycles"
+          ]
+        },
+        {
+          "name": "Attendance & Shift Management",
+          "description": "Comprehensive tracking system recording biometric time logs, shift schedules, and automated leave approvals.",
+          "capabilities": [
+            "Flexible multi-department shift assignment",
+            "Automated late arrival and absence tracking",
+            "Holiday calendar integration"
+          ]
+        },
+        {
+          "name": "Memory-Efficient Excel Reporting",
+          "description": "High-volume data export subsystem streaming organization-wide payroll and attendance audits via ClosedXML with minimal memory footprint.",
+          "capabilities": [
+            "Streaming ClosedXML file generation",
+            "Optimized EF Core projection queries",
+            "Zero server memory spikes on 10,000+ row exports"
+          ]
+        },
+        {
+          "name": "Session Security & Token Rotation",
+          "description": "Hardened identity infrastructure implementing sliding-expiration JWTs with Cryptographic SHA-256 Refresh Token Family Rotation and instant Redis revocation.",
+          "capabilities": [
+            "Token family reuse detection",
+            "Instant multi-device session blacklisting",
+            "Role-based access schemas for HR, Staff, and Auditors"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "proj-galaxy",
+      "name": "Galaxy Backend",
+      "subtitle": "Enterprise Pharmaceutical Distribution System",
+      "scope": "Backend Architecture",
+      "badge": "Backend Architecture: .NET 9, DDD, NetArchTest, Redis",
+      "role": "Lead Architect & Systems Engineer",
+      "featured": true,
+      "tier": "both",
+      "url": "https://github.com/Alber-Ashraf/Galaxy.Api",
+      "localPath": "D:\\Projects\\Galaxy",
+      "summary": "Enterprise pharmaceutical distribution & inventory management backend enforcing strict Domain-Driven Design (DDD) with automated NetArchTest boundary validation.",
+      "metrics": "100% NetArchTest boundary compliance; 55% reduction in inventory database read contention via Redis caching",
+      "highlights": [
+        "Architected an enterprise pharmaceutical distribution backend enforcing Domain-Driven Design (DDD) layer boundaries via automated NetArchTest test suites to prevent cross-layer architectural coupling.",
+        "Implemented distributed caching and request idempotency using StackExchange.Redis and MediatR pipeline behaviors to minimize redundant database reads on inventory orders.",
+        "Engineered medical representative visit tracking and delivery batch management subsystems with Asp.Versioning, Serilog structured logging into Seq, and real-time HealthChecks UI monitoring."
+      ],
+      "caseStudy": {
+        "problem": "Pharmaceutical supply chains require uncompromising data consistency, strict compliance boundaries, and low-latency inventory allocation across medical reps, pharmacies, and distribution hubs.",
+        "solution": "Built a clean four-layer DDD architecture with pure domain entities, decoupled MediatR CQRS handlers, Redis distributed caching, and automated NetArchTest architecture validation.",
+        "architectureDecisions": [
+          "ADR-01: NetArchTest in CI to mathematically verify that Domain and Application layers hold 0 external infrastructure dependencies.",
+          "ADR-02: StackExchange.Redis caching on high-frequency catalog and area lookups with sliding expiration.",
+          "ADR-03: Result Pattern for functional error handling without expensive exception bubbling."
+        ]
+      },
+      "technologies": [
+        ".NET 9",
+        "Clean Architecture",
+        "DDD",
+        "MediatR",
+        "Asp.Versioning",
+        "StackExchange.Redis",
+        "EF Core 9",
+        "SQL Server",
+        "NetArchTest",
+        "Serilog",
+        "Seq",
+        "Docker"
+      ],
+      "hasFrontend": false,
+      "backendHighlights": [
+        "Enterprise pharmaceutical distribution architecture strictly enforcing Domain-Driven Design (DDD) layer boundaries.",
+        "Automated NetArchTest architecture test suite in CI mathematically verifying that Domain and Application layers have 0 infrastructure dependencies.",
+        "Result Pattern implementation across all domain and application handlers replacing slow exceptions with functional error objects.",
+        "Asp.Versioning implementing URI and header-based semantic API versioning for backward-compatible client migrations."
+      ],
+      "frontendHighlights": [
+        "Integrated ASP.NET Core HealthChecks UI dashboard providing real-time visualization of database, Redis, and API health.",
+        "Interactive Swagger documentation with version selectors (v1, v2) for multi-version client consumers.",
+        "Standardized ProblemDetails JSON error responses providing actionable diagnostics to consuming frontends.",
+        "Medical representative mobile client integration contracts."
+      ],
+      "securityAndCloudHighlights": [
+        "StackExchange.Redis distributed caching on high-frequency catalog queries slashing database read contention.",
+        "Idempotency pipeline behaviors using Redis keys to prevent duplicate order submissions on network retries.",
+        "Serilog structured logging enriching events with MachineName, CorrelationId, and UserId into Seq.",
+        "Docker multi-container deployment orchestrating API, Redis, SQL Server, and Seq."
+      ],
+      "architectureLayers": [
+        {
+          "name": "API & Versioning Gateway",
+          "tech": "ASP.NET Core 9 + Asp.Versioning",
+          "pattern": "Semantic API Versioning (v1/v2)",
+          "responsibilities": [
+            "URI/Header API version negotiation",
+            "HealthChecks UI dashboard monitoring",
+            "Correlation ID injection",
+            "ProblemDetails error responses"
+          ]
+        },
+        {
+          "name": "Idempotency & Caching Layer",
+          "tech": "StackExchange.Redis + MediatR",
+          "pattern": "Idempotent Pipeline Behaviors",
+          "responsibilities": [
+            "Duplicate request interception",
+            "Distributed catalog query caching",
+            "Sliding TTL cache invalidation",
+            "Sub-millisecond read offloading"
+          ]
+        },
+        {
+          "name": "Domain Core & Architecture Guard",
+          "tech": ".NET 9 DDD + NetArchTest",
+          "pattern": "Domain-Driven Design & Pure Entities",
+          "responsibilities": [
+            "Automated NetArchTest CI verification",
+            "Rich domain models with encapsulation",
+            "Result Pattern functional error handling",
+            "Domain events for inventory allocation"
+          ]
+        },
+        {
+          "name": "Persistence & Observability",
+          "tech": "SQL Server + EF Core 9 + Serilog/Seq",
+          "pattern": "Relational Repository & Structured Seq",
+          "responsibilities": [
+            "Pharmaceutical inventory transactions",
+            "Optimistic concurrency locking",
+            "Serilog structured sink to Seq",
+            "Docker Compose multi-node topology"
+          ]
+        }
+      ],
+      "liveUrl": "http://galaxy-farma.runasp.net",
+      "isPrivateApi": true,
+      "productOverview": "Galaxy Backend is a mission-critical pharmaceutical distribution and inventory allocation platform designed for healthcare logistics providers. It enforces Domain-Driven Design (DDD) layer boundaries verified by automated architecture tests to ensure strict regulatory compliance, low-latency catalog lookups, and idempotent order processing.",
+      "keyModules": [
+        {
+          "name": "Pharmaceutical Domain & Order Core",
+          "description": "Strict Domain-Driven Design core modeling prescription medication batches, warehouse inventory allocations, and pharmacy orders.",
+          "capabilities": [
+            "Aggregate roots maintaining domain invariants",
+            "Optimistic concurrency locking on inventory orders",
+            "Result Pattern functional error handling"
+          ]
+        },
+        {
+          "name": "Automated Architecture Enforcement",
+          "description": "Continuous integration NetArchTest suite mathematically asserting that Domain and Application layers maintain zero external dependencies.",
+          "capabilities": [
+            "Automated architectural boundary verification in CI",
+            "Layer dependency isolation guards",
+            "Clean Architecture pattern compliance"
+          ]
+        },
+        {
+          "name": "Distributed Caching & Idempotency",
+          "description": "StackExchange.Redis integration caching high-frequency medication catalogs and enforcing request idempotency.",
+          "capabilities": [
+            "Sub-millisecond cached catalog reads",
+            "Idempotent payment and order submissions",
+            "Sliding cache expiration policies"
+          ]
+        },
+        {
+          "name": "API Versioning & Observability",
+          "description": "Enterprise versioning gateway supporting URI and header-based semantic versions with Serilog and Seq log aggregation.",
+          "capabilities": [
+            "Asp.Versioning semantic API endpoints (v1/v2)",
+            "Structured JSON logs enriched with correlation IDs",
+            "Real-time HealthChecks UI monitoring dashboard"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "proj-movies-platform",
+      "name": "Movies Platform",
+      "subtitle": "Cinema Catalog & Community Ratings App",
+      "scope": "Full-Stack Solution",
+      "badge": "Full-Stack: .NET 8, Angular 20, PostgreSQL, Dapper",
+      "role": "Full-Stack Architect",
+      "featured": true,
+      "tier": "both",
+      "url": "https://github.com/Alber-Ashraf/Movies.Api",
+      "localPath": "D:\\Projects\\Movies",
+      "summary": "Full-stack cinema catalog and community ratings platform built with .NET 8 Minimal APIs, Dapper micro-ORM, PostgreSQL, PBKDF2 cryptography, and an Angular 20 standalone client with Signal-driven state management.",
+      "metrics": "Sub-15ms database query execution; 100,000 PBKDF2 iterations; live deployment on RunASP",
+      "highlights": [
+        "Engineered .NET 8 Minimal APIs backed by Dapper micro-ORM and PostgreSQL, writing parameterized SQL queries for catalog filtering, sorting, and server-side pagination.",
+        "Implemented cryptographic PBKDF2 password hashing (100,000 iterations, SHA-256) with constant-time equality checks and automated database initialization via DbInitializer to mitigate timing attacks.",
+        "Architected an Angular 20 standalone client featuring reactive Signal stores (MoviesStore), modular UI components (movie cards, filters, trailer modals), auth route guards, and HTTP interceptors handling JWT auth and global error handling."
+      ],
+      "caseStudy": {
+        "problem": "Traditional movie catalog APIs suffer from ORM query overhead and unpredictable database connection spikes during high-concurrency search and rating operations.",
+        "solution": "Delivered an ultra-lean Minimal API backend using raw Dapper queries against PostgreSQL with zero-migration bootstrapping and cryptographic PBKDF2 security, connected to an Angular 20 client.",
+        "architectureDecisions": [
+          "ADR-01: Dapper micro-ORM selected over EF Core for raw SQL performance and microsecond execution.",
+          "ADR-02: Zero-migration bootstrapping via DbInitializer ensures instant reproducible PostgreSQL deployments in containerized and cloud environments.",
+          "ADR-03: Angular 20 Signal-based MoviesStore for fine-grained reactivity and zero change-detection overhead."
+        ]
+      },
+      "technologies": [
+        ".NET 8",
+        "Angular 20",
+        "Minimal APIs",
+        "Dapper",
+        "PostgreSQL",
+        "Angular Signals",
+        "TypeScript",
+        "SCSS",
+        "PBKDF2 Hashing",
+        "JWT Bearer",
+        "Docker"
+      ],
+      "hasFrontend": true,
+      "backendHighlights": [
+        "High-performance .NET 8 Minimal APIs eliminating controller routing overhead for ultra-low latency request handling.",
+        "Raw Dapper micro-ORM queries against PostgreSQL with server-side pagination, multi-criteria filtering, and column sorting.",
+        "Parameterized SQL statements eliminating SQL injection risks and maximizing PostgreSQL query plan caching.",
+        "Automated DbInitializer bootstrapping schema creation and seed data with zero migration overhead."
+      ],
+      "frontendHighlights": [
+        "Angular 20 standalone architecture driven by reactive Signal stores (MoviesStore) for fine-grained state updates.",
+        "Modular UI component hierarchy including movie cards, dynamic rating stars, filtering bars, and trailer modals.",
+        "Custom HTTP interceptors seamlessly attaching JWT bearer tokens and providing centralized error notifications.",
+        "Reactive search with RxJS debounced input preventing request flooding during typing."
+      ],
+      "securityAndCloudHighlights": [
+        "Cryptographic PBKDF2 password hashing with 100,000 SHA-256 iterations and constant-time byte comparisons to defeat timing attacks.",
+        "JWT Bearer authentication with token validation and claim extraction.",
+        "Containerized Docker setup with multi-stage builds and live deployment on RunASP cloud infrastructure.",
+        "Strict CORS policies limiting API access to authorized client origins."
+      ],
+      "architectureLayers": [
+        {
+          "name": "Client / UI Layer",
+          "tech": "Angular 20 Standalone + SCSS",
+          "pattern": "Angular Signals MoviesStore",
+          "responsibilities": [
+            "Signal-driven catalog state management",
+            "Debounced search & pagination controls",
+            "Trailer video modal dialogs",
+            "JWT authentication route guards"
+          ]
+        },
+        {
+          "name": "API & Security Gateway",
+          "tech": ".NET 8 Minimal APIs",
+          "pattern": "Route Handlers & PBKDF2 Hashing",
+          "responsibilities": [
+            "Sub-15ms route execution",
+            "PBKDF2-SHA256 (100k iterations) security",
+            "JWT token generation & validation",
+            "Global exception handling middleware"
+          ]
+        },
+        {
+          "name": "Application & Data Access",
+          "tech": "Dapper Micro-ORM + C#",
+          "pattern": "Parameterized SQL & Repository Pattern",
+          "responsibilities": [
+            "Raw SQL execution against PostgreSQL",
+            "Sub-microsecond object-relational mapping",
+            "Server-side pagination & sorting queries",
+            "Optimized connection pooling"
+          ]
+        },
+        {
+          "name": "Database & Infrastructure",
+          "tech": "PostgreSQL 16 + Docker",
+          "pattern": "Relational Storage & DbInitializer",
+          "responsibilities": [
+            "Indexed cinema catalog & user ratings",
+            "Automated DbInitializer bootstrapping",
+            "Multi-stage Docker containerization",
+            "Cloud deployment on RunASP"
+          ]
+        }
+      ],
+      "liveUrl": "https://cinemovies.tryasp.net",
+      "isPrivateApi": false,
+      "productOverview": "Movies Platform is a high-performance cinema discovery and community ratings web application. Engineered with ultra-lean .NET 8 Minimal APIs and Dapper micro-ORM querying PostgreSQL, it pairs microsecond database lookups with a reactive Angular 20 Signals client and cryptographic PBKDF2 user security.",
+      "keyModules": [
+        {
+          "name": "High-Performance Cinema Catalog",
+          "description": "Low-overhead API endpoints executing raw parameterized SQL via Dapper against indexed PostgreSQL tables.",
+          "capabilities": [
+            "Server-side multi-attribute filtering & sorting",
+            "Keyset and offset pagination",
+            "Parameterized queries with zero injection risk"
+          ]
+        },
+        {
+          "name": "Reactive Signal Client (MoviesStore)",
+          "description": "Angular 20 single-page application utilizing Signals for fine-grained reactive state without change-detection overhead.",
+          "capabilities": [
+            "Debounced instant search input",
+            "Modular movie card and trailer modal components",
+            "Zero UI flicker on state updates"
+          ]
+        },
+        {
+          "name": "Cryptographic Identity Vault",
+          "description": "Custom authentication implementation utilizing 100,000 PBKDF2-SHA256 hashing iterations and constant-time comparisons.",
+          "capabilities": [
+            "Timing-attack resistant password verification",
+            "JWT Bearer token lifecycle management",
+            "Automated DbInitializer schema bootstrapping"
+          ]
+        },
+        {
+          "name": "Community Ratings & Reviews",
+          "description": "Interactive user feedback subsystem allowing verified movie lovers to rate titles and publish reviews.",
+          "capabilities": [
+            "Dynamic rating aggregate calculations",
+            "User review moderation workflow",
+            "Responsive community interaction UI"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "proj-quickcart-mvc",
+      "name": "QuickCart-MVC (Flyleaf)",
+      "subtitle": "Full-Stack E-Commerce Bookstore",
+      "scope": "Full-Stack Solution",
+      "badge": "Full-Stack: .NET 8, ASP.NET Core MVC, Bootstrap 5.3, Stripe",
+      "role": "Full-Stack Developer",
+      "featured": false,
+      "tier": "detailed",
+      "url": "https://github.com/Alber-Ashraf/QuickCart-MVC",
+      "localPath": "D:\\Projects\\QuickCart",
+      "summary": "Enterprise literary e-commerce platform built with ASP.NET Core 8 MVC, Clean Architecture, EF Core 8, Stripe Hosted Checkout, Backblaze B2 S3 storage, and Bootstrap 5.3.",
+      "metrics": "25 unit & integration tests passed; OWASP hardened security posture; 100% automated Stripe webhook reconciliation",
+      "highlights": [
+        "Architected an enterprise literary e-commerce platform in ASP.NET Core 8 with Repository & Unit of Work patterns, processing credit card transactions via Stripe Hosted Checkout and webhook verification.",
+        "Hardened security posture incorporating claim-based BOLA/IDOR protection, 5 failed login attempt lockouts, anti-CSRF token verification, and automated Backblaze B2 S3 product asset uploads.",
+        "Designed responsive full-stack ASP.NET Core Razor views styled with Bootstrap 5.3 and custom design tokens (tokens.css), integrating client-side DataTables with AJAX, SweetAlert2 modals, and Toastr alerts."
+      ],
+      "caseStudy": {
+        "problem": "Traditional e-commerce platforms struggle with race conditions in stock reservation and payment state mismatches when users abandon checkout sessions.",
+        "solution": "Implemented asynchronous Stripe Hosted Checkout combined with server-side webhook listener that idempotently locks inventory and updates order status upon payment confirmation.",
+        "architectureDecisions": [
+          "ADR-01: Stripe Hosted Checkout with cryptographic webhook signature verification to offload PCI compliance.",
+          "ADR-02: Repository & Unit of Work abstraction isolating EF Core 8 database transactions.",
+          "ADR-03: DataTables AJAX integration for sub-second administrative catalog browsing and filtering."
+        ]
+      },
+      "technologies": [
+        ".NET 8",
+        "ASP.NET Core MVC",
+        "Razor Pages",
+        "Bootstrap 5.3",
+        "EF Core 8",
+        "SQL Server",
+        "Stripe.net",
+        "Backblaze B2 (S3)",
+        "OAuth (Google & Facebook)",
+        "xUnit",
+        "Docker"
+      ],
+      "hasFrontend": true,
+      "backendHighlights": [
+        "Enterprise e-commerce bookstore built with ASP.NET Core 8 MVC and Clean Architecture with Repository & Unit of Work patterns.",
+        "Stripe Hosted Checkout integration with asynchronous webhook processing and cryptographic signature verification.",
+        "Automated inventory reservation and order status updates triggered idempotently by Stripe payment confirmation events.",
+        "xUnit automated test suite with 25 unit and integration tests verifying checkout workflows and shopping cart calculations."
+      ],
+      "frontendHighlights": [
+        "Full-stack responsive ASP.NET Core Razor Pages and MVC views styled with Bootstrap 5.3 and custom design tokens (tokens.css).",
+        "Client-side DataTables with AJAX server pagination providing sub-second administrative catalog browsing and filtering.",
+        "SweetAlert2 interactive modal dialogs for cart operations, deletions, and confirmation prompts.",
+        "Toastr notifications delivering non-intrusive feedback on user actions and order updates."
+      ],
+      "securityAndCloudHighlights": [
+        "Claim-based BOLA / IDOR protection ensuring users can only access their own orders and payment receipts.",
+        "Brute-force protection locking accounts for 15 minutes after 5 consecutive failed login attempts.",
+        "Anti-CSRF token verification enforced across all form submissions and AJAX endpoints.",
+        "Backblaze B2 S3 cloud storage for high-resolution book cover assets with automatic optimization."
+      ],
+      "architectureLayers": [
+        {
+          "name": "UI & Presentation Layer",
+          "tech": "Razor Pages + Bootstrap 5.3 + DataTables",
+          "pattern": "Server-Rendered MVC & AJAX DataTables",
+          "responsibilities": [
+            "Responsive bookstore storefront & cart",
+            "DataTables AJAX administrative catalog",
+            "SweetAlert2 & Toastr user feedback",
+            "Design token styling (tokens.css)"
+          ]
+        },
+        {
+          "name": "Security & Identity Shield",
+          "tech": "ASP.NET Core Identity + Anti-CSRF",
+          "pattern": "BOLA/IDOR Guards & 5-Attempt Lockout",
+          "responsibilities": [
+            "Anti-CSRF token validation on all POSTs",
+            "BOLA/IDOR claim-based access controls",
+            "5-attempt brute-force account lockout",
+            "OAuth Google & Facebook federation"
+          ]
+        },
+        {
+          "name": "Application & Business Core",
+          "tech": ".NET 8 + Repository & Unit of Work",
+          "pattern": "Clean Architecture & Shopping Cart Logic",
+          "responsibilities": [
+            "Shopping cart session management",
+            "Order status state machine",
+            "Stripe payment session initialization",
+            "Unit of Work transaction management"
+          ]
+        },
+        {
+          "name": "Persistence, Payments & S3",
+          "tech": "SQL Server + Stripe.net + Backblaze B2",
+          "pattern": "Relational DB, Webhooks & S3 Storage",
+          "responsibilities": [
+            "EF Core 8 relational order repository",
+            "Stripe webhook cryptographic verification",
+            "Backblaze B2 S3 book cover storage",
+            "Dockerized container deployment"
+          ]
+        }
+      ],
+      "liveUrl": "https://flyleaf.runasp.net",
+      "isPrivateApi": false,
+      "productOverview": "QuickCart-MVC (Flyleaf) is a modern full-stack e-commerce bookstore engineered with ASP.NET Core 8 MVC and Clean Architecture. It combines automated Stripe Hosted Checkout and webhook processing with Backblaze B2 S3 digital asset storage, anti-CSRF protection, and responsive Bootstrap 5.3 views.",
+      "keyModules": [
+        {
+          "name": "Bookstore Catalog & Cart Flow",
+          "description": "Full-featured shopping experience with category filtering, detailed book previews, and session-backed shopping carts.",
+          "capabilities": [
+            "Server-rendered Razor views with design tokens",
+            "AJAX shopping cart quantity adjustments",
+            "Search and category classification"
+          ]
+        },
+        {
+          "name": "Stripe Payment & Webhook Pipeline",
+          "description": "End-to-end checkout integration utilizing Stripe Hosted Checkout with cryptographic webhook signature verification.",
+          "capabilities": [
+            "PCI-compliant hosted checkout redirection",
+            "Asynchronous webhook reconciliation",
+            "Atomic order state machine transitions"
+          ]
+        },
+        {
+          "name": "Administrative Operations Portal",
+          "description": "Interactive management panel utilizing DataTables with AJAX server pagination for managing titles and inventory.",
+          "capabilities": [
+            "Sub-second administrative catalog search",
+            "SweetAlert2 confirmation dialogs",
+            "Toastr operational feedback"
+          ]
+        },
+        {
+          "name": "Security Shield & S3 Cloud Storage",
+          "description": "Defensive web architecture enforcing claim-based BOLA/IDOR protection and 5-attempt account lockouts.",
+          "capabilities": [
+            "Claim-based order access verification",
+            "15-minute brute-force lockout after 5 failed logins",
+            "Backblaze B2 S3 storage for book cover imagery"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "proj-gameit",
+      "name": "GameIt",
+      "subtitle": "Digital Gaming Commerce & Distribution Platform",
+      "scope": "Full-Stack Solution",
+      "badge": "Full-Stack: .NET 8, Blazor WebAssembly, MediatR, Stripe",
+      "role": "Full-Stack Architect & API Engineer",
+      "featured": false,
+      "tier": "detailed",
+      "url": "https://github.com/Alber-Ashraf/GameIt",
+      "localPath": "D:\\Projects\\GameIt",
+      "summary": "Digital gaming commerce & license distribution platform featuring Clean Architecture, MediatR CQRS, Stripe checkout, Hangfire discount scheduling, and a Blazor WebAssembly frontend.",
+      "metrics": "ACID-compliant digital license provisioning; automated discount lifecycle management with Hangfire",
+      "highlights": [
+        "Architected a gaming commerce and digital distribution REST API using .NET 8 and Clean Architecture, separating query and command execution via MediatR (CQRS) and AutoMapper to handle concurrent transactions.",
+        "Integrated Stripe payment gateway and asynchronous webhook processing with EF Core database transactions, ensuring atomic license provisioning and order fulfillment upon payment validation.",
+        "Built an interactive Blazor WebAssembly client with reusable Razor components for catalog browsing, cart operations, checkout flows, and role-based administrative management."
+      ],
+      "caseStudy": {
+        "problem": "Video game digital distribution demands instant fulfillment upon purchase while handling scheduled flash discounts across thousands of titles without manual intervention.",
+        "solution": "Engineered a Clean Architecture Web API utilizing MediatR CQRS, Stripe webhook reconciliation, and Hangfire automated scheduling, paired with a Blazor WebAssembly client.",
+        "architectureDecisions": [
+          "ADR-01: Decoupled domain events for purchase fulfillment triggering immediate game library entitlement.",
+          "ADR-02: Hangfire SQL Server scheduler for automated recurring discount expiration jobs.",
+          "ADR-03: Blazor WebAssembly client for rapid single-page interactive game library browsing."
+        ]
+      },
+      "technologies": [
+        ".NET 8",
+        "Blazor WebAssembly",
+        "Clean Architecture",
+        "MediatR",
+        "CQRS",
+        "Stripe.net",
+        "Hangfire",
+        "EF Core",
+        "SQL Server",
+        "JWT Bearer",
+        "xUnit"
+      ],
+      "hasFrontend": true,
+      "backendHighlights": [
+        "Digital gaming commerce REST API built with .NET 8, Clean Architecture, and MediatR CQRS separating queries from commands.",
+        "Stripe payment gateway integration with asynchronous webhook reconciliation ensuring atomic game license key provisioning.",
+        "AutoMapper profile configurations decoupling domain entities from client API response models.",
+        "xUnit automated test suite testing cart pricing, promotional discounts, and payment webhooks."
+      ],
+      "frontendHighlights": [
+        "Interactive Blazor WebAssembly single-page application executing C# directly in the browser via WebAssembly runtime.",
+        "Reusable Razor components for game catalog cards, genre filters, shopping cart drawer, and order confirmation.",
+        "Role-based administrative management panels for game title creation, price updates, and license key generation.",
+        "Client-side state container managing shopping cart items with browser localStorage persistence."
+      ],
+      "securityAndCloudHighlights": [
+        "Hangfire background job scheduler managing automated recurring discount lifecycle and flash sale expiration.",
+        "JWT Bearer authentication with claims-based access controls distinguishing Gamers and Store Administrators.",
+        "Atomic ACID transaction boundaries in EF Core ensuring license keys are allocated to exactly one purchaser.",
+        "Docker multi-stage builds packaging API and Blazor WASM with Nginx static file hosting."
+      ],
+      "architectureLayers": [
+        {
+          "name": "Client / UI Layer",
+          "tech": "Blazor WebAssembly + Razor Components",
+          "pattern": "Client-Side C# SPA via WebAssembly",
+          "responsibilities": [
+            "Interactive game catalog & search",
+            "Client-side shopping cart state container",
+            "Role-based administrative dashboard",
+            "Responsive gaming dark theme UI"
+          ]
+        },
+        {
+          "name": "API Gateway & Auth",
+          "tech": "ASP.NET Core 8 Web API",
+          "pattern": "JWT Bearer & OpenAPI Specs",
+          "responsibilities": [
+            "JWT token validation & claims extraction",
+            "Swagger / OpenAPI documentation",
+            "Input validation and error handling",
+            "Rate limiting on checkout endpoints"
+          ]
+        },
+        {
+          "name": "Application & CQRS Engine",
+          "tech": ".NET 8 + MediatR + AutoMapper",
+          "pattern": "Clean Architecture CQRS Handlers",
+          "responsibilities": [
+            "Decoupled command and query execution",
+            "Domain event dispatching on purchase",
+            "Cart calculation & discount pricing rules",
+            "Automated DTO mapping via AutoMapper"
+          ]
+        },
+        {
+          "name": "Persistence, Payments & Jobs",
+          "tech": "SQL Server + Stripe.net + Hangfire",
+          "pattern": "ACID License Vault & Hangfire Scheduler",
+          "responsibilities": [
+            "Atomic license key allocation transactions",
+            "Stripe payment webhook verification",
+            "Hangfire automated flash discount jobs",
+            "Docker multi-stage container deployment"
+          ]
+        }
+      ],
+      "liveUrl": "https://gameit.runasp.net",
+      "isPrivateApi": false,
+      "productOverview": "GameIt is a digital video game distribution and commerce web platform built with .NET 8 Clean Architecture and Blazor WebAssembly. It delivers instant, atomic game license key provisioning upon Stripe payment confirmation, paired with Hangfire automated discount scheduling and interactive client-side catalog navigation.",
+      "keyModules": [
+        {
+          "name": "Blazor WebAssembly Gaming Storefront",
+          "description": "Single-page application executing C# directly in the browser via WebAssembly runtime for lag-free gaming interactions.",
+          "capabilities": [
+            "Interactive game browsing and search filters",
+            "Client-side shopping cart state container",
+            "Responsive dark gaming UI components"
+          ]
+        },
+        {
+          "name": "Clean Architecture & MediatR CQRS Core",
+          "description": "Strictly decoupled backend services isolating command handlers, query projections, and domain business rules.",
+          "capabilities": [
+            "Segregated read and write execution pipelines",
+            "Domain event dispatching on successful orders",
+            "AutoMapper automated entity-to-DTO conversion"
+          ]
+        },
+        {
+          "name": "Atomic License Provisioning",
+          "description": "ACID transaction boundaries ensuring digital game activation keys are allocated to exactly one purchaser.",
+          "capabilities": [
+            "Stripe webhook payment reconciliation",
+            "Atomic license key detachment and library binding",
+            "Instant customer digital library access"
+          ]
+        },
+        {
+          "name": "Hangfire Automated Promotions",
+          "description": "Background job scheduler managing promotional flash sales, timed game discounts, and price updates.",
+          "capabilities": [
+            "Scheduled discount activation and expiration",
+            "Recurring catalog price recalculations",
+            "Automated transactional email receipts"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "proj-educore",
+      "name": "EduCore",
+      "subtitle": "EdTech Examination & Assessment Platform",
+      "scope": "Backend Architecture",
+      "badge": "Backend Architecture: .NET 9, Clean Architecture, CQRS, Backblaze B2",
+      "role": "Backend Architect & Systems Engineer",
+      "featured": false,
+      "tier": "detailed",
+      "url": "https://github.com/Alber-Ashraf/EduCore",
+      "localPath": "D:\\Projects\\EduCore",
+      "summary": "Comprehensive EdTech examination, lecture delivery, and student assessment platform with Backblaze B2 cloud storage and prepaid voucher wallet top-up processing.",
+      "metrics": "Protected media streaming with zero direct server egress; atomic credit balance voucher redemptions",
+      "highlights": [
+        "Architected an EdTech examination and lecture delivery API in .NET 9 utilizing Clean Architecture, MediatR CQRS, and FluentValidation pipeline behaviors to decouple business operations.",
+        "Integrated Backblaze B2 cloud storage via S3 API protocols with 240-minute pre-signed URL token expiration, delivering protected lecture video and document asset streaming without direct server media egress.",
+        "Built automated student assessment and quiz scoring pipelines with prepaid voucher card wallet redemptions, ensuring atomic credit balance increments and order processing via EF Core 9."
+      ],
+      "caseStudy": {
+        "problem": "Online educational platforms face high server bandwidth costs and unauthorized lecture media redistribution when files are served directly through application servers.",
+        "solution": "Implemented S3-compatible pre-signed URL streaming with time-limited authorization tokens, offloading media bandwidth directly to Backblaze B2 while retaining strict student enrollment verification.",
+        "architectureDecisions": [
+          "ADR-01: Pre-signed S3 URL delegation to prevent server bandwidth saturation during lecture streams.",
+          "ADR-02: Atomic wallet voucher transactions in EF Core 9 with pessimistic concurrency guards to prevent double-spending.",
+          "ADR-03: FluentValidation pipeline behavior for centralized request validation prior to handler invocation."
+        ]
+      },
+      "technologies": [
+        ".NET 9",
+        "Clean Architecture",
+        "CQRS",
+        "MediatR",
+        "Backblaze B2 (S3)",
+        "EF Core 9",
+        "SQL Server",
+        "FluentValidation",
+        "xUnit"
+      ],
+      "hasFrontend": false,
+      "backendHighlights": [
+        "Comprehensive EdTech examination and lecture delivery API built in .NET 9 with Clean Architecture and MediatR CQRS.",
+        "Prepaid voucher wallet top-up processing with ACID transactions and pessimistic concurrency guards preventing double-redemption.",
+        "Automated quiz assessment engine scoring multiple-choice and open questions with instant result feedback.",
+        "FluentValidation pipeline behaviors validating incoming DTO commands before reaching business handlers."
+      ],
+      "frontendHighlights": [
+        "Headless API with complete OpenAPI / Swagger specifications tailored for future Angular or mobile client consumers.",
+        "Structured REST contracts for video playback telemetry and timestamp bookmarking.",
+        "Standardized HTTP response payloads with pagination metadata and localized error messages.",
+        "Student assessment result schemas ready for visual score breakdown charts."
+      ],
+      "securityAndCloudHighlights": [
+        "Backblaze B2 cloud storage integration via S3 API with 240-minute pre-signed URL delegation, preventing server bandwidth saturation.",
+        "Anti-tamper lecture media access verifying student course enrollment before issuing time-limited tokens.",
+        "JWT Bearer authentication with role-based policies distinguishing Students, Instructors, and Administrators.",
+        "SQL Server transaction isolation guaranteeing wallet balance consistency under concurrent redemption attempts."
+      ],
+      "architectureLayers": [
+        {
+          "name": "API & Authentication Layer",
+          "tech": "ASP.NET Core 9 Web API",
+          "pattern": "Role-Based JWT & Swagger Contracts",
+          "responsibilities": [
+            "Student, Instructor, Admin role gating",
+            "Request model binding & validation",
+            "OpenAPI schema generation",
+            "Centralized exception handling"
+          ]
+        },
+        {
+          "name": "Application & CQRS Core",
+          "tech": ".NET 9 + MediatR + FluentValidation",
+          "pattern": "Clean Architecture & Pipeline Behaviors",
+          "responsibilities": [
+            "Pre-execution FluentValidation checks",
+            "Course enrollment command handlers",
+            "Quiz scoring & grade calculations",
+            "Voucher redemption orchestration"
+          ]
+        },
+        {
+          "name": "Cloud Storage & Media Security",
+          "tech": "Backblaze B2 (S3 API Protocols)",
+          "pattern": "240-Min Pre-Signed URL Delegation",
+          "responsibilities": [
+            "Time-limited tokenized video streaming",
+            "Direct client-to-B2 asset delivery",
+            "Zero application server egress load",
+            "Protected educational document storage"
+          ]
+        },
+        {
+          "name": "Persistence & Wallet Transactions",
+          "tech": "SQL Server + EF Core 9",
+          "pattern": "ACID Ledger & Concurrency Guards",
+          "responsibilities": [
+            "Atomic prepaid wallet ledger increments",
+            "Pessimistic concurrency on vouchers",
+            "Relational exam and answer mapping",
+            "Docker containerized SQL Server"
+          ]
+        }
+      ],
+      "liveUrl": "http://everest-edu.premiumasp.net",
+      "isPrivateApi": true,
+      "productOverview": "EduCore is an enterprise educational examination, lecture delivery, and student assessment platform. Built in .NET 9 with Clean Architecture and MediatR CQRS, it protects proprietary video assets via 240-minute pre-signed Backblaze B2 S3 URLs and manages atomic student wallet voucher transactions.",
+      "keyModules": [
+        {
+          "name": "Online Examination & Quiz Engine",
+          "description": "Interactive assessment subsystem providing timed online testing, automated scoring, and student performance metrics.",
+          "capabilities": [
+            "Multiple-choice and open question evaluation",
+            "Immediate automated grade calculations",
+            "Anti-cheat test submission windows"
+          ]
+        },
+        {
+          "name": "240-Minute Pre-Signed Media Delivery",
+          "description": "Protected video streaming architecture delegating media access to Backblaze B2 S3 with time-limited authorization tokens.",
+          "capabilities": [
+            "Direct client-to-storage video streaming",
+            "Zero application server egress bandwidth saturation",
+            "Enrollment validation prior to token issuance"
+          ]
+        },
+        {
+          "name": "Prepaid Wallet & Voucher Subsystem",
+          "description": "Financial transaction ledger managing course purchases and prepaid scratch-card voucher redemptions.",
+          "capabilities": [
+            "ACID transaction boundaries on balance increments",
+            "Pessimistic concurrency guards against double-redemption",
+            "Complete transactional ledger history"
+          ]
+        },
+        {
+          "name": "FluentValidation Pipeline Core",
+          "description": "Centralized validation behaviors ensuring all incoming student commands and enrollment requests conform to domain rules.",
+          "capabilities": [
+            "Pre-handler automatic input validation",
+            "Standardized ProblemDetails validation error formatting",
+            "Clean separation of validation from business logic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "proj-mashoorti",
+      "name": "Mashoorti",
+      "subtitle": "Professional Consultation & Course Delivery Platform",
+      "scope": "Backend Architecture",
+      "badge": "Backend Architecture: .NET 9, QuestPDF, CQRS, MediatR",
+      "role": "Backend Systems Engineer",
+      "featured": false,
+      "tier": "detailed",
+      "url": "https://github.com/Alber-Ashraf/Mashoorti",
+      "localPath": "D:\\Projects\\Mashoorti",
+      "summary": "Consultation and course delivery platform featuring CQRS with MediatR, student progress milestone tracking, and automated vector PDF certificate generation.",
+      "metrics": "Dynamic vector PDF certificate generation via QuestPDF; multi-device session token invalidation",
+      "highlights": [
+        "Engineered a consultation and course delivery platform in .NET 9 featuring CQRS with MediatR, student progress milestone tracking, and lecture video access gating.",
+        "Implemented an automated vector PDF certificate generation engine using QuestPDF, streaming verifiable graduation credentials directly upon course and quiz completion.",
+        "Hardened platform security incorporating multi-device session management, JWT token invalidation upon concurrent logins, and payment gateway integration."
+      ],
+      "caseStudy": {
+        "problem": "Issuing tamper-proof graduation certificates at scale without slow rendering libraries or heavy headless browser dependencies.",
+        "solution": "Integrated QuestPDF fluent layout engine to render high-resolution, vector-accurate completion certificates directly into byte streams within memory.",
+        "architectureDecisions": [
+          "ADR-01: QuestPDF code-first document model for sub-second, memory-efficient PDF rendering.",
+          "ADR-02: Device session tracking table with token invalidation on concurrent active sessions.",
+          "ADR-03: Modular Clean Architecture separating domain rules from PDF generation infrastructure."
+        ]
+      },
+      "technologies": [
+        ".NET 9",
+        "Clean Architecture",
+        "CQRS",
+        "MediatR",
+        "QuestPDF",
+        "EF Core 9",
+        "SQL Server",
+        "JWT Auth",
+        "Docker"
+      ],
+      "hasFrontend": false,
+      "backendHighlights": [
+        "Professional consultation and course delivery platform built with .NET 9, Clean Architecture, and MediatR CQRS.",
+        "Sub-120ms vector PDF certificate generation engine using QuestPDF, streaming verifiable graduation credentials directly upon course completion.",
+        "Student milestone tracking engine verifying 100% lecture completion and quiz passing scores prior to certificate issuance.",
+        "EF Core 9 data layer with optimized relational queries and repository patterns."
+      ],
+      "frontendHighlights": [
+        "Full OpenAPI / Swagger specification with interactive test harness for mobile and web clients.",
+        "Streaming binary endpoints delivering vector PDF certificates directly to browser download prompts.",
+        "Real-time consultation appointment booking contracts with timezone normalization.",
+        "REST endpoints for student progress bars and lecture completion percentages."
+      ],
+      "securityAndCloudHighlights": [
+        "Multi-device session lock detecting concurrent logins from different devices and immediately invalidating prior session tokens.",
+        "JWT authentication with custom session-claim verification against an active session table on every request.",
+        "Tamper-proof vector PDF rendering with cryptographic digital hashes embedded in certificates.",
+        "Hangfire background job scheduler for automated certificate archiving and appointment reminders."
+      ],
+      "architectureLayers": [
+        {
+          "name": "API & Security Gateway",
+          "tech": "ASP.NET Core 9 Web API",
+          "pattern": "Session Claims & JWT Verification",
+          "responsibilities": [
+            "Multi-device concurrent login detection",
+            "Active session validation per request",
+            "Role-based consultation authorization",
+            "Binary certificate streaming endpoints"
+          ]
+        },
+        {
+          "name": "Application & Business Logic",
+          "tech": ".NET 9 + MediatR CQRS",
+          "pattern": "Clean Architecture & Progress Engine",
+          "responsibilities": [
+            "Consultation booking scheduling",
+            "Course milestone completion checks",
+            "Certificate issue event triggering",
+            "FluentValidation input guards"
+          ]
+        },
+        {
+          "name": "Document Generation & Queue",
+          "tech": "QuestPDF + Hangfire",
+          "pattern": "In-Memory Vector PDF & Background Jobs",
+          "responsibilities": [
+            "Sub-120ms vector certificate rendering",
+            "Tamper-evident verification hash layout",
+            "Scheduled appointment reminder jobs",
+            "Reliable job retries on failure"
+          ]
+        },
+        {
+          "name": "Persistence & Session Store",
+          "tech": "SQL Server + EF Core 9",
+          "pattern": "Relational Storage & Active Sessions Table",
+          "responsibilities": [
+            "Session tokens & device fingerprint table",
+            "Consultation appointment calendar store",
+            "Course curriculum and progress state",
+            "Docker multi-stage container deployment"
+          ]
+        }
+      ],
+      "liveUrl": "http://mashoorti.premiumasp.net",
+      "isPrivateApi": true,
+      "productOverview": "Mashoorti is a professional consultation, appointment scheduling, and certification delivery platform. Engineered with .NET 9 and Clean Architecture, it features dynamic vector PDF certificate compilation via QuestPDF, multi-device session token invalidation, and asynchronous Hangfire media processing.",
+      "keyModules": [
+        {
+          "name": "Consultant Scheduling & Booking",
+          "description": "Comprehensive appointment reservation system enabling clients to schedule dedicated consultation sessions.",
+          "capabilities": [
+            "Consultant calendar availability management",
+            "Automated appointment status tracking",
+            "Automated appointment reminders"
+          ]
+        },
+        {
+          "name": "Vector Graduation Certificate Generator",
+          "description": "High-performance vector document generation engine compiling graduation diplomas dynamically upon course completion.",
+          "capabilities": [
+            "QuestPDF vector PDF layout engine",
+            "Dynamic typography, serial numbering, and QR codes",
+            "Direct streaming of verified graduation credentials"
+          ]
+        },
+        {
+          "name": "Multi-Device Session Revocation",
+          "description": "Advanced security protocol preventing account sharing by invalidating previous device sessions upon new logins.",
+          "capabilities": [
+            "Device-lock token invalidation architecture",
+            "Active session tracking across mobile and web",
+            "Sliding JWT authentication with refresh rotation"
+          ]
+        },
+        {
+          "name": "Asynchronous Hangfire Pipelines",
+          "description": "Background task orchestration handling resource-intensive media processing, notifications, and scheduled tasks.",
+          "capabilities": [
+            "Asynchronous video transcoding jobs",
+            "Transactional email and notification dispatch",
+            "Automated database maintenance tasks"
+          ]
+        }
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "Future Academy – Higher Future Institute for Specialized Technological Studies",
+      "degree": "Bachelor of Science in Computer Science",
+      "startDate": "Sep 2019",
+      "graduationDate": "Jul 2023",
+      "gpa": "3.79 / 4.00 (Excellent)",
+      "honors": "GPA: 3.79 (Excellent) | Graduation Project Grade: A+",
+      "location": "Cairo, Egypt"
+    }
+  ],
+  "certifications": {
+    "summary": "Continuous professional advancement across .NET architectures, cloud microservices, and database optimization.",
+    "groups": [
+      {
+        "provider": "Dometrain (2025)",
+        "items": [
+          {
+            "name": "Dependency Injection in .NET",
+            "year": "2025"
+          },
+          {
+            "name": "REST APIs in .NET",
+            "year": "2025"
+          },
+          {
+            "name": "Entity Framework Core in .NET",
+            "year": "2025"
+          }
+        ]
+      },
+      {
+        "provider": "Udemy (2025)",
+        "items": [
+          {
+            "name": "ASP.NET Core – SOLID and Clean Architecture",
+            "year": "2025"
+          },
+          {
+            "name": ".NET Core MVC - The Complete Guide",
+            "year": "2025"
+          },
+          {
+            "name": "Complete C# Masterclass",
+            "year": "2025"
+          }
+        ]
+      },
+      {
+        "provider": "365 Data Science & CodeWithMosh (2025)",
+        "items": [
+          {
+            "name": "SQL",
+            "year": "2025"
+          },
+          {
+            "name": "The Ultimate HTML5 & CSS3 Series",
+            "year": "2025"
+          },
+          {
+            "name": "The Ultimate JavaScript Series",
+            "year": "2025"
+          }
+        ]
+      }
+    ]
+  },
+  "languages": [
+    {
+      "name": "Arabic",
+      "proficiency": "Native"
+    },
+    {
+      "name": "English",
+      "proficiency": "Professional Working Proficiency"
+    }
+  ]
+}
