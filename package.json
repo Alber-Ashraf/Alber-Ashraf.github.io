@@ -3,11 +3,11 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "node -r ./scripts/tw-resolver.js -e \"process.env.NODE_OPTIONS='--require ./scripts/tw-resolver.js'; process.argv.splice(1, 0, 'ng', 'serve'); require('./node_modules/@angular/cli/bin/ng.js')\"",
     "sync:data": "node -e \"const fs=require('fs'); fs.mkdirSync('public/assets/cv', {recursive:true}); fs.mkdirSync('public/data', {recursive:true}); fs.mkdirSync('public/cv', {recursive:true}); const copy=(s,d)=>{if(fs.existsSync(s)){fs.copyFileSync(s,d);}}; copy('../docs/master-profile.json', 'public/data/master-profile.json'); copy('../docs/master-profile.json', 'src/app/data/master-profile.json'); copy('../CV/one-page/Alber_Ashraf_CV_OnePage.pdf', 'public/cv/Alber_Ashraf_CV_OnePage.pdf'); copy('../CV/detailed/Alber_Ashraf_CV_Detailed.pdf', 'public/cv/Alber_Ashraf_CV_Detailed.pdf'); copy('../CV/one-page/Alber_Ashraf_CV_OnePage.pdf', 'public/assets/cv/Alber_Ashraf_CV_OnePage.pdf'); copy('../CV/detailed/Alber_Ashraf_CV_Detailed.pdf', 'public/assets/cv/Alber_Ashraf_CV_Detailed.pdf'); console.log('Assets & SSOT synced to Portfolio.');\"",
     "prebuild": "npm run sync:data",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
+    "build": "node -r ./scripts/tw-resolver.js -e \"process.env.NODE_OPTIONS='--require ./scripts/tw-resolver.js'; process.argv.splice(1, 0, 'ng', 'build'); require('./node_modules/@angular/cli/bin/ng.js')\"",
+    "watch": "node -r ./scripts/tw-resolver.js -e \"process.env.NODE_OPTIONS='--require ./scripts/tw-resolver.js'; process.argv.splice(1, 0, 'ng', 'build', '--watch', '--configuration', 'development'); require('./node_modules/@angular/cli/bin/ng.js')\"",
     "test": "ng test"
   },
   "prettier": {
