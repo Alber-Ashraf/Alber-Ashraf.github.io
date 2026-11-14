@@ -167,7 +167,7 @@ import { BrandLogoComponent } from '../brand-logo/brand-logo';
             class="w-full min-h-[44px] text-left px-3.5 py-2.5 rounded-xl hover:bg-white/5 text-slate-200 flex items-center justify-between transition-colors cursor-pointer"
             [class]="activeSection() === 'hero' ? 'bg-indigo-500/20 text-indigo-300 border border-indigo-500/30' : ''"
           >
-            <span>01 // Overview</span>
+            <span>Overview</span>
             <span class="text-xs text-slate-500">Intro</span>
           </button>
           <button
@@ -176,7 +176,7 @@ import { BrandLogoComponent } from '../brand-logo/brand-logo';
             class="w-full min-h-[44px] text-left px-3.5 py-2.5 rounded-xl hover:bg-white/5 text-slate-200 flex items-center justify-between transition-colors cursor-pointer"
             [class]="activeSection() === 'about' ? 'bg-indigo-500/20 text-indigo-300 border border-indigo-500/30' : ''"
           >
-            <span>02 // Capabilities</span>
+            <span>Capabilities</span>
             <span class="text-xs text-slate-500">Pillars</span>
           </button>
           <button
@@ -185,7 +185,7 @@ import { BrandLogoComponent } from '../brand-logo/brand-logo';
             class="w-full min-h-[44px] text-left px-3.5 py-2.5 rounded-xl hover:bg-white/5 text-slate-200 flex items-center justify-between transition-colors cursor-pointer"
             [class]="activeSection() === 'skills' ? 'bg-indigo-500/20 text-indigo-300 border border-indigo-500/30' : ''"
           >
-            <span>03 // Technical Skills</span>
+            <span>Technical Skills</span>
             <span class="text-xs text-slate-500">Arsenal</span>
           </button>
           <button
@@ -194,7 +194,7 @@ import { BrandLogoComponent } from '../brand-logo/brand-logo';
             class="w-full min-h-[44px] text-left px-3.5 py-2.5 rounded-xl hover:bg-white/5 text-slate-200 flex items-center justify-between transition-colors cursor-pointer"
             [class]="activeSection() === 'experience' ? 'bg-indigo-500/20 text-indigo-300 border border-indigo-500/30' : ''"
           >
-            <span>04 // Work Experience</span>
+            <span>Work Experience</span>
             <span class="text-xs text-slate-500">Track Record</span>
           </button>
           <button
@@ -203,7 +203,7 @@ import { BrandLogoComponent } from '../brand-logo/brand-logo';
             class="w-full min-h-[44px] text-left px-3.5 py-2.5 rounded-xl hover:bg-white/5 text-slate-200 flex items-center justify-between transition-colors cursor-pointer"
             [class]="activeSection() === 'projects' ? 'bg-indigo-500/20 text-indigo-300 border border-indigo-500/30' : ''"
           >
-            <span>05 // Featured Projects</span>
+            <span>Featured Projects</span>
             <span class="px-2 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 text-xs font-bold">9</span>
           </button>
           <button
@@ -212,8 +212,8 @@ import { BrandLogoComponent } from '../brand-logo/brand-logo';
             class="w-full min-h-[44px] text-left px-3.5 py-2.5 rounded-xl hover:bg-white/5 text-slate-200 flex items-center justify-between transition-colors cursor-pointer"
             [class]="activeSection() === 'education' ? 'bg-indigo-500/20 text-indigo-300 border border-indigo-500/30' : ''"
           >
-            <span>06 // Education & Certs</span>
-            <span class="text-xs text-slate-500">Degree & Honors</span>
+            <span>Education &amp; Certs</span>
+            <span class="text-xs text-slate-500">Degree &amp; Honors</span>
           </button>
           <button
             type="button"
@@ -221,7 +221,7 @@ import { BrandLogoComponent } from '../brand-logo/brand-logo';
             class="w-full min-h-[44px] text-left px-3.5 py-2.5 rounded-xl hover:bg-white/5 text-slate-200 flex items-center justify-between transition-colors cursor-pointer"
             [class]="activeSection() === 'contact' ? 'bg-indigo-500/20 text-indigo-300 border border-indigo-500/30' : ''"
           >
-            <span>07 // Contact</span>
+            <span>Contact</span>
             <span class="text-xs text-slate-500">Direct Dispatch</span>
           </button>
 

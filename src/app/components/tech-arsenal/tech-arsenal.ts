@@ -5,7 +5,6 @@ import { ScrollRevealDirective } from '../../directives/scroll-reveal.directive'
 
 export interface SkillCategoryGroup {
   id: string;
-  number: string;
   name: string;
   description: string;
   accent: 'indigo' | 'rose' | 'emerald' | 'amber' | 'cyan';
@@ -103,7 +102,7 @@ export interface SkillCategoryGroup {
             >
               <div>
                 <div class="flex items-center justify-between mb-3">
-                  <span class="text-[11px] font-mono text-indigo-400 uppercase tracking-wider">{{ group.number }}</span>
+                  <span class="text-[11px] font-mono text-indigo-400 uppercase tracking-wider font-semibold">{{ group.name }}</span>
                   <span
                     class="w-2 h-2 rounded-full"
                     [class]="group.accent === 'indigo' ? 'bg-indigo-400' :
@@ -113,7 +112,6 @@ export interface SkillCategoryGroup {
                   ></span>
                 </div>
 
-                <h3 class="text-lg font-bold text-white mb-1 tracking-tight">{{ group.name }}</h3>
                 <p class="text-slate-400 text-xs mb-5">{{ group.description }}</p>
 
                 <!-- Skill Interactive Pills -->
@@ -165,7 +163,6 @@ export class TechArsenalComponent {
   readonly categories: SkillCategoryGroup[] = [
     {
       id: 'backend',
-      number: 'Category 01',
       name: 'Backend Engineering',
       description: 'C#, .NET runtime, Web APIs, ORMs, and transactional persistence.',
       accent: 'indigo',
@@ -187,7 +184,6 @@ export class TechArsenalComponent {
     },
     {
       id: 'frontend',
-      number: 'Category 02',
       name: 'Frontend Engineering',
       description: 'Single-page client architecture, reactivity, SSR, and design tokens.',
       accent: 'rose',
@@ -207,7 +203,6 @@ export class TechArsenalComponent {
     },
     {
       id: 'architecture',
-      number: 'Category 03',
       name: 'Architecture & System Design',
       description: 'Enterprise patterns, domain boundaries, and architectural enforcement.',
       accent: 'amber',
@@ -224,7 +219,6 @@ export class TechArsenalComponent {
     },
     {
       id: 'databases',
-      number: 'Category 04',
       name: 'Databases, Caching & Background Processing',
       description: 'Relational query optimization, caching layers, and scheduled jobs.',
       accent: 'emerald',
@@ -242,7 +236,6 @@ export class TechArsenalComponent {
     },
     {
       id: 'cloud-security',
-      number: 'Category 05',
       name: 'Cloud, DevOps & Security',
       description: 'Cloud storage, containerization, CI/CD, and identity protection.',
       accent: 'cyan',

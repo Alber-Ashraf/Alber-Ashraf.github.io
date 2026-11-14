@@ -125,21 +125,27 @@ import { ProjectItem } from '../../models/profile.model';
               [maxTilt]="3"
             >
               <div>
-                <!-- Top Card Meta Header: System # & Scope Badge -->
+                <!-- Top Card Meta Header: Scope Badge -->
                 <div class="flex items-center justify-between gap-2 mb-4 font-mono text-xs">
-                  <span class="px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-slate-400">
-                    SYSTEM // 0{{ idx + 1 }}
-                  </span>
-
                   <!-- Scope Badge -->
                   <span
-                    class="px-2.5 py-1 rounded-md border font-semibold"
+                    class="px-2.5 py-1 rounded-md border font-semibold inline-flex items-center gap-1.5"
                     [class]="p.scope === 'Full-Stack Solution' ?
                       'bg-rose-500/15 text-rose-300 border-rose-500/30' :
                       'bg-indigo-500/15 text-indigo-300 border-indigo-500/30'"
                   >
-                    {{ p.scope }}
+                    <span class="w-1.5 h-1.5 rounded-full" [class]="p.scope === 'Full-Stack Solution' ? 'bg-rose-400' : 'bg-indigo-400'"></span>
+                    <span>{{ p.scope }}</span>
                   </span>
+
+                  @if (p.scope === 'Full-Stack Solution' && p.liveUrl) {
+                    <span class="text-[11px] text-emerald-400 font-mono flex items-center gap-1.5">
+                      <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                      <span>Live</span>
+                    </span>
+                  } @else {
+                    <span class="text-[11px] text-slate-400 font-mono">Enterprise API</span>
+                  }
                 </div>
 
                 <!-- Interactive Quick-Toggle on Card Face: System Overview vs Architecture Flow -->
@@ -231,18 +237,17 @@ import { ProjectItem } from '../../models/profile.model';
 
                   <div class="mb-5 animate-in fade-in duration-200">
                     <!-- Clickable Layer Nodes Pipeline -->
-                    <div class="grid grid-cols-4 gap-1 p-1 bg-slate-950/90 rounded-xl border border-white/10 mb-3 font-mono text-[9px]">
+                    <div class="grid grid-cols-4 gap-1 p-1 bg-slate-950/90 rounded-xl border border-white/10 mb-3 font-mono text-[10px]">
                       @for (layer of layers; track layer.name; let lIdx = $index) {
                         <button
                           type="button"
                           (click)="setCardLayer(p.id, lIdx)"
-                          class="py-1.5 px-1 rounded-lg text-center transition-all cursor-pointer flex flex-col items-center justify-center gap-0.5"
+                          class="py-1.5 px-1 rounded-lg text-center transition-all cursor-pointer flex items-center justify-center"
                           [class]="activeLayerIndex === lIdx ?
                             'bg-cyan-500/25 border border-cyan-400 text-cyan-200 font-bold shadow-sm' :
                             'text-slate-400 hover:text-slate-200 hover:bg-white/5 border border-transparent'"
                           [title]="'Inspect ' + layer.name"
                         >
-                          <span class="text-[8px] opacity-75">L0{{ lIdx + 1 }}</span>
                           <span class="truncate w-full text-center">{{ layer.name.split(' ')[0] }}</span>
                         </button>
                       }

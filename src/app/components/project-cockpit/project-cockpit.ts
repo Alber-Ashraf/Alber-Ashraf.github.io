@@ -27,12 +27,9 @@ export type CockpitTab = 'product' | 'modules' | 'architecture' | 'tech';
           <!-- Drawer Sticky Header -->
           <div class="px-4 sm:px-6 py-3.5 sm:py-4 border-b border-white/10 bg-slate-900/95 backdrop-blur-xl flex items-center justify-between gap-2 flex-shrink-0">
             <div class="flex items-center gap-2 min-w-0">
-              <span class="px-2 py-1 rounded-md bg-indigo-500/20 text-indigo-300 font-mono text-[11px] border border-indigo-500/30 flex-shrink-0">
-                0{{ getProjectIndex(p.id) + 1 }}
-              </span>
               <span class="font-bold text-white text-sm sm:text-base truncate">{{ p.name }}</span>
               <span
-                class="hidden sm:inline-block px-2.5 py-0.5 rounded-md text-[11px] font-mono border flex-shrink-0"
+                class="px-2.5 py-0.5 rounded-md text-[11px] font-mono border flex-shrink-0"
                 [class]="p.scope === 'Full-Stack Solution' ? 'bg-rose-500/10 text-rose-300 border-rose-500/30' : 'bg-indigo-500/10 text-indigo-300 border-indigo-500/30'"
               >
                 {{ p.scope }}
@@ -253,7 +250,7 @@ export type CockpitTab = 'product' | 'modules' | 'architecture' | 'tech';
                           [attr.stroke]="selectedLayerIndex() === 0 ? '#38BDF8' : '#06B6D4'"
                           [attr.stroke-width]="selectedLayerIndex() === 0 ? '2.2' : '1.2'"
                         />
-                        <text x="50" y="24" fill="#06B6D4" font-size="9" font-family="monospace" text-anchor="middle" font-weight="bold">01 ENTRY / UI</text>
+                        <text x="50" y="24" fill="#06B6D4" font-size="9" font-family="monospace" text-anchor="middle" font-weight="bold">ENTRY / UI</text>
                         <text x="50" y="38" fill="#E2E8F0" font-size="7.5" font-family="monospace" text-anchor="middle">Client / API Gate</text>
                         <circle cx="12" cy="18" r="2.5" fill="#06B6D4" />
                       </g>
@@ -271,7 +268,7 @@ export type CockpitTab = 'product' | 'modules' | 'architecture' | 'tech';
                           [attr.stroke]="selectedLayerIndex() === 1 ? '#818CF8' : '#6366F1'"
                           [attr.stroke-width]="selectedLayerIndex() === 1 ? '2.2' : '1.2'"
                         />
-                        <text x="52" y="24" fill="#818CF8" font-size="9" font-family="monospace" text-anchor="middle" font-weight="bold">02 APPLICATION</text>
+                        <text x="52" y="24" fill="#818CF8" font-size="9" font-family="monospace" text-anchor="middle" font-weight="bold">APPLICATION</text>
                         <text x="52" y="38" fill="#E2E8F0" font-size="7.5" font-family="monospace" text-anchor="middle">CQRS &amp; Handlers</text>
                         <circle cx="12" cy="18" r="2.5" fill="#6366F1" />
                       </g>
@@ -289,7 +286,7 @@ export type CockpitTab = 'product' | 'modules' | 'architecture' | 'tech';
                           [attr.stroke]="selectedLayerIndex() === 2 ? '#C084FC' : '#8B5CF6'"
                           [attr.stroke-width]="selectedLayerIndex() === 2 ? '2.2' : '1.5'"
                         />
-                        <text x="52" y="24" fill="#C084FC" font-size="9" font-family="monospace" text-anchor="middle" font-weight="bold">03 DOMAIN CORE</text>
+                        <text x="52" y="24" fill="#C084FC" font-size="9" font-family="monospace" text-anchor="middle" font-weight="bold">DOMAIN CORE</text>
                         <text x="52" y="38" fill="#E2E8F0" font-size="7.5" font-family="monospace" text-anchor="middle">Aggregates &amp; Rules</text>
                         <circle cx="52" cy="46" r="3" fill="#8B5CF6" class="animate-ping" />
                       </g>
@@ -307,7 +304,7 @@ export type CockpitTab = 'product' | 'modules' | 'architecture' | 'tech';
                           [attr.stroke]="selectedLayerIndex() === 3 ? '#34D399' : '#10B981'"
                           [attr.stroke-width]="selectedLayerIndex() === 3 ? '2.2' : '1.2'"
                         />
-                        <text x="42" y="24" fill="#34D399" font-size="9" font-family="monospace" text-anchor="middle" font-weight="bold">04 DATA/CLOUD</text>
+                        <text x="42" y="24" fill="#34D399" font-size="9" font-family="monospace" text-anchor="middle" font-weight="bold">DATA / CLOUD</text>
                         <text x="42" y="38" fill="#E2E8F0" font-size="7.5" font-family="monospace" text-anchor="middle">SQL / Redis / S3</text>
                         <circle cx="12" cy="18" r="2.5" fill="#10B981" />
                       </g>
@@ -336,7 +333,7 @@ export type CockpitTab = 'product' | 'modules' | 'architecture' | 'tech';
                         <div>
                           <div class="flex items-center justify-between text-[10px] font-mono mb-2">
                             <span [class]="selectedLayerIndex() === lIdx ? 'text-indigo-300 font-bold' : 'text-slate-500'">
-                              LAYER 0{{ lIdx + 1 }}
+                              ARCHITECTURE TIER
                             </span>
                             <span class="w-1.5 h-1.5 rounded-full" [class]="selectedLayerIndex() === lIdx ? 'bg-indigo-400' : 'bg-slate-700'"></span>
                           </div>
