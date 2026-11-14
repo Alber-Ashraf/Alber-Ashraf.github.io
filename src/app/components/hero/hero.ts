@@ -29,9 +29,9 @@ import { ScrollRevealDirective } from '../../directives/scroll-reveal.directive'
               <span>Available for Full-Time Roles • Cairo / Remote</span>
             </div>
 
-            <!-- Headline: Alber Ashraf — Software Engineer -->
+            <!-- Headline: Alber Ashraf — Software Engineer with Fluid Typography -->
             <div class="space-y-2 mb-6">
-              <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.08]">
+              <h1 class="hero-fluid-title font-extrabold tracking-tight text-white">
                 Alber Ashraf
               </h1>
               <div class="text-2xl sm:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-indigo-400 via-cyan-300 to-violet-300 bg-clip-text text-transparent">
@@ -104,14 +104,15 @@ import { ScrollRevealDirective } from '../../directives/scroll-reveal.directive'
               </button>
             </div>
 
-            <!-- Unified Dual-CV Buttons + View Projects Anchor -->
-            <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3.5 mb-10 w-full sm:w-auto">
+            <!-- Unified Dual-CV Buttons + View Projects Anchor (Responsive Wrap & Stacking) -->
+            <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-3 mb-10 w-full sm:w-auto">
 
               <!-- 1-Page CV Button -->
-              <div class="flex items-center rounded-xl bg-slate-900/90 border border-white/10 hover:border-indigo-500/50 transition-all shadow-md group">
+              <div class="flex items-center rounded-xl bg-slate-900/90 border border-white/10 hover:border-indigo-500/50 transition-all shadow-md group w-full sm:w-auto">
                 <button
+                  type="button"
                   (click)="profileService.openCvModal('one-page')"
-                  class="flex items-center gap-2 px-3.5 py-2.5 text-xs sm:text-sm font-medium text-white hover:text-indigo-300 border-r border-white/10 rounded-l-xl transition-colors cursor-pointer"
+                  class="flex-1 sm:flex-initial flex items-center justify-center gap-2 px-3.5 py-2.5 text-xs sm:text-sm font-medium text-white hover:text-indigo-300 border-r border-white/10 rounded-l-xl transition-colors cursor-pointer min-h-[44px]"
                 >
                   <svg class="w-4 h-4 text-indigo-400 group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -123,7 +124,7 @@ import { ScrollRevealDirective } from '../../directives/scroll-reveal.directive'
                   href="assets/cv/Alber_Ashraf_CV_OnePage.pdf"
                   download="Alber_Ashraf_CV_OnePage.pdf"
                   (click)="toastService.show('Downloading 1-Page Executive CV...', 'info')"
-                  class="px-2.5 py-2.5 hover:bg-white/5 rounded-r-xl transition-colors text-slate-400 hover:text-white"
+                  class="px-3 py-2.5 hover:bg-white/5 rounded-r-xl transition-colors text-slate-400 hover:text-white flex items-center justify-center min-h-[44px]"
                   title="Download 1-Page PDF"
                 >
                   <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -133,10 +134,11 @@ import { ScrollRevealDirective } from '../../directives/scroll-reveal.directive'
               </div>
 
               <!-- Detailed CV Button -->
-              <div class="flex items-center rounded-xl bg-slate-900/90 border border-white/10 hover:border-indigo-500/50 transition-all shadow-md group">
+              <div class="flex items-center rounded-xl bg-slate-900/90 border border-white/10 hover:border-indigo-500/50 transition-all shadow-md group w-full sm:w-auto">
                 <button
+                  type="button"
                   (click)="profileService.openCvModal('detailed')"
-                  class="flex items-center gap-2 px-3.5 py-2.5 text-xs sm:text-sm font-medium text-white hover:text-indigo-300 border-r border-white/10 rounded-l-xl transition-colors cursor-pointer"
+                  class="flex-1 sm:flex-initial flex items-center justify-center gap-2 px-3.5 py-2.5 text-xs sm:text-sm font-medium text-white hover:text-indigo-300 border-r border-white/10 rounded-l-xl transition-colors cursor-pointer min-h-[44px]"
                 >
                   <svg class="w-4 h-4 text-indigo-400 group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -147,7 +149,7 @@ import { ScrollRevealDirective } from '../../directives/scroll-reveal.directive'
                   href="assets/cv/Alber_Ashraf_CV_Detailed.pdf"
                   download="Alber_Ashraf_CV_Detailed.pdf"
                   (click)="toastService.show('Downloading 2-Page Detailed CV...', 'info')"
-                  class="px-2.5 py-2.5 hover:bg-white/5 rounded-r-xl transition-colors text-slate-400 hover:text-white"
+                  class="px-3 py-2.5 hover:bg-white/5 rounded-r-xl transition-colors text-slate-400 hover:text-white flex items-center justify-center min-h-[44px]"
                   title="Download Detailed PDF"
                 >
                   <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -159,7 +161,7 @@ import { ScrollRevealDirective } from '../../directives/scroll-reveal.directive'
               <!-- View Projects Link -->
               <a
                 href="#projects"
-                class="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/10 text-xs sm:text-sm font-medium transition-colors"
+                class="flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/10 text-xs sm:text-sm font-medium transition-colors w-full sm:w-auto min-h-[44px]"
               >
                 <span>View Projects (9)</span>
                 <svg class="w-4 h-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -205,9 +207,9 @@ import { ScrollRevealDirective } from '../../directives/scroll-reveal.directive'
             <!-- Subtle Soft Ambient Glow -->
             <div class="absolute w-64 sm:w-72 h-72 sm:h-80 rounded-full bg-indigo-600/15 blur-3xl pointer-events-none -z-10"></div>
 
-            <!-- Balanced Executive Portrait Container (max-width: 280px mobile, 340px desktop) -->
+            <!-- Balanced Executive Portrait Container (max-width: 240px mobile, 300px tablet, 340px desktop) -->
             <div
-              class="relative w-full max-w-[280px] sm:max-w-[340px] aspect-[4/5] rounded-2xl overflow-hidden glass-card p-2 shadow-2xl border border-white/10 flex flex-col mx-auto"
+              class="relative w-full max-w-[240px] sm:max-w-[300px] lg:max-w-[340px] aspect-[4/5] rounded-2xl overflow-hidden glass-card p-2 shadow-2xl border border-white/10 flex flex-col mx-auto"
               appSpotlightTilt
               [maxTilt]="4"
             >

@@ -16,7 +16,7 @@ interface Particle {
   imports: [],
   template: `
     <div class="fixed inset-0 z-0 overflow-hidden pointer-events-none select-none">
-      <!-- Ambient Aurora Glow Meshes -->
+      <!-- Ambient Aurora Glow Meshes with Hardware Acceleration -->
       <div
         class="absolute -top-[25%] -left-[10%] w-[60vw] h-[60vw] rounded-full bg-gradient-to-br from-indigo-600/15 via-violet-600/10 to-transparent blur-[120px] transition-transform duration-1000 ease-out will-change-transform"
         [style.transform]="'translate3d(' + mouseX * 0.03 + 'px, ' + (mouseY * 0.03 + scrollOffset * 0.05) + 'px, 0)'"
@@ -32,10 +32,10 @@ interface Particle {
         [style.transform]="'translate3d(' + mouseX * 0.015 + 'px, ' + (mouseY * 0.015 + scrollOffset * 0.03) + 'px, 0)'"
       ></div>
 
-      <!-- Perspective Architectural Blueprint Grid -->
+      <!-- Perspective Architectural Blueprint Grid with subtle scroll reactive parallax -->
       <div
         class="absolute inset-0 opacity-[0.025] bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:48px_48px] will-change-transform"
-        [style.transform]="'translate3d(' + mouseX * 0.01 + 'px, ' + (mouseY * 0.01 + (scrollOffset % 48)) + 'px, 0)'"
+        [style.transform]="'translate3d(' + mouseX * 0.01 + 'px, ' + (mouseY * 0.01 + ((scrollOffset + scrollVelocity * 0.2) % 48)) + 'px, 0)'"
       ></div>
 
       <!-- Interactive Particle Constellation Canvas -->
@@ -49,25 +49,32 @@ export class AnimatedBackgroundComponent implements OnInit, OnDestroy {
   mouseX = 0;
   mouseY = 0;
   scrollOffset = 0;
+  scrollVelocity = 0;
 
   private ctx: CanvasRenderingContext2D | null = null;
   private animationFrameId: number | null = null;
   private particles: Particle[] = [];
-  private numParticles = 48;
-  private maxConnectionDist = 110;
+  private numParticles = 44;
+  private maxConnectionDist = 115;
   private width = 0;
   private height = 0;
   private isDestroyed = false;
+  private lastScrollY = 0;
+  private isTouchDevice = false;
 
   constructor(private ngZone: NgZone) {}
 
   ngOnInit(): void {
     if (typeof window === 'undefined') return;
 
-    // Check prefers-reduced-motion
+    this.isTouchDevice = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
     if (prefersReducedMotion) {
-      this.numParticles = 20;
+      this.numParticles = 16;
+    } else if (this.isTouchDevice) {
+      this.numParticles = 22; // Keep mobile lightweight and 60fps locked
+      this.maxConnectionDist = 85;
     }
 
     this.initCanvas();
@@ -82,6 +89,7 @@ export class AnimatedBackgroundComponent implements OnInit, OnDestroy {
 
   @HostListener('window:mousemove', ['$event'])
   onMouseMove(e: MouseEvent): void {
+    if (this.isTouchDevice) return;
     this.mouseX = e.clientX - this.width / 2;
     this.mouseY = e.clientY - this.height / 2;
   }
@@ -89,7 +97,10 @@ export class AnimatedBackgroundComponent implements OnInit, OnDestroy {
   @HostListener('window:scroll')
   onScroll(): void {
     if (typeof window !== 'undefined') {
-      this.scrollOffset = window.scrollY;
+      const currentScroll = window.scrollY;
+      this.scrollVelocity = (currentScroll - this.lastScrollY) * 0.6;
+      this.lastScrollY = currentScroll;
+      this.scrollOffset = currentScroll;
     }
   }
 
@@ -121,16 +132,16 @@ export class AnimatedBackgroundComponent implements OnInit, OnDestroy {
 
   private initParticles(): void {
     this.particles = [];
-    const count = Math.min(this.numParticles, Math.floor((this.width * this.height) / 25000));
+    const count = Math.min(this.numParticles, Math.floor((this.width * this.height) / (this.isTouchDevice ? 32000 : 22000)));
 
     for (let i = 0; i < count; i++) {
       const alpha = Math.random() * 0.35 + 0.15;
       this.particles.push({
         x: Math.random() * this.width,
         y: Math.random() * this.height,
-        vx: (Math.random() - 0.5) * 0.45,
-        vy: (Math.random() - 0.5) * 0.45,
-        radius: Math.random() * 1.5 + 0.8,
+        vx: (Math.random() - 0.5) * 0.4,
+        vy: (Math.random() - 0.5) * 0.4,
+        radius: Math.random() * 1.5 + 0.7,
         alpha: alpha,
         baseAlpha: alpha
       });
@@ -142,6 +153,10 @@ export class AnimatedBackgroundComponent implements OnInit, OnDestroy {
 
     this.ctx.clearRect(0, 0, this.width, this.height);
 
+    // Decay scroll velocity smoothly
+    this.scrollVelocity *= 0.92;
+    const velocityOffset = Math.max(-3, Math.min(3, this.scrollVelocity * 0.08));
+
     const mouseAbsX = this.mouseX + this.width / 2;
     const mouseAbsY = this.mouseY + this.height / 2;
 
@@ -150,7 +165,7 @@ export class AnimatedBackgroundComponent implements OnInit, OnDestroy {
       const p = this.particles[i];
 
       p.x += p.vx;
-      p.y += p.vy;
+      p.y += p.vy - velocityOffset;
 
       // Wrap around bounds
       if (p.x < 0) p.x = this.width;
@@ -158,15 +173,17 @@ export class AnimatedBackgroundComponent implements OnInit, OnDestroy {
       if (p.y < 0) p.y = this.height;
       if (p.y > this.height) p.y = 0;
 
-      // Mouse interactivity: gentle attraction/proximity brightening
-      const dx = mouseAbsX - p.x;
-      const dy = mouseAbsY - p.y;
-      const dist = Math.sqrt(dx * dx + dy * dy);
-      if (dist < 130) {
-        const force = (130 - dist) / 130;
-        p.alpha = Math.min(0.8, p.baseAlpha + force * 0.4);
-      } else {
-        p.alpha = p.baseAlpha;
+      // Mouse proximity interaction on non-touch screens
+      if (!this.isTouchDevice) {
+        const dx = mouseAbsX - p.x;
+        const dy = mouseAbsY - p.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 130) {
+          const force = (130 - dist) / 130;
+          p.alpha = Math.min(0.85, p.baseAlpha + force * 0.45);
+        } else {
+          p.alpha = p.baseAlpha;
+        }
       }
 
       // Draw particle dot
@@ -181,7 +198,7 @@ export class AnimatedBackgroundComponent implements OnInit, OnDestroy {
         const dist2 = Math.hypot(p.x - p2.x, p.y - p2.y);
 
         if (dist2 < this.maxConnectionDist) {
-          const lineAlpha = (1 - dist2 / this.maxConnectionDist) * 0.14;
+          const lineAlpha = (1 - dist2 / this.maxConnectionDist) * 0.15;
           this.ctx.beginPath();
           this.ctx.moveTo(p.x, p.y);
           this.ctx.lineTo(p2.x, p2.y);

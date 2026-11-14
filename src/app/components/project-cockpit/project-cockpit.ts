@@ -9,7 +9,7 @@ export type CockpitTab = 'product' | 'modules' | 'architecture' | 'tech';
   imports: [],
   template: `
     @if (profileService.isCockpitOpen() && profileService.selectedProject(); as p) {
-      <div class="fixed inset-0 z-50 overflow-hidden flex justify-end">
+      <div class="fixed inset-0 z-50 overflow-hidden flex items-end md:items-stretch justify-end">
 
         <!-- Backdrop with Blur -->
         <div
@@ -17,18 +17,22 @@ export type CockpitTab = 'product' | 'modules' | 'architecture' | 'tech';
           (click)="profileService.closeCockpit()"
         ></div>
 
-        <!-- Slide-Over Drawer Container -->
+        <!-- Slide-Over Drawer / 92vh Mobile Bottom Sheet Container -->
         <div
-          class="relative w-full max-w-4xl bg-slate-950 border-l border-white/10 shadow-2xl flex flex-col h-full z-10 overflow-hidden animate-in slide-in-from-right duration-300"
+          class="relative w-full max-w-4xl bg-slate-950 border-t md:border-t-0 md:border-l border-white/15 shadow-2xl flex flex-col h-[92vh] md:h-full rounded-t-2xl md:rounded-none z-10 overflow-hidden animate-in slide-in-from-bottom md:slide-in-from-right duration-300"
         >
+          <!-- Mobile Bottom-Sheet Pill Handle -->
+          <div class="w-12 h-1.5 rounded-full bg-white/20 mx-auto mt-2.5 mb-0.5 md:hidden flex-shrink-0"></div>
+
           <!-- Drawer Sticky Header -->
-          <div class="px-6 py-4 border-b border-white/10 bg-slate-900/95 backdrop-blur-xl flex flex-wrap items-center justify-between gap-3">
-            <div class="flex items-center gap-3">
-              <span class="px-2.5 py-1 rounded-md bg-indigo-500/20 text-indigo-300 font-mono text-xs border border-indigo-500/30">
-                SYSTEM // 0{{ getProjectIndex(p.id) + 1 }}
+          <div class="px-4 sm:px-6 py-3.5 sm:py-4 border-b border-white/10 bg-slate-900/95 backdrop-blur-xl flex items-center justify-between gap-2 flex-shrink-0">
+            <div class="flex items-center gap-2 min-w-0">
+              <span class="px-2 py-1 rounded-md bg-indigo-500/20 text-indigo-300 font-mono text-[11px] border border-indigo-500/30 flex-shrink-0">
+                0{{ getProjectIndex(p.id) + 1 }}
               </span>
+              <span class="font-bold text-white text-sm sm:text-base truncate">{{ p.name }}</span>
               <span
-                class="px-2.5 py-1 rounded-md text-xs font-mono border"
+                class="hidden sm:inline-block px-2.5 py-0.5 rounded-md text-[11px] font-mono border flex-shrink-0"
                 [class]="p.scope === 'Full-Stack Solution' ? 'bg-rose-500/10 text-rose-300 border-rose-500/30' : 'bg-indigo-500/10 text-indigo-300 border-indigo-500/30'"
               >
                 {{ p.scope }}
@@ -36,30 +40,25 @@ export type CockpitTab = 'product' | 'modules' | 'architecture' | 'tech';
             </div>
 
             <!-- Action Controls (Live Link, Prev, Next, Close) -->
-            <div class="flex items-center gap-2">
+            <div class="flex items-center gap-1.5 sm:gap-2 flex-shrink-0">
               @if (p.scope === 'Full-Stack Solution' && p.liveUrl) {
                 <a
                   [href]="p.liveUrl"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-mono font-semibold transition-colors shadow-sm"
+                  class="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-[11px] sm:text-xs font-mono font-semibold transition-colors shadow-sm"
                   title="Launch Live Production System"
                 >
                   <span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
-                  <span>Launch Live Product ↗</span>
+                  <span class="hidden xs:inline">Live</span>
+                  <span>↗</span>
                 </a>
-              } @else {
-                <div class="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-slate-400 text-xs font-mono">
-                  <svg class="w-3.5 h-3.5 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                  </svg>
-                  <span>{{ p.scope === 'Full-Stack Solution' ? 'Full-Stack System' : 'Private Enterprise API' }}</span>
-                </div>
               }
 
               <button
+                type="button"
                 (click)="profileService.prevProject()"
-                class="p-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 hover:text-white transition-colors"
+                class="p-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 hover:text-white transition-colors cursor-pointer"
                 title="Previous System (Left Arrow)"
               >
                 <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -67,8 +66,9 @@ export type CockpitTab = 'product' | 'modules' | 'architecture' | 'tech';
                 </svg>
               </button>
               <button
+                type="button"
                 (click)="profileService.nextProject()"
-                class="p-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 hover:text-white transition-colors"
+                class="p-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 hover:text-white transition-colors cursor-pointer"
                 title="Next System (Right Arrow)"
               >
                 <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -76,53 +76,70 @@ export type CockpitTab = 'product' | 'modules' | 'architecture' | 'tech';
                 </svg>
               </button>
               <button
+                type="button"
                 (click)="profileService.closeCockpit()"
-                class="p-2 rounded-lg bg-white/5 hover:bg-rose-500/20 hover:text-rose-400 border border-white/10 text-slate-400 transition-colors ml-1"
+                class="px-2.5 py-1.5 rounded-lg bg-rose-500/15 hover:bg-rose-500/30 text-rose-300 hover:text-white border border-rose-500/30 transition-colors ml-0.5 font-mono text-xs font-bold flex items-center gap-1 cursor-pointer"
                 title="Close (ESC)"
               >
-                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                </svg>
+                <span>Close</span>
+                <span>✕</span>
               </button>
             </div>
           </div>
 
           <!-- Drawer Scrollable Body -->
-          <div class="flex-1 overflow-y-auto p-6 sm:p-8 space-y-8">
+          <div class="flex-1 overflow-y-auto p-5 sm:p-8 space-y-6 sm:space-y-8">
 
             <!-- Title & Quick Summary Header -->
             <div>
-              <h3 class="text-3xl font-extrabold text-white tracking-tight mb-1">{{ p.name }}</h3>
-              <p class="text-indigo-300 font-mono text-sm mb-3">{{ p.subtitle }}</p>
+              <div class="flex flex-wrap items-center gap-2 mb-2">
+                <h3 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">{{ p.name }}</h3>
+                @if (p.scope === 'Full-Stack Solution' && p.liveUrl) {
+                  <a
+                    [href]="p.liveUrl"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 text-xs font-mono hover:bg-emerald-500/25 transition-all"
+                  >
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+                    <span>Launch Live Product ↗</span>
+                  </a>
+                }
+              </div>
+              <p class="text-indigo-300 font-mono text-xs sm:text-sm mb-3">{{ p.subtitle }}</p>
               <p class="text-slate-300 text-sm sm:text-base leading-relaxed">{{ p.productOverview || p.summary }}</p>
             </div>
 
-            <!-- Segmented Content Tabs (Product & System Case Study Structure) -->
-            <div class="border-b border-white/10 flex flex-wrap gap-2 font-mono text-xs">
+            <!-- Horizontally Scrollable Content Tabs -->
+            <div class="border-b border-white/10 flex overflow-x-auto no-scrollbar whitespace-nowrap gap-2 font-mono text-xs">
               <button
+                type="button"
                 (click)="activeTab.set('product')"
-                class="pb-3 px-3.5 border-b-2 transition-all font-semibold"
+                class="pb-3 px-3.5 border-b-2 transition-all font-semibold flex-shrink-0 cursor-pointer"
                 [class]="activeTab() === 'product' ? 'border-indigo-500 text-white' : 'border-transparent text-slate-400 hover:text-slate-200'"
               >
                 1. Product & Business Value
               </button>
               <button
+                type="button"
                 (click)="activeTab.set('modules')"
-                class="pb-3 px-3.5 border-b-2 transition-all font-semibold"
+                class="pb-3 px-3.5 border-b-2 transition-all font-semibold flex-shrink-0 cursor-pointer"
                 [class]="activeTab() === 'modules' ? 'border-indigo-500 text-white' : 'border-transparent text-slate-400 hover:text-slate-200'"
               >
                 2. Key Product Modules ({{ (p.keyModules || []).length }})
               </button>
               <button
+                type="button"
                 (click)="activeTab.set('architecture')"
-                class="pb-3 px-3.5 border-b-2 transition-all font-semibold"
+                class="pb-3 px-3.5 border-b-2 transition-all font-semibold flex-shrink-0 cursor-pointer"
                 [class]="activeTab() === 'architecture' ? 'border-indigo-500 text-white' : 'border-transparent text-slate-400 hover:text-slate-200'"
               >
                 3. System Architecture
               </button>
               <button
+                type="button"
                 (click)="activeTab.set('tech')"
-                class="pb-3 px-3.5 border-b-2 transition-all font-semibold"
+                class="pb-3 px-3.5 border-b-2 transition-all font-semibold flex-shrink-0 cursor-pointer"
                 [class]="activeTab() === 'tech' ? 'border-indigo-500 text-white' : 'border-transparent text-slate-400 hover:text-slate-200'"
               >
                 4. Tech Stack ({{ p.technologies.length }})
@@ -214,57 +231,85 @@ export type CockpitTab = 'product' | 'modules' | 'architecture' | 'tech';
             @if (activeTab() === 'architecture') {
               <div class="space-y-6">
 
-                <!-- Live Animated Architectural Flow Vector Diagram -->
+                <!-- Live Interactive Architectural Flow Vector Diagram -->
                 <div class="w-full rounded-2xl bg-slate-950/90 border border-white/10 p-4 shadow-xl">
                   <div class="flex items-center justify-between mb-3 text-xs font-mono">
-                    <span class="text-cyan-400 uppercase tracking-wider font-semibold">System Pipeline Blueprint</span>
+                    <span class="text-cyan-400 uppercase tracking-wider font-semibold">Interactive Pipeline Blueprint (Click Node to Inspect)</span>
                     <span class="text-emerald-400 flex items-center gap-1.5 text-[11px]">
                       <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-                      Verified Inward Direction
+                      Live Flow
                     </span>
                   </div>
 
-                  <div class="h-24 w-full bg-slate-900/60 rounded-xl border border-white/5 p-2 flex items-center justify-between overflow-x-auto">
+                  <div class="h-24 w-full bg-slate-900/60 rounded-xl border border-white/5 p-2 flex items-center justify-between overflow-x-auto no-scrollbar">
                     <svg class="w-full min-w-[500px] h-full" viewBox="0 0 520 70" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <!-- Stage 1: Client / Public API Entry -->
-                      <g transform="translate(10, 8)">
-                        <rect width="100" height="54" rx="8" fill="#0B0F19" stroke="#06B6D4" stroke-width="1.2" />
-                        <text x="50" y="24" fill="#06B6D4" font-size="9" font-family="monospace" text-anchor="middle" font-weight="bold">ENTRY / CLIENT</text>
-                        <text x="50" y="38" fill="#94A3B8" font-size="8" font-family="monospace" text-anchor="middle">Angular / API Gate</text>
-                        <circle cx="12" cy="18" r="2" fill="#06B6D4" />
+                      <g transform="translate(10, 8)" (click)="selectedLayerIndex.set(0)" class="cursor-pointer">
+                        <rect
+                          width="100"
+                          height="54"
+                          rx="8"
+                          [attr.fill]="selectedLayerIndex() === 0 ? '#082f49' : '#0B0F19'"
+                          [attr.stroke]="selectedLayerIndex() === 0 ? '#38BDF8' : '#06B6D4'"
+                          [attr.stroke-width]="selectedLayerIndex() === 0 ? '2.2' : '1.2'"
+                        />
+                        <text x="50" y="24" fill="#06B6D4" font-size="9" font-family="monospace" text-anchor="middle" font-weight="bold">01 ENTRY / UI</text>
+                        <text x="50" y="38" fill="#E2E8F0" font-size="7.5" font-family="monospace" text-anchor="middle">Client / API Gate</text>
+                        <circle cx="12" cy="18" r="2.5" fill="#06B6D4" />
                       </g>
 
                       <!-- Connector 1 -->
-                      <line x1="110" y1="35" x2="145" y2="35" stroke="#06B6D4" stroke-width="1.5" class="animate-data-flow" />
+                      <line x1="110" y1="35" x2="145" y2="35" stroke="#06B6D4" stroke-width="1.8" class="animate-data-flow" />
 
                       <!-- Stage 2: Application / MediatR CQRS -->
-                      <g transform="translate(145, 8)">
-                        <rect width="105" height="54" rx="8" fill="#0B0F19" stroke="#6366F1" stroke-width="1.2" />
-                        <text x="52" y="24" fill="#6366F1" font-size="9" font-family="monospace" text-anchor="middle" font-weight="bold">APPLICATION</text>
-                        <text x="52" y="38" fill="#94A3B8" font-size="8" font-family="monospace" text-anchor="middle">MediatR CQRS Handlers</text>
-                        <circle cx="12" cy="18" r="2" fill="#6366F1" />
+                      <g transform="translate(145, 8)" (click)="selectedLayerIndex.set(1)" class="cursor-pointer">
+                        <rect
+                          width="105"
+                          height="54"
+                          rx="8"
+                          [attr.fill]="selectedLayerIndex() === 1 ? '#1e1b4b' : '#0B0F19'"
+                          [attr.stroke]="selectedLayerIndex() === 1 ? '#818CF8' : '#6366F1'"
+                          [attr.stroke-width]="selectedLayerIndex() === 1 ? '2.2' : '1.2'"
+                        />
+                        <text x="52" y="24" fill="#818CF8" font-size="9" font-family="monospace" text-anchor="middle" font-weight="bold">02 APPLICATION</text>
+                        <text x="52" y="38" fill="#E2E8F0" font-size="7.5" font-family="monospace" text-anchor="middle">CQRS &amp; Handlers</text>
+                        <circle cx="12" cy="18" r="2.5" fill="#6366F1" />
                       </g>
 
                       <!-- Connector 2 -->
-                      <line x1="250" y1="35" x2="285" y2="35" stroke="#6366F1" stroke-width="1.5" class="animate-data-flow" />
+                      <line x1="250" y1="35" x2="285" y2="35" stroke="#6366F1" stroke-width="1.8" class="animate-data-flow" />
 
                       <!-- Stage 3: Domain Core Entities -->
-                      <g transform="translate(285, 8)">
-                        <rect width="105" height="54" rx="8" fill="#0B0F19" stroke="#8B5CF6" stroke-width="1.5" />
-                        <text x="52" y="24" fill="#8B5CF6" font-size="9" font-family="monospace" text-anchor="middle" font-weight="bold">DOMAIN CORE</text>
-                        <text x="52" y="38" fill="#94A3B8" font-size="8" font-family="monospace" text-anchor="middle">Aggregates &amp; Rules</text>
+                      <g transform="translate(285, 8)" (click)="selectedLayerIndex.set(2)" class="cursor-pointer">
+                        <rect
+                          width="105"
+                          height="54"
+                          rx="8"
+                          [attr.fill]="selectedLayerIndex() === 2 ? '#2e1065' : '#0B0F19'"
+                          [attr.stroke]="selectedLayerIndex() === 2 ? '#C084FC' : '#8B5CF6'"
+                          [attr.stroke-width]="selectedLayerIndex() === 2 ? '2.2' : '1.5'"
+                        />
+                        <text x="52" y="24" fill="#C084FC" font-size="9" font-family="monospace" text-anchor="middle" font-weight="bold">03 DOMAIN CORE</text>
+                        <text x="52" y="38" fill="#E2E8F0" font-size="7.5" font-family="monospace" text-anchor="middle">Aggregates &amp; Rules</text>
                         <circle cx="52" cy="46" r="3" fill="#8B5CF6" class="animate-ping" />
                       </g>
 
                       <!-- Connector 3 -->
-                      <line x1="390" y1="35" x2="425" y2="35" stroke="#10B981" stroke-width="1.5" class="animate-data-flow" />
+                      <line x1="390" y1="35" x2="425" y2="35" stroke="#10B981" stroke-width="1.8" class="animate-data-flow" />
 
                       <!-- Stage 4: Infrastructure & Storage -->
-                      <g transform="translate(425, 8)">
-                        <rect width="85" height="54" rx="8" fill="#0B0F19" stroke="#10B981" stroke-width="1.2" />
-                        <text x="42" y="24" fill="#10B981" font-size="9" font-family="monospace" text-anchor="middle" font-weight="bold">STORAGE</text>
-                        <text x="42" y="38" fill="#94A3B8" font-size="8" font-family="monospace" text-anchor="middle">SQL / Redis / S3</text>
-                        <circle cx="12" cy="18" r="2" fill="#10B981" />
+                      <g transform="translate(425, 8)" (click)="selectedLayerIndex.set(3)" class="cursor-pointer">
+                        <rect
+                          width="85"
+                          height="54"
+                          rx="8"
+                          [attr.fill]="selectedLayerIndex() === 3 ? '#064e3b' : '#0B0F19'"
+                          [attr.stroke]="selectedLayerIndex() === 3 ? '#34D399' : '#10B981'"
+                          [attr.stroke-width]="selectedLayerIndex() === 3 ? '2.2' : '1.2'"
+                        />
+                        <text x="42" y="24" fill="#34D399" font-size="9" font-family="monospace" text-anchor="middle" font-weight="bold">04 DATA/CLOUD</text>
+                        <text x="42" y="38" fill="#E2E8F0" font-size="7.5" font-family="monospace" text-anchor="middle">SQL / Redis / S3</text>
+                        <circle cx="12" cy="18" r="2.5" fill="#10B981" />
                       </g>
                     </svg>
                   </div>

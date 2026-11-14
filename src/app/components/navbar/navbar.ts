@@ -132,10 +132,11 @@ import { BrandLogoComponent } from '../brand-logo/brand-logo';
             <span>CV</span>
           </button>
 
-          <!-- Mobile Hamburger Toggle -->
+          <!-- Mobile Hamburger Toggle (Min 44px Touch Target) -->
           <button
+            type="button"
             (click)="isMobileMenuOpen.set(!isMobileMenuOpen())"
-            class="lg:hidden p-2 rounded-xl bg-white/5 border border-white/10 text-slate-300 hover:text-white transition-colors"
+            class="lg:hidden min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl bg-white/5 border border-white/10 text-slate-300 hover:text-white transition-colors cursor-pointer"
             aria-label="Toggle mobile menu"
           >
             <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -163,7 +164,7 @@ import { BrandLogoComponent } from '../brand-logo/brand-logo';
           <button
             type="button"
             (click)="scrollToSection('hero', $event)"
-            class="w-full text-left px-3 py-2 rounded-xl hover:bg-white/5 text-slate-200 flex items-center justify-between transition-colors cursor-pointer"
+            class="w-full min-h-[44px] text-left px-3.5 py-2.5 rounded-xl hover:bg-white/5 text-slate-200 flex items-center justify-between transition-colors cursor-pointer"
             [class]="activeSection() === 'hero' ? 'bg-indigo-500/20 text-indigo-300 border border-indigo-500/30' : ''"
           >
             <span>01 // Overview</span>
@@ -172,7 +173,7 @@ import { BrandLogoComponent } from '../brand-logo/brand-logo';
           <button
             type="button"
             (click)="scrollToSection('about', $event)"
-            class="w-full text-left px-3 py-2 rounded-xl hover:bg-white/5 text-slate-200 flex items-center justify-between transition-colors cursor-pointer"
+            class="w-full min-h-[44px] text-left px-3.5 py-2.5 rounded-xl hover:bg-white/5 text-slate-200 flex items-center justify-between transition-colors cursor-pointer"
             [class]="activeSection() === 'about' ? 'bg-indigo-500/20 text-indigo-300 border border-indigo-500/30' : ''"
           >
             <span>02 // Capabilities</span>
@@ -181,7 +182,7 @@ import { BrandLogoComponent } from '../brand-logo/brand-logo';
           <button
             type="button"
             (click)="scrollToSection('skills', $event)"
-            class="w-full text-left px-3 py-2 rounded-xl hover:bg-white/5 text-slate-200 flex items-center justify-between transition-colors cursor-pointer"
+            class="w-full min-h-[44px] text-left px-3.5 py-2.5 rounded-xl hover:bg-white/5 text-slate-200 flex items-center justify-between transition-colors cursor-pointer"
             [class]="activeSection() === 'skills' ? 'bg-indigo-500/20 text-indigo-300 border border-indigo-500/30' : ''"
           >
             <span>03 // Technical Skills</span>
@@ -190,7 +191,7 @@ import { BrandLogoComponent } from '../brand-logo/brand-logo';
           <button
             type="button"
             (click)="scrollToSection('experience', $event)"
-            class="w-full text-left px-3 py-2 rounded-xl hover:bg-white/5 text-slate-200 flex items-center justify-between transition-colors cursor-pointer"
+            class="w-full min-h-[44px] text-left px-3.5 py-2.5 rounded-xl hover:bg-white/5 text-slate-200 flex items-center justify-between transition-colors cursor-pointer"
             [class]="activeSection() === 'experience' ? 'bg-indigo-500/20 text-indigo-300 border border-indigo-500/30' : ''"
           >
             <span>04 // Work Experience</span>
@@ -199,7 +200,7 @@ import { BrandLogoComponent } from '../brand-logo/brand-logo';
           <button
             type="button"
             (click)="scrollToSection('projects', $event)"
-            class="w-full text-left px-3 py-2 rounded-xl hover:bg-white/5 text-slate-200 flex items-center justify-between transition-colors cursor-pointer"
+            class="w-full min-h-[44px] text-left px-3.5 py-2.5 rounded-xl hover:bg-white/5 text-slate-200 flex items-center justify-between transition-colors cursor-pointer"
             [class]="activeSection() === 'projects' ? 'bg-indigo-500/20 text-indigo-300 border border-indigo-500/30' : ''"
           >
             <span>05 // Featured Projects</span>
@@ -208,7 +209,7 @@ import { BrandLogoComponent } from '../brand-logo/brand-logo';
           <button
             type="button"
             (click)="scrollToSection('education', $event)"
-            class="w-full text-left px-3 py-2 rounded-xl hover:bg-white/5 text-slate-200 flex items-center justify-between transition-colors cursor-pointer"
+            class="w-full min-h-[44px] text-left px-3.5 py-2.5 rounded-xl hover:bg-white/5 text-slate-200 flex items-center justify-between transition-colors cursor-pointer"
             [class]="activeSection() === 'education' ? 'bg-indigo-500/20 text-indigo-300 border border-indigo-500/30' : ''"
           >
             <span>06 // Education & Certs</span>
@@ -217,7 +218,7 @@ import { BrandLogoComponent } from '../brand-logo/brand-logo';
           <button
             type="button"
             (click)="scrollToSection('contact', $event)"
-            class="w-full text-left px-3 py-2 rounded-xl hover:bg-white/5 text-slate-200 flex items-center justify-between transition-colors cursor-pointer"
+            class="w-full min-h-[44px] text-left px-3.5 py-2.5 rounded-xl hover:bg-white/5 text-slate-200 flex items-center justify-between transition-colors cursor-pointer"
             [class]="activeSection() === 'contact' ? 'bg-indigo-500/20 text-indigo-300 border border-indigo-500/30' : ''"
           >
             <span>07 // Contact</span>

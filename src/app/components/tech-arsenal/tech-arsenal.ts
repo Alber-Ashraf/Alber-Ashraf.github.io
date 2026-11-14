@@ -28,7 +28,7 @@ export interface SkillCategoryGroup {
           <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 font-mono text-xs uppercase tracking-widest mb-3">
             Core Competencies
           </div>
-          <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+          <h2 class="section-fluid-title font-extrabold text-white tracking-tight">
             Technical Skills
           </h2>
           <p class="text-slate-400 text-sm sm:text-base leading-relaxed mt-3">
@@ -41,7 +41,7 @@ export interface SkillCategoryGroup {
           <div
             class="mb-8 p-4 rounded-xl bg-gradient-to-r from-indigo-950/90 via-slate-900/90 to-cyan-950/90 border border-cyan-500/40 backdrop-blur-md flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-xl"
           >
-            <div class="flex items-center gap-3">
+            <div class="flex items-center gap-3 flex-wrap">
               <span class="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse"></span>
               <span class="text-xs sm:text-sm font-mono text-slate-200">
                 Active Skill Filter: <strong class="text-cyan-300 text-sm sm:text-base font-bold">{{ activeSkill }}</strong>
@@ -55,27 +55,48 @@ export interface SkillCategoryGroup {
               <button
                 type="button"
                 (click)="scrollToProjects()"
-                class="flex-1 sm:flex-initial px-3.5 py-1.5 rounded-lg bg-cyan-600 hover:bg-cyan-500 text-white text-xs font-medium font-mono transition-colors shadow-sm cursor-pointer"
+                class="flex-1 sm:flex-initial px-3.5 py-2 rounded-lg bg-cyan-600 hover:bg-cyan-500 text-white text-xs font-medium font-mono transition-colors shadow-sm cursor-pointer"
               >
-                View Matching Projects ↓
+                View {{ getSkillCount(activeSkill) }} Projects using {{ activeSkill }} ↓
               </button>
               <button
                 type="button"
                 (click)="clearSkill()"
-                class="px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white text-xs font-mono transition-colors cursor-pointer"
+                class="px-3 py-2 rounded-lg bg-white/5 hover:bg-rose-500/20 hover:text-rose-300 text-slate-300 text-xs font-mono transition-colors cursor-pointer"
               >
-                Clear Filter ✕
+                Reset Skill Filter ✕
               </button>
             </div>
+          </div>
+
+          <!-- Floating Action Pill for Quick Jump / Reset -->
+          <div class="fixed bottom-5 left-1/2 -translate-x-1/2 z-40 w-[92vw] max-w-md p-2.5 rounded-2xl bg-slate-950/95 border border-cyan-500/50 shadow-2xl shadow-cyan-950/60 backdrop-blur-xl flex items-center justify-between gap-2 animate-in fade-in slide-in-from-bottom-4 duration-300">
+            <button
+              type="button"
+              (click)="scrollToProjects()"
+              class="flex-1 px-3 py-2 rounded-xl bg-gradient-to-r from-indigo-600 to-cyan-600 text-white text-xs font-mono font-bold flex items-center justify-center gap-2 shadow-md cursor-pointer"
+            >
+              <span class="w-2 h-2 rounded-full bg-white animate-ping"></span>
+              <span class="truncate">View {{ getSkillCount(activeSkill) }} Projects using {{ activeSkill }} ↓</span>
+            </button>
+            <button
+              type="button"
+              (click)="clearSkill()"
+              class="px-3 py-2 rounded-xl bg-white/10 hover:bg-rose-500/25 text-slate-200 hover:text-rose-200 text-xs font-mono font-semibold transition-all cursor-pointer flex-shrink-0"
+              title="Reset Skill Filter"
+            >
+              Reset ✕
+            </button>
           </div>
         }
 
         <!-- 5-Category Structured Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" appScrollReveal [revealDelay]="100">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" appScrollReveal [revealDelay]="60" [staggerChildren]="true">
 
-          @for (group of categories; track group.id) {
+          @for (group of categories; track group.id; let idx = $index) {
             <div
-              class="glass-card p-6 rounded-2xl border border-white/10 flex flex-col justify-between hover:border-white/20 transition-all shadow-xl lg:col-span-1"
+              class="glass-card p-6 rounded-2xl border border-white/10 flex flex-col justify-between hover:border-white/20 transition-all shadow-xl lg:col-span-1 stagger-item"
+              [style.--stagger-index]="idx"
               [class.md:col-span-2]="group.id === 'cloud-security'"
               appSpotlightTilt
               [maxTilt]="3"
@@ -157,6 +178,7 @@ export class TechArsenalComponent {
         'Minimal APIs',
         'ASP.NET Core MVC',
         'ASP.NET Web Forms',
+        'SignalR',
         'Entity Framework Core',
         'Dapper',
         'ADO.NET',

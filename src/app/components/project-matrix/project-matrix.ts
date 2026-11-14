@@ -22,7 +22,7 @@ import { ProjectItem } from '../../models/profile.model';
             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 font-mono text-xs uppercase tracking-widest mb-3">
               Production Software
             </div>
-            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+            <h2 class="section-fluid-title font-extrabold text-white tracking-tight">
               Featured Projects
             </h2>
             <p class="text-slate-400 text-sm sm:text-base max-w-2xl mt-3">
@@ -31,13 +31,13 @@ import { ProjectItem } from '../../models/profile.model';
           </div>
 
           <!-- Strictly 3 Filter Tabs: All (9), Full-Stack (5), Backend (4) -->
-          <div class="grid grid-cols-3 sm:flex sm:flex-wrap gap-1.5 sm:gap-2 p-1.5 rounded-2xl bg-slate-900/90 border border-white/10 shadow-xl font-mono text-xs w-full sm:w-auto">
+          <div class="flex overflow-x-auto no-scrollbar gap-1.5 sm:gap-2 p-1.5 rounded-2xl bg-slate-900/90 border border-white/10 shadow-xl font-mono text-xs w-full sm:w-auto">
 
             <!-- All Projects (9) -->
             <button
               type="button"
               (click)="profileService.setFilter('all')"
-              class="flex-1 sm:flex-initial px-4 py-2 rounded-xl transition-all flex items-center justify-center gap-2 cursor-pointer"
+              class="flex-shrink-0 px-4 py-2 rounded-xl transition-all flex items-center justify-center gap-2 cursor-pointer"
               [class]="activeFilter() === 'all' ?
                 'bg-indigo-600 text-white font-bold shadow-md shadow-indigo-600/30' :
                 'text-slate-400 hover:text-white hover:bg-white/5'"
@@ -52,7 +52,7 @@ import { ProjectItem } from '../../models/profile.model';
             <button
               type="button"
               (click)="profileService.setFilter('fullstack')"
-              class="flex-1 sm:flex-initial px-4 py-2 rounded-xl transition-all flex items-center justify-center gap-2 cursor-pointer"
+              class="flex-shrink-0 px-4 py-2 rounded-xl transition-all flex items-center justify-center gap-2 cursor-pointer"
               [class]="activeFilter() === 'fullstack' ?
                 'bg-rose-600 text-white font-bold shadow-md shadow-rose-600/30' :
                 'text-slate-400 hover:text-white hover:bg-white/5'"
@@ -67,7 +67,7 @@ import { ProjectItem } from '../../models/profile.model';
             <button
               type="button"
               (click)="profileService.setFilter('backend')"
-              class="flex-1 sm:flex-initial px-4 py-2 rounded-xl transition-all flex items-center justify-center gap-2 cursor-pointer"
+              class="flex-shrink-0 px-4 py-2 rounded-xl transition-all flex items-center justify-center gap-2 cursor-pointer"
               [class]="activeFilter() === 'backend' ?
                 'bg-cyan-600 text-white font-bold shadow-md shadow-cyan-600/30' :
                 'text-slate-400 hover:text-white hover:bg-white/5'"
@@ -114,14 +114,15 @@ import { ProjectItem } from '../../models/profile.model';
           </div>
         }
 
-        <!-- Projects Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" appScrollReveal [revealDelay]="100">
+        <!-- Projects Grid with Cascading Staggered Reveals -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" appScrollReveal [revealDelay]="60" [staggerChildren]="true">
 
           @for (p of filteredProjects(); track p.id; let idx = $index) {
             <div
-              class="glass-card p-6 sm:p-7 rounded-2xl border border-white/10 hover:border-white/20 flex flex-col justify-between group transition-all duration-300 shadow-xl"
+              class="glass-card p-6 sm:p-7 rounded-2xl border border-white/10 hover:border-white/20 flex flex-col justify-between group transition-all duration-300 shadow-xl stagger-item"
+              [style.--stagger-index]="idx"
               appSpotlightTilt
-              [maxTilt]="4"
+              [maxTilt]="3"
             >
               <div>
                 <!-- Top Card Meta Header: System # & Scope Badge -->
@@ -141,117 +142,47 @@ import { ProjectItem } from '../../models/profile.model';
                   </span>
                 </div>
 
-                <!-- Live Animated Architecture Flow Vector Diagram -->
-                <div class="w-full h-16 rounded-xl bg-slate-950/80 border border-white/5 mb-4 px-3 py-2 flex items-center justify-between overflow-hidden relative group-hover:border-indigo-500/30 transition-colors">
-                  @if (p.scope === 'Full-Stack Solution') {
-                    <!-- Full-Stack 3-Stage Vector: Client UI -> API Core -> Cloud DB -->
-                    <div class="flex items-center justify-between w-full font-mono text-[9px] text-slate-400">
-                      <!-- Stage 1: Client UI -->
-                      <div class="flex flex-col items-center">
-                        <div class="w-7 h-7 rounded-lg bg-rose-500/15 border border-rose-500/30 flex items-center justify-center text-rose-300">
-                          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                          </svg>
-                        </div>
-                        <span class="text-[8.5px] text-rose-300 mt-1">Client UI</span>
-                      </div>
-
-                      <!-- Flow Stream 1 -->
-                      <div class="flex-1 mx-2 relative flex items-center">
-                        <div class="w-full h-[1.5px] bg-gradient-to-r from-rose-500 to-indigo-500 opacity-60"></div>
-                        <div class="absolute w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping left-1/2 -translate-x-1/2"></div>
-                      </div>
-
-                      <!-- Stage 2: Web API -->
-                      <div class="flex flex-col items-center">
-                        <div class="w-7 h-7 rounded-lg bg-indigo-500/15 border border-indigo-500/30 flex items-center justify-center text-indigo-300">
-                          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" />
-                          </svg>
-                        </div>
-                        <span class="text-[8.5px] text-indigo-300 mt-1">.NET Core</span>
-                      </div>
-
-                      <!-- Flow Stream 2 -->
-                      <div class="flex-1 mx-2 relative flex items-center">
-                        <div class="w-full h-[1.5px] bg-gradient-to-r from-indigo-500 to-emerald-500 opacity-60"></div>
-                        <div class="absolute w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping left-1/2 -translate-x-1/2" style="animation-delay: 0.5s;"></div>
-                      </div>
-
-                      <!-- Stage 3: Persistence -->
-                      <div class="flex flex-col items-center">
-                        <div class="w-7 h-7 rounded-lg bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-300">
-                          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2 1.5 3 3.5 3h9c2 0 3.5-1 3.5-3V7c0-2-1.5-3-3.5-3h-9C5.5 4 4 5 4 7zm0 5c0 2 1.5 3 3.5 3h9c2 0 3.5-1 3.5-3" />
-                          </svg>
-                        </div>
-                        <span class="text-[8.5px] text-emerald-300 mt-1">SQL / S3</span>
-                      </div>
-                    </div>
-                  } @else {
-                    <!-- Backend Architecture 3-Stage Vector: API Gateway -> CQRS Engine -> Storage Cluster -->
-                    <div class="flex items-center justify-between w-full font-mono text-[9px] text-slate-400">
-                      <!-- Stage 1: API Gateway -->
-                      <div class="flex flex-col items-center">
-                        <div class="w-7 h-7 rounded-lg bg-cyan-500/15 border border-cyan-500/30 flex items-center justify-center text-cyan-300">
-                          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                          </svg>
-                        </div>
-                        <span class="text-[8.5px] text-cyan-300 mt-1">API Gate</span>
-                      </div>
-
-                      <!-- Flow Stream 1 -->
-                      <div class="flex-1 mx-2 relative flex items-center">
-                        <div class="w-full h-[1.5px] bg-gradient-to-r from-cyan-500 to-indigo-500 opacity-60"></div>
-                        <div class="absolute w-1.5 h-1.5 rounded-full bg-indigo-400 animate-ping left-1/2 -translate-x-1/2"></div>
-                      </div>
-
-                      <!-- Stage 2: CQRS Handlers -->
-                      <div class="flex flex-col items-center">
-                        <div class="w-7 h-7 rounded-lg bg-indigo-500/15 border border-indigo-500/30 flex items-center justify-center text-indigo-300">
-                          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-                          </svg>
-                        </div>
-                        <span class="text-[8.5px] text-indigo-300 mt-1">CQRS Core</span>
-                      </div>
-
-                      <!-- Flow Stream 2 -->
-                      <div class="flex-1 mx-2 relative flex items-center">
-                        <div class="w-full h-[1.5px] bg-gradient-to-r from-indigo-500 to-emerald-500 opacity-60"></div>
-                        <div class="absolute w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping left-1/2 -translate-x-1/2" style="animation-delay: 0.5s;"></div>
-                      </div>
-
-                      <!-- Stage 3: Data Tier -->
-                      <div class="flex flex-col items-center">
-                        <div class="w-7 h-7 rounded-lg bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-300">
-                          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2 1.5 3 3.5 3h9c2 0 3.5-1 3.5-3V7c0-2-1.5-3-3.5-3h-9C5.5 4 4 5 4 7zm0 5c0 2 1.5 3 3.5 3h9c2 0 3.5-1 3.5-3" />
-                          </svg>
-                        </div>
-                        <span class="text-[8.5px] text-emerald-300 mt-1">SQL/Redis</span>
-                      </div>
-                    </div>
-                  }
+                <!-- Interactive Quick-Toggle on Card Face: System Overview vs Architecture Flow -->
+                <div class="flex items-center gap-1 p-1 rounded-xl bg-slate-950/80 border border-white/10 mb-4 font-mono text-[11px]">
+                  <button
+                    type="button"
+                    (click)="setCardView(p.id, 'overview')"
+                    class="flex-1 py-1 px-2 rounded-lg transition-all text-center cursor-pointer"
+                    [class]="getCardView(p.id) === 'overview' ?
+                      'bg-indigo-600/30 text-white font-bold border border-indigo-500/40 shadow-sm' :
+                      'text-slate-400 hover:text-white'"
+                  >
+                    Overview
+                  </button>
+                  <button
+                    type="button"
+                    (click)="setCardView(p.id, 'flow')"
+                    class="flex-1 py-1 px-2 rounded-lg transition-all text-center cursor-pointer flex items-center justify-center gap-1"
+                    [class]="getCardView(p.id) === 'flow' ?
+                      'bg-cyan-600/30 text-cyan-200 font-bold border border-cyan-500/40 shadow-sm' :
+                      'text-slate-400 hover:text-white'"
+                  >
+                    <span>Architecture Flow</span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+                  </button>
                 </div>
 
                 <!-- Project Title & Subtitle -->
                 <h3 class="text-2xl font-bold text-white tracking-tight group-hover:text-cyan-300 transition-colors">
                   {{ p.name }}
                 </h3>
-                <p class="text-xs font-mono text-cyan-400/90 mt-1 mb-4">
+                <p class="text-xs font-mono text-cyan-400/90 mt-1 mb-3">
                   {{ p.subtitle }}
                 </p>
 
                 <!-- Architectural Badge / Tagline -->
-                <div class="p-2.5 rounded-xl bg-slate-950/70 border border-white/5 font-mono text-xs text-slate-300 mb-5 flex items-center gap-2">
+                <div class="p-2.5 rounded-xl bg-slate-950/70 border border-white/5 font-mono text-xs text-slate-300 mb-4 flex items-center gap-2">
                   <span class="w-1.5 h-1.5 rounded-full" [class]="p.hasFrontend ? 'bg-rose-400' : 'bg-cyan-400'"></span>
                   <span class="line-clamp-1">{{ p.badge }}</span>
                 </div>
 
-                <!-- Live Deployment Action or Private API Badge (Zero GitHub Links!) -->
-                <div class="mb-5">
+                <!-- Live Deployment Action or Private API Badge -->
+                <div class="mb-4">
                   @if (p.scope === 'Full-Stack Solution' && p.liveUrl) {
                     <a
                       [href]="p.liveUrl"
@@ -273,23 +204,69 @@ import { ProjectItem } from '../../models/profile.model';
                   }
                 </div>
 
-                <!-- Core Architectural Impact Bullets -->
-                <div class="space-y-2.5 mb-6">
-                  @for (bullet of p.highlights.slice(0, 2); track bullet) {
-                    <div class="flex items-start gap-2.5 text-xs text-slate-300">
-                      <span class="text-cyan-400 text-sm leading-none mt-0.5">▹</span>
-                      <span class="leading-relaxed line-clamp-3">{{ bullet }}</span>
+                <!-- VIEW MODE 1: System Overview (Default) -->
+                @if (getCardView(p.id) === 'overview') {
+                  <!-- Core Architectural Impact Bullets -->
+                  <div class="space-y-2.5 mb-5 animate-in fade-in duration-200">
+                    @for (bullet of p.highlights.slice(0, 2); track bullet) {
+                      <div class="flex items-start gap-2.5 text-xs text-slate-300">
+                        <span class="text-cyan-400 text-sm leading-none mt-0.5">▹</span>
+                        <span class="leading-relaxed line-clamp-3">{{ bullet }}</span>
+                      </div>
+                    }
+                  </div>
+
+                  <!-- Verified Metric Pill -->
+                  @if (p.metrics) {
+                    <div class="mb-5 px-3 py-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 text-[11px] font-mono flex items-center gap-2">
+                      <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                      <span class="line-clamp-1">{{ p.metrics }}</span>
                     </div>
                   }
-                </div>
+                } @else {
+                  <!-- VIEW MODE 2: Interactive Architecture Stack Flow -->
+                  @let layers = p.architectureLayers || defaultLayers;
+                  @let activeLayerIndex = getCardLayer(p.id);
+                  @let activeLayer = layers[activeLayerIndex] || layers[0];
 
-                <!-- Verified Metric Pill -->
-                @if (p.metrics) {
-                  <div class="mb-6 px-3 py-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 text-[11px] font-mono flex items-center gap-2">
-                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-                    <span class="line-clamp-1">{{ p.metrics }}</span>
+                  <div class="mb-5 animate-in fade-in duration-200">
+                    <!-- Clickable Layer Nodes Pipeline -->
+                    <div class="grid grid-cols-4 gap-1 p-1 bg-slate-950/90 rounded-xl border border-white/10 mb-3 font-mono text-[9px]">
+                      @for (layer of layers; track layer.name; let lIdx = $index) {
+                        <button
+                          type="button"
+                          (click)="setCardLayer(p.id, lIdx)"
+                          class="py-1.5 px-1 rounded-lg text-center transition-all cursor-pointer flex flex-col items-center justify-center gap-0.5"
+                          [class]="activeLayerIndex === lIdx ?
+                            'bg-cyan-500/25 border border-cyan-400 text-cyan-200 font-bold shadow-sm' :
+                            'text-slate-400 hover:text-slate-200 hover:bg-white/5 border border-transparent'"
+                          [title]="'Inspect ' + layer.name"
+                        >
+                          <span class="text-[8px] opacity-75">L0{{ lIdx + 1 }}</span>
+                          <span class="truncate w-full text-center">{{ layer.name.split(' ')[0] }}</span>
+                        </button>
+                      }
+                    </div>
+
+                    <!-- Dynamic Layer Inspection Panel -->
+                    <div class="p-3 rounded-xl bg-slate-950/90 border border-cyan-500/30 text-xs font-mono shadow-inner">
+                      <div class="flex items-center justify-between text-cyan-300 font-bold mb-1">
+                        <span class="truncate">{{ activeLayer.name }}</span>
+                        <span class="text-[10px] text-slate-400 px-1.5 py-0.2 rounded bg-white/5">{{ activeLayer.tech }}</span>
+                      </div>
+                      <p class="text-[11px] text-indigo-300 mb-2 font-mono truncate">Pattern: {{ activeLayer.pattern }}</p>
+                      <ul class="space-y-1 text-[11px] text-slate-300">
+                        @for (r of (activeLayer.responsibilities || []).slice(0, 2); track r) {
+                          <li class="flex items-start gap-1.5">
+                            <span class="text-cyan-400 text-xs leading-none">▹</span>
+                            <span class="line-clamp-1">{{ r }}</span>
+                          </li>
+                        }
+                      </ul>
+                    </div>
                   </div>
                 }
+
               </div>
 
               <!-- Bottom Card Actions -->
@@ -314,7 +291,7 @@ import { ProjectItem } from '../../models/profile.model';
                   (click)="profileService.openCockpit(p)"
                   class="w-full py-2.5 px-4 rounded-xl bg-white/5 hover:bg-gradient-to-r hover:from-indigo-600 hover:to-cyan-600 text-slate-200 hover:text-white border border-white/10 hover:border-cyan-500/50 font-mono text-xs font-semibold transition-all flex items-center justify-center gap-2 group/btn shadow-sm cursor-pointer"
                 >
-                  <span>Product &amp; System Case Study</span>
+                  <span>Inspect Full System</span>
                   <svg class="w-3.5 h-3.5 text-cyan-400 group-hover/btn:text-white group-hover/btn:translate-x-0.5 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>
@@ -337,4 +314,51 @@ export class ProjectMatrixComponent {
   readonly activeFilter = computed(() => this.profileService.activeFilter());
   readonly activeSkillFilter = computed(() => this.profileService.activeSkillFilter());
   readonly counts = computed(() => this.profileService.projectCounts());
+
+  // Per-card interactive state: 'overview' vs 'flow'
+  readonly cardViews = new Map<string, 'overview' | 'flow'>();
+  readonly cardLayers = new Map<string, number>();
+
+  readonly defaultLayers = [
+    {
+      name: 'Client / Gateway',
+      tech: 'Angular 21 / ASP.NET Core',
+      pattern: 'Single-Page Client & REST APIs',
+      responsibilities: ['Reactive UI rendering', 'Client-side state management', 'JWT authentication interceptors']
+    },
+    {
+      name: 'Application Core',
+      tech: 'C# / MediatR CQRS',
+      pattern: 'Clean Architecture Use Cases',
+      responsibilities: ['Command & Query handlers', 'FluentValidation pipeline behaviors', 'Domain event dispatching']
+    },
+    {
+      name: 'Domain Tier',
+      tech: 'C# Domain Aggregates',
+      pattern: 'Rich Domain Model & Invariants',
+      responsibilities: ['Encapsulated business logic', 'Domain entity invariants', 'Value objects & specifications']
+    },
+    {
+      name: 'Persistence & Cloud',
+      tech: 'SQL Server / Redis / S3',
+      pattern: 'Repository & Unit of Work',
+      responsibilities: ['EF Core relational mappings', 'Distributed Redis caching', 'Cloudflare R2 / Backblaze object storage']
+    }
+  ];
+
+  getCardView(id: string): 'overview' | 'flow' {
+    return this.cardViews.get(id) || 'overview';
+  }
+
+  setCardView(id: string, view: 'overview' | 'flow'): void {
+    this.cardViews.set(id, view);
+  }
+
+  getCardLayer(id: string): number {
+    return this.cardLayers.get(id) || 0;
+  }
+
+  setCardLayer(id: string, layerIdx: number): void {
+    this.cardLayers.set(id, layerIdx);
+  }
 }
