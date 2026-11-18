@@ -52,15 +52,17 @@ import { BrandLogoComponent } from '../brand-logo/brand-logo';
               <button
                 type="button"
                 (click)="copyEmail()"
-                class="flex-1 py-2 px-3 rounded-xl bg-white/5 hover:bg-indigo-600/20 text-slate-200 hover:text-white border border-white/10 hover:border-indigo-500/40 font-mono text-xs font-semibold transition-all flex items-center justify-center gap-1.5 cursor-pointer"
+                class="flex-1 min-h-[44px] py-2 px-3 rounded-xl bg-white/5 hover:bg-indigo-600/20 text-slate-200 hover:text-white border border-white/10 hover:border-indigo-500/40 font-mono text-xs font-semibold transition-all flex items-center justify-center gap-1.5 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
+                aria-label="Copy email address alber.ashraf.w@gmail.com"
               >
                 <span>Copy Email</span>
-                <span>⎘</span>
+                <span aria-hidden="true">⎘</span>
               </button>
               <a
                 href="mailto:alber.ashraf.w@gmail.com"
-                class="py-2 px-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white border border-white/10 font-mono text-xs transition-colors"
+                class="min-h-[44px] min-w-[44px] py-2 px-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white border border-white/10 font-mono text-xs transition-colors flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
                 title="Open default email client"
+                aria-label="Send email to alber.ashraf.w@gmail.com"
               >
                 Send ↗
               </a>
@@ -87,19 +89,21 @@ import { BrandLogoComponent } from '../brand-logo/brand-logo';
               <button
                 type="button"
                 (click)="copyPhone()"
-                class="w-full sm:flex-1 py-2 px-3 rounded-xl bg-white/5 hover:bg-slate-800 text-slate-200 hover:text-white border border-white/10 hover:border-white/20 font-mono text-xs font-semibold transition-all flex items-center justify-center gap-1.5 cursor-pointer"
+                class="w-full sm:flex-1 min-h-[44px] py-2 px-3 rounded-xl bg-white/5 hover:bg-slate-800 text-slate-200 hover:text-white border border-white/10 hover:border-white/20 font-mono text-xs font-semibold transition-all flex items-center justify-center gap-1.5 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
                 title="Copy phone number to clipboard"
+                aria-label="Copy phone number +20 122 834 2430"
               >
                 <span>Copy Phone</span>
-                <span>⎘</span>
+                <span aria-hidden="true">⎘</span>
               </button>
 
               <a
                 href="https://wa.me/201228342430"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="w-full sm:flex-1 py-2 px-3 rounded-xl bg-emerald-600/20 hover:bg-emerald-600/35 text-emerald-300 hover:text-emerald-200 border border-emerald-500/40 hover:border-emerald-400 font-mono text-xs font-semibold transition-all flex items-center justify-center gap-1.5 shadow-sm"
+                class="w-full sm:flex-1 min-h-[44px] py-2 px-3 rounded-xl bg-emerald-600/20 hover:bg-emerald-600/35 text-emerald-300 hover:text-emerald-200 border border-emerald-500/40 hover:border-emerald-400 font-mono text-xs font-semibold transition-all flex items-center justify-center gap-1.5 shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
                 title="Start WhatsApp conversation"
+                aria-label="Start WhatsApp conversation with +20 122 834 2430"
               >
                 <svg class="w-3.5 h-3.5 text-emerald-400" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
@@ -127,9 +131,13 @@ import { BrandLogoComponent } from '../brand-logo/brand-logo';
 
             <div class="mt-6 pt-4 border-t border-white/5 flex items-center justify-between text-[11px] font-mono text-slate-300">
               <span>Military: Completed</span>
-              <span class="text-emerald-400 flex items-center gap-1.5 font-semibold">
-                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
-                Available Now
+              <span
+                role="status"
+                aria-label="Availability status: Available Now"
+                class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-950/80 border border-emerald-400/40 text-emerald-300 font-semibold"
+              >
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" aria-hidden="true"></span>
+                <span>Available Now</span>
               </span>
             </div>
           </div>
@@ -156,8 +164,10 @@ import { BrandLogoComponent } from '../brand-logo/brand-logo';
             <!-- 1-Page CV Button -->
             <div class="flex items-center rounded-xl bg-slate-900 border border-white/10 hover:border-indigo-500/50 transition-all shadow-md group">
               <button
+                type="button"
                 (click)="profileService.openCvModal('one-page')"
-                class="flex items-center gap-2 px-3.5 py-2 text-xs font-medium text-white hover:text-indigo-300 border-r border-white/10 rounded-l-xl transition-colors cursor-pointer"
+                class="min-h-[44px] flex items-center gap-2 px-3.5 py-2 text-xs font-medium text-white hover:text-indigo-300 border-r border-white/10 rounded-l-xl transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
+                aria-label="Preview 1-Page Executive Curriculum Vitae"
               >
                 <svg class="w-4 h-4 text-indigo-400 group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -169,8 +179,9 @@ import { BrandLogoComponent } from '../brand-logo/brand-logo';
                 href="assets/cv/Alber_Ashraf_CV_OnePage.pdf"
                 download="Alber_Ashraf_CV_OnePage.pdf"
                 (click)="toastService.show('Downloading 1-Page Executive CV...', 'info')"
-                class="px-2.5 py-2 hover:bg-white/5 rounded-r-xl transition-colors text-slate-400 hover:text-white"
+                class="min-h-[44px] min-w-[44px] px-2.5 py-2 hover:bg-white/5 rounded-r-xl transition-colors text-slate-400 hover:text-white flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
                 title="Download 1-Page PDF"
+                aria-label="Download 1-Page Executive Curriculum Vitae PDF"
               >
                 <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
@@ -181,8 +192,10 @@ import { BrandLogoComponent } from '../brand-logo/brand-logo';
             <!-- Detailed CV Button -->
             <div class="flex items-center rounded-xl bg-slate-900 border border-white/10 hover:border-indigo-500/50 transition-all shadow-md group">
               <button
+                type="button"
                 (click)="profileService.openCvModal('detailed')"
-                class="flex items-center gap-2 px-3.5 py-2 text-xs font-medium text-white hover:text-indigo-300 border-r border-white/10 rounded-l-xl transition-colors cursor-pointer"
+                class="min-h-[44px] flex items-center gap-2 px-3.5 py-2 text-xs font-medium text-white hover:text-indigo-300 border-r border-white/10 rounded-l-xl transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
+                aria-label="Preview 2-Page Detailed Curriculum Vitae"
               >
                 <svg class="w-4 h-4 text-indigo-400 group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -193,8 +206,9 @@ import { BrandLogoComponent } from '../brand-logo/brand-logo';
                 href="assets/cv/Alber_Ashraf_CV_Detailed.pdf"
                 download="Alber_Ashraf_CV_Detailed.pdf"
                 (click)="toastService.show('Downloading 2-Page Detailed CV...', 'info')"
-                class="px-2.5 py-2 hover:bg-white/5 rounded-r-xl transition-colors text-slate-400 hover:text-white"
+                class="min-h-[44px] min-w-[44px] px-2.5 py-2 hover:bg-white/5 rounded-r-xl transition-colors text-slate-400 hover:text-white flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
                 title="Download Detailed PDF"
+                aria-label="Download 2-Page Detailed Curriculum Vitae PDF"
               >
                 <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
@@ -213,20 +227,20 @@ import { BrandLogoComponent } from '../brand-logo/brand-logo';
             <app-brand-logo [size]="30" />
             <div>
               <span class="text-white font-semibold">Alber Ashraf</span>
-              <span class="text-slate-500 mx-2">•</span>
+              <span class="text-slate-400 mx-2">•</span>
               <span class="text-slate-400">Software Engineer</span>
             </div>
           </div>
 
           <!-- Center: Quick Section Links -->
-          <div class="flex flex-wrap items-center justify-center gap-4 text-xs text-slate-400">
-            <button type="button" (click)="scrollTo('hero')" class="hover:text-cyan-300 transition-colors cursor-pointer">Overview</button>
-            <button type="button" (click)="scrollTo('about')" class="hover:text-cyan-300 transition-colors cursor-pointer">Capabilities</button>
-            <button type="button" (click)="scrollTo('skills')" class="hover:text-cyan-300 transition-colors cursor-pointer">Skills</button>
-            <button type="button" (click)="scrollTo('experience')" class="hover:text-cyan-300 transition-colors cursor-pointer">Experience</button>
-            <button type="button" (click)="scrollTo('projects')" class="hover:text-cyan-300 transition-colors cursor-pointer">Projects</button>
-            <button type="button" (click)="scrollTo('education')" class="hover:text-cyan-300 transition-colors cursor-pointer">Education</button>
-            <button type="button" (click)="scrollTo('contact')" class="hover:text-cyan-300 transition-colors cursor-pointer">Contact</button>
+          <div class="flex flex-wrap items-center justify-center gap-1 sm:gap-2 text-xs text-slate-400">
+            <button type="button" (click)="scrollTo('hero')" class="min-h-[44px] min-w-[44px] px-2.5 inline-flex items-center justify-center rounded-lg hover:text-cyan-300 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950">Overview</button>
+            <button type="button" (click)="scrollTo('about')" class="min-h-[44px] min-w-[44px] px-2.5 inline-flex items-center justify-center rounded-lg hover:text-cyan-300 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950">Capabilities</button>
+            <button type="button" (click)="scrollTo('skills')" class="min-h-[44px] min-w-[44px] px-2.5 inline-flex items-center justify-center rounded-lg hover:text-cyan-300 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950">Skills</button>
+            <button type="button" (click)="scrollTo('experience')" class="min-h-[44px] min-w-[44px] px-2.5 inline-flex items-center justify-center rounded-lg hover:text-cyan-300 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950">Experience</button>
+            <button type="button" (click)="scrollTo('projects')" class="min-h-[44px] min-w-[44px] px-2.5 inline-flex items-center justify-center rounded-lg hover:text-cyan-300 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950">Projects</button>
+            <button type="button" (click)="scrollTo('education')" class="min-h-[44px] min-w-[44px] px-2.5 inline-flex items-center justify-center rounded-lg hover:text-cyan-300 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950">Education</button>
+            <button type="button" (click)="scrollTo('contact')" class="min-h-[44px] min-w-[44px] px-2.5 inline-flex items-center justify-center rounded-lg hover:text-cyan-300 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950">Contact</button>
           </div>
 
           <!-- Right: Social Links & GitHub Profile -->
@@ -236,7 +250,7 @@ import { BrandLogoComponent } from '../brand-logo/brand-logo';
               href="https://github.com/Alber-Ashraf"
               target="_blank"
               rel="noopener noreferrer"
-              class="w-8 h-8 rounded-lg bg-white/5 hover:bg-slate-800 text-slate-300 hover:text-white border border-white/10 flex items-center justify-center transition-colors"
+              class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl bg-white/5 hover:bg-slate-800 text-slate-300 hover:text-white border border-white/10 flex items-center justify-center transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
               title="GitHub Profile: Alber-Ashraf"
               aria-label="GitHub Profile"
             >
@@ -250,7 +264,7 @@ import { BrandLogoComponent } from '../brand-logo/brand-logo';
               href="https://www.linkedin.com/in/alber-ashraf-042531216/"
               target="_blank"
               rel="noopener noreferrer"
-              class="w-8 h-8 rounded-lg bg-white/5 hover:bg-indigo-600/20 text-slate-300 hover:text-indigo-400 border border-white/10 flex items-center justify-center transition-colors"
+              class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl bg-white/5 hover:bg-indigo-600/20 text-slate-300 hover:text-indigo-400 border border-white/10 flex items-center justify-center transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
               title="LinkedIn Profile: Alber Ashraf"
               aria-label="LinkedIn Profile"
             >
@@ -264,7 +278,7 @@ import { BrandLogoComponent } from '../brand-logo/brand-logo';
               href="https://wa.me/201228342430"
               target="_blank"
               rel="noopener noreferrer"
-              class="w-8 h-8 rounded-lg bg-white/5 hover:bg-emerald-600/20 text-slate-300 hover:text-emerald-400 border border-white/10 flex items-center justify-center transition-colors"
+              class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl bg-white/5 hover:bg-emerald-600/20 text-slate-300 hover:text-emerald-400 border border-white/10 flex items-center justify-center transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
               title="WhatsApp: +20 122 834 2430"
               aria-label="WhatsApp Chat"
             >
@@ -277,7 +291,7 @@ import { BrandLogoComponent } from '../brand-logo/brand-logo';
         </div>
 
         <!-- Colophon / Copyright -->
-        <div class="mt-8 text-center text-[11px] font-mono text-slate-500">
+        <div class="mt-8 text-center text-[11px] font-mono text-slate-400" aria-label="Copyright notice">
           <p>© 2026 Alber Ashraf • Software Engineer</p>
         </div>
 

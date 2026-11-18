@@ -27,6 +27,9 @@ export class ProfileService {
   readonly activeCvVariant = signal<CvVariant>('one-page');
   readonly activeArchitectureLayerIndex = signal<number>(0);
 
+  // Trigger element reference for focus restoration
+  private lastTriggerElement: HTMLElement | null = null;
+
   // Computed Projections
   readonly basics = computed(() => this.profile().basics);
   readonly skills = computed(() => this.profile().skills);
@@ -190,7 +193,10 @@ export class ProfileService {
     return this.projects().filter((p) => this.isSkillMatchingProject(skill, p)).length;
   }
 
-  openCockpit(project: ProjectItem): void {
+  openCockpit(project: ProjectItem, triggerEl?: HTMLElement): void {
+    if (typeof document !== 'undefined') {
+      this.lastTriggerElement = triggerEl || (document.activeElement as HTMLElement) || null;
+    }
     this.selectedProject.set(project);
     this.isCockpitOpen.set(true);
     this.activeArchitectureLayerIndex.set(0);
@@ -203,6 +209,13 @@ export class ProfileService {
     this.isCockpitOpen.set(false);
     if (typeof document !== 'undefined') {
       document.body.style.overflow = '';
+      const target = this.lastTriggerElement;
+      if (target && typeof target.focus === 'function') {
+        setTimeout(() => {
+          target.focus();
+          this.lastTriggerElement = null;
+        }, 50);
+      }
     }
   }
 
@@ -226,7 +239,10 @@ export class ProfileService {
     this.activeArchitectureLayerIndex.set(0);
   }
 
-  openCvModal(variant: CvVariant = 'one-page'): void {
+  openCvModal(variant: CvVariant = 'one-page', triggerEl?: HTMLElement): void {
+    if (typeof document !== 'undefined') {
+      this.lastTriggerElement = triggerEl || (document.activeElement as HTMLElement) || null;
+    }
     this.activeCvVariant.set(variant);
     this.isCvModalOpen.set(true);
     if (typeof document !== 'undefined') {
@@ -238,6 +254,13 @@ export class ProfileService {
     this.isCvModalOpen.set(false);
     if (typeof document !== 'undefined') {
       document.body.style.overflow = '';
+      const target = this.lastTriggerElement;
+      if (target && typeof target.focus === 'function') {
+        setTimeout(() => {
+          target.focus();
+          this.lastTriggerElement = null;
+        }, 50);
+      }
     }
   }
 

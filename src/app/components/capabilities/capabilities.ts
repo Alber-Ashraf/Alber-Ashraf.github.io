@@ -127,7 +127,7 @@ import { ScrollRevealDirective } from '../../directives/scroll-reveal.directive'
 
             <div class="pt-5 mt-6 border-t border-white/5 flex items-center justify-between font-mono text-[11px] text-cyan-300">
               <span>Full-Stack Solutions</span>
-              <span class="text-slate-500">5 Systems</span>
+              <span class="text-slate-400">5 Systems</span>
             </div>
           </div>
 
@@ -223,7 +223,7 @@ import { ScrollRevealDirective } from '../../directives/scroll-reveal.directive'
 
             <div class="pt-5 mt-6 border-t border-white/5 flex items-center justify-between font-mono text-[11px] text-indigo-300">
               <span>Clean Architecture &amp; DDD</span>
-              <span class="text-slate-500">4 Systems</span>
+              <span class="text-slate-400">4 Systems</span>
             </div>
           </div>
 
@@ -315,7 +315,7 @@ import { ScrollRevealDirective } from '../../directives/scroll-reveal.directive'
 
             <div class="pt-5 mt-6 border-t border-white/5 flex items-center justify-between font-mono text-[11px] text-emerald-300">
               <span>Data &amp; Cloud Infra</span>
-              <span class="text-slate-500">Enterprise Verified</span>
+              <span class="text-slate-400">Enterprise Verified</span>
             </div>
           </div>
 

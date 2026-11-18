@@ -37,10 +37,11 @@ import { ProjectItem } from '../../models/profile.model';
             <button
               type="button"
               (click)="profileService.setFilter('all')"
-              class="flex-shrink-0 px-4 py-2 rounded-xl transition-all flex items-center justify-center gap-2 cursor-pointer"
+              class="flex-shrink-0 min-h-[44px] px-4 py-2 rounded-xl transition-all flex items-center justify-center gap-2 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
               [class]="activeFilter() === 'all' ?
                 'bg-indigo-600 text-white font-bold shadow-md shadow-indigo-600/30' :
                 'text-slate-400 hover:text-white hover:bg-white/5'"
+              [attr.aria-label]="'Filter by All Projects (' + counts().all + ' systems)'"
             >
               <span>All Projects</span>
               <span class="px-1.5 py-0.5 rounded-md text-[10px]" [class]="activeFilter() === 'all' ? 'bg-indigo-700 text-white' : 'bg-white/5 text-slate-400'">
@@ -52,10 +53,11 @@ import { ProjectItem } from '../../models/profile.model';
             <button
               type="button"
               (click)="profileService.setFilter('fullstack')"
-              class="flex-shrink-0 px-4 py-2 rounded-xl transition-all flex items-center justify-center gap-2 cursor-pointer"
+              class="flex-shrink-0 min-h-[44px] px-4 py-2 rounded-xl transition-all flex items-center justify-center gap-2 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
               [class]="activeFilter() === 'fullstack' ?
                 'bg-rose-600 text-white font-bold shadow-md shadow-rose-600/30' :
                 'text-slate-400 hover:text-white hover:bg-white/5'"
+              [attr.aria-label]="'Filter by Full-Stack Projects (' + counts().fullstack + ' systems)'"
             >
               <span>Full-Stack</span>
               <span class="px-1.5 py-0.5 rounded-md text-[10px]" [class]="activeFilter() === 'fullstack' ? 'bg-rose-700 text-white' : 'bg-white/5 text-slate-400'">
@@ -67,10 +69,11 @@ import { ProjectItem } from '../../models/profile.model';
             <button
               type="button"
               (click)="profileService.setFilter('backend')"
-              class="flex-shrink-0 px-4 py-2 rounded-xl transition-all flex items-center justify-center gap-2 cursor-pointer"
+              class="flex-shrink-0 min-h-[44px] px-4 py-2 rounded-xl transition-all flex items-center justify-center gap-2 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
               [class]="activeFilter() === 'backend' ?
                 'bg-cyan-600 text-white font-bold shadow-md shadow-cyan-600/30' :
                 'text-slate-400 hover:text-white hover:bg-white/5'"
+              [attr.aria-label]="'Filter by Backend Projects (' + counts().backend + ' systems)'"
             >
               <span>Backend</span>
               <span class="px-1.5 py-0.5 rounded-md text-[10px]" [class]="activeFilter() === 'backend' ? 'bg-cyan-700 text-white' : 'bg-white/5 text-slate-400'">
@@ -106,7 +109,8 @@ import { ProjectItem } from '../../models/profile.model';
             <button
               type="button"
               (click)="profileService.clearSkillFilter()"
-              class="w-full sm:w-auto px-4 py-2 rounded-xl bg-white/10 hover:bg-rose-500/20 hover:text-rose-300 border border-white/10 hover:border-rose-500/40 text-slate-200 text-xs font-mono transition-all flex items-center justify-center gap-2 cursor-pointer shadow-sm"
+              class="w-full sm:w-auto min-h-[44px] px-4 py-2 rounded-xl bg-white/10 hover:bg-rose-500/20 hover:text-rose-300 border border-white/10 hover:border-rose-500/40 text-slate-200 text-xs font-mono transition-all flex items-center justify-center gap-2 cursor-pointer shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
+              aria-label="Clear active technology filter"
             >
               <span>Clear Filter</span>
               <span class="font-bold">✕</span>
@@ -149,24 +153,26 @@ import { ProjectItem } from '../../models/profile.model';
                 </div>
 
                 <!-- Interactive Quick-Toggle on Card Face: System Overview vs Architecture Flow -->
-                <div class="flex items-center gap-1 p-1 rounded-xl bg-slate-950/80 border border-white/10 mb-4 font-mono text-[11px]">
+                <div class="flex items-center gap-1.5 p-1 rounded-xl bg-slate-950/80 border border-white/10 mb-4 font-mono text-xs">
                   <button
                     type="button"
                     (click)="setCardView(p.id, 'overview')"
-                    class="flex-1 py-1 px-2 rounded-lg transition-all text-center cursor-pointer"
+                    class="flex-1 min-h-[44px] py-2 px-3 rounded-lg transition-all text-center cursor-pointer flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
                     [class]="getCardView(p.id) === 'overview' ?
                       'bg-indigo-600/30 text-white font-bold border border-indigo-500/40 shadow-sm' :
-                      'text-slate-400 hover:text-white'"
+                      'text-slate-400 hover:text-white hover:bg-white/5 border border-transparent'"
+                    [attr.aria-label]="'Switch to System Overview for ' + p.name"
                   >
-                    Overview
+                    <span>Overview</span>
                   </button>
                   <button
                     type="button"
                     (click)="setCardView(p.id, 'flow')"
-                    class="flex-1 py-1 px-2 rounded-lg transition-all text-center cursor-pointer flex items-center justify-center gap-1"
+                    class="flex-1 min-h-[44px] py-2 px-3 rounded-lg transition-all text-center cursor-pointer flex items-center justify-center gap-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
                     [class]="getCardView(p.id) === 'flow' ?
                       'bg-cyan-600/30 text-cyan-200 font-bold border border-cyan-500/40 shadow-sm' :
-                      'text-slate-400 hover:text-white'"
+                      'text-slate-400 hover:text-white hover:bg-white/5 border border-transparent'"
+                    [attr.aria-label]="'Switch to Architecture Flow for ' + p.name"
                   >
                     <span>Architecture Flow</span>
                     <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
@@ -194,14 +200,15 @@ import { ProjectItem } from '../../models/profile.model';
                       [href]="p.liveUrl"
                       target="_blank"
                       rel="noopener noreferrer"
-                      class="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-emerald-500/15 hover:bg-emerald-500/25 border border-emerald-500/30 text-emerald-300 hover:text-emerald-200 text-xs font-mono font-medium transition-all group/link"
+                      class="min-h-[44px] min-w-[44px] inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-emerald-500/15 hover:bg-emerald-500/25 border border-emerald-500/30 text-emerald-300 hover:text-emerald-200 text-xs font-mono font-medium transition-all group/link focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
                       title="Launch Live Production System"
+                      [attr.aria-label]="'Launch Live Production System for ' + p.name"
                     >
                       <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
                       <span>Live System ↗</span>
                     </a>
                   } @else {
-                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-900/90 border border-white/10 text-slate-400 text-xs font-mono">
+                    <div class="min-h-[44px] inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-900/90 border border-white/10 text-slate-400 text-xs font-mono">
                       <svg class="w-3.5 h-3.5 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                       </svg>
@@ -242,11 +249,12 @@ import { ProjectItem } from '../../models/profile.model';
                         <button
                           type="button"
                           (click)="setCardLayer(p.id, lIdx)"
-                          class="py-1.5 px-1 rounded-lg text-center transition-all cursor-pointer flex items-center justify-center"
+                          class="min-h-[44px] py-2 px-1 rounded-lg text-center transition-all cursor-pointer flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
                           [class]="activeLayerIndex === lIdx ?
                             'bg-cyan-500/25 border border-cyan-400 text-cyan-200 font-bold shadow-sm' :
                             'text-slate-400 hover:text-slate-200 hover:bg-white/5 border border-transparent'"
                           [title]="'Inspect ' + layer.name"
+                          [attr.aria-label]="'Inspect ' + layer.name + ' layer for ' + p.name"
                         >
                           <span class="truncate w-full text-center">{{ layer.name.split(' ')[0] }}</span>
                         </button>
@@ -257,7 +265,7 @@ import { ProjectItem } from '../../models/profile.model';
                     <div class="p-3 rounded-xl bg-slate-950/90 border border-cyan-500/30 text-xs font-mono shadow-inner">
                       <div class="flex items-center justify-between text-cyan-300 font-bold mb-1">
                         <span class="truncate">{{ activeLayer.name }}</span>
-                        <span class="text-[10px] text-slate-400 px-1.5 py-0.2 rounded bg-white/5">{{ activeLayer.tech }}</span>
+                        <span class="text-[10px] text-slate-400 px-1.5 py-0.5 rounded bg-white/5">{{ activeLayer.tech }}</span>
                       </div>
                       <p class="text-[11px] text-indigo-300 mb-2 font-mono truncate">Pattern: {{ activeLayer.pattern }}</p>
                       <ul class="space-y-1 text-[11px] text-slate-300">
@@ -284,7 +292,7 @@ import { ProjectItem } from '../../models/profile.model';
                     </span>
                   }
                   @if (p.technologies.length > 4) {
-                    <span class="px-1.5 py-0.5 rounded-md bg-white/5 text-slate-500">
+                    <span class="px-1.5 py-0.5 rounded-md bg-white/5 text-slate-400" [title]="(p.technologies.length - 4) + ' additional technologies'">
                       +{{ p.technologies.length - 4 }}
                     </span>
                   }
@@ -294,7 +302,8 @@ import { ProjectItem } from '../../models/profile.model';
                 <button
                   type="button"
                   (click)="profileService.openCockpit(p)"
-                  class="w-full py-2.5 px-4 rounded-xl bg-white/5 hover:bg-gradient-to-r hover:from-indigo-600 hover:to-cyan-600 text-slate-200 hover:text-white border border-white/10 hover:border-cyan-500/50 font-mono text-xs font-semibold transition-all flex items-center justify-center gap-2 group/btn shadow-sm cursor-pointer"
+                  class="w-full min-h-[44px] py-2.5 px-4 rounded-xl bg-white/5 hover:bg-gradient-to-r hover:from-indigo-600 hover:to-cyan-600 text-slate-200 hover:text-white border border-white/10 hover:border-cyan-500/50 font-mono text-xs font-semibold transition-all flex items-center justify-center gap-2 group/btn shadow-sm cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
+                  [attr.aria-label]="'Inspect Full System Dossier for ' + p.name"
                 >
                   <span>Inspect Full System</span>
                   <svg class="w-3.5 h-3.5 text-cyan-400 group-hover/btn:text-white group-hover/btn:translate-x-0.5 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor">

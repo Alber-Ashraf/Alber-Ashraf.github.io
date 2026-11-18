@@ -9,7 +9,7 @@
     --border-hover: rgba(99, 102, 241, 0.45);
     --text-primary: #f8fafc;
     --text-secondary: #94a3b8;
-    --text-muted: #64748b;
+    --text-muted: #94a3b8;
     --indigo-core: #6366f1;
     --violet-core: #8b5cf6;
     --cyan-core: #06b6d4;
@@ -38,6 +38,12 @@
   /* Ensure every main section offsets correctly under the fixed navbar */
   section[id] {
     scroll-margin-top: 96px;
+  }
+
+  /* Global keyboard focus ring baseline */
+  :focus-visible {
+    outline: 2px solid var(--cyan-core);
+    outline-offset: 2px;
   }
 
   /* Custom high-craft dark scrollbar */

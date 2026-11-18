@@ -56,7 +56,7 @@ import { ScrollRevealDirective } from '../../directives/scroll-reveal.directive'
                       <span class="text-xs text-slate-300">Grade: Excellent</span>
                     </div>
                     <div class="text-2xl sm:text-3xl font-extrabold text-amber-400 font-mono">
-                      3.79 <span class="text-xs text-slate-500 font-normal">/ 4.00</span>
+                      3.79 <span class="text-xs text-slate-400 font-normal">/ 4.00</span>
                     </div>
                   </div>
 
@@ -84,7 +84,7 @@ import { ScrollRevealDirective } from '../../directives/scroll-reveal.directive'
                 </div>
               </div>
 
-              <div class="mt-8 pt-4 border-t border-white/10 flex items-center justify-between font-mono text-xs text-slate-500">
+              <div class="mt-8 pt-4 border-t border-white/10 flex items-center justify-between font-mono text-xs text-slate-400">
                 <span>Verified Academic Record</span>
                 <span class="text-amber-400 font-semibold">Class Honors</span>
               </div>

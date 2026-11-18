@@ -1,4 +1,5 @@
-import { Component, HostListener, signal, inject } from '@angular/core';
+import { Component, HostListener, OnDestroy, signal, inject, effect } from '@angular/core';
+import { CdkTrapFocus, LiveAnnouncer } from '@angular/cdk/a11y';
 import { ProfileService } from '../../services/profile.service';
 
 export type CockpitTab = 'product' | 'modules' | 'architecture' | 'tech';
@@ -6,7 +7,7 @@ export type CockpitTab = 'product' | 'modules' | 'architecture' | 'tech';
 @Component({
   selector: 'app-project-cockpit',
   standalone: true,
-  imports: [],
+  imports: [CdkTrapFocus],
   template: `
     @if (profileService.isCockpitOpen() && profileService.selectedProject(); as p) {
       <div class="fixed inset-0 z-50 overflow-hidden flex items-end md:items-stretch justify-end">
@@ -15,14 +16,21 @@ export type CockpitTab = 'product' | 'modules' | 'architecture' | 'tech';
         <div
           class="fixed inset-0 bg-slate-950/80 backdrop-blur-md transition-opacity animate-in fade-in duration-300"
           (click)="profileService.closeCockpit()"
+          aria-hidden="true"
         ></div>
 
         <!-- Slide-Over Drawer / 92vh Mobile Bottom Sheet Container -->
         <div
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="cockpit-title"
+          aria-describedby="cockpit-description"
+          cdkTrapFocus
+          [cdkTrapFocusAutoCapture]="true"
           class="relative w-full max-w-4xl bg-slate-950 border-t md:border-t-0 md:border-l border-white/15 shadow-2xl flex flex-col h-[92vh] md:h-full rounded-t-2xl md:rounded-none z-10 overflow-hidden animate-in slide-in-from-bottom md:slide-in-from-right duration-300"
         >
           <!-- Mobile Bottom-Sheet Pill Handle -->
-          <div class="w-12 h-1.5 rounded-full bg-white/20 mx-auto mt-2.5 mb-0.5 md:hidden flex-shrink-0"></div>
+          <div class="w-12 h-1.5 rounded-full bg-white/20 mx-auto mt-2.5 mb-0.5 md:hidden flex-shrink-0" aria-hidden="true"></div>
 
           <!-- Drawer Sticky Header -->
           <div class="px-4 sm:px-6 py-3.5 sm:py-4 border-b border-white/10 bg-slate-900/95 backdrop-blur-xl flex items-center justify-between gap-2 flex-shrink-0">
@@ -43,11 +51,12 @@ export type CockpitTab = 'product' | 'modules' | 'architecture' | 'tech';
                   [href]="p.liveUrl"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-[11px] sm:text-xs font-mono font-semibold transition-colors shadow-sm"
+                  class="min-h-[44px] min-w-[44px] inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-mono font-semibold transition-colors shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
                   title="Launch Live Production System"
+                  [attr.aria-label]="'Launch Live Production System for ' + p.name"
                 >
-                  <span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
-                  <span class="hidden xs:inline">Live</span>
+                  <span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse" aria-hidden="true"></span>
+                  <span class="hidden sm:inline">Live</span>
                   <span>↗</span>
                 </a>
               }
@@ -55,8 +64,9 @@ export type CockpitTab = 'product' | 'modules' | 'architecture' | 'tech';
               <button
                 type="button"
                 (click)="profileService.prevProject()"
-                class="p-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 hover:text-white transition-colors cursor-pointer"
+                class="min-h-[44px] min-w-[44px] inline-flex items-center justify-center p-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 hover:text-white transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
                 title="Previous System (Left Arrow)"
+                aria-label="Previous system"
               >
                 <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
@@ -65,8 +75,9 @@ export type CockpitTab = 'product' | 'modules' | 'architecture' | 'tech';
               <button
                 type="button"
                 (click)="profileService.nextProject()"
-                class="p-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 hover:text-white transition-colors cursor-pointer"
+                class="min-h-[44px] min-w-[44px] inline-flex items-center justify-center p-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 hover:text-white transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
                 title="Next System (Right Arrow)"
+                aria-label="Next system"
               >
                 <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
@@ -75,11 +86,13 @@ export type CockpitTab = 'product' | 'modules' | 'architecture' | 'tech';
               <button
                 type="button"
                 (click)="profileService.closeCockpit()"
-                class="px-2.5 py-1.5 rounded-lg bg-rose-500/15 hover:bg-rose-500/30 text-rose-300 hover:text-white border border-rose-500/30 transition-colors ml-0.5 font-mono text-xs font-bold flex items-center gap-1 cursor-pointer"
+                cdkFocusInitial
+                class="min-h-[44px] px-3.5 py-2 rounded-xl bg-rose-500/15 hover:bg-rose-500/30 text-rose-300 hover:text-white border border-rose-500/30 transition-colors ml-0.5 font-mono text-xs font-bold inline-flex items-center justify-center gap-1.5 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
                 title="Close (ESC)"
+                aria-label="Close project dossier"
               >
                 <span>Close</span>
-                <span>✕</span>
+                <span aria-hidden="true">✕</span>
               </button>
             </div>
           </div>
@@ -90,53 +103,70 @@ export type CockpitTab = 'product' | 'modules' | 'architecture' | 'tech';
             <!-- Title & Quick Summary Header -->
             <div>
               <div class="flex flex-wrap items-center gap-2 mb-2">
-                <h3 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">{{ p.name }}</h3>
+                <h3 id="cockpit-title" class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">{{ p.name }}</h3>
                 @if (p.scope === 'Full-Stack Solution' && p.liveUrl) {
                   <a
                     [href]="p.liveUrl"
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 text-xs font-mono hover:bg-emerald-500/25 transition-all"
+                    class="min-h-[44px] inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 text-xs font-mono hover:bg-emerald-500/25 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
+                    [attr.aria-label]="'Launch Live Product for ' + p.name"
                   >
-                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" aria-hidden="true"></span>
                     <span>Launch Live Product ↗</span>
                   </a>
                 }
               </div>
               <p class="text-indigo-300 font-mono text-xs sm:text-sm mb-3">{{ p.subtitle }}</p>
-              <p class="text-slate-300 text-sm sm:text-base leading-relaxed">{{ p.productOverview || p.summary }}</p>
+              <p id="cockpit-description" class="text-slate-300 text-sm sm:text-base leading-relaxed">{{ p.productOverview || p.summary }}</p>
             </div>
 
             <!-- Horizontally Scrollable Content Tabs -->
-            <div class="border-b border-white/10 flex overflow-x-auto no-scrollbar whitespace-nowrap gap-2 font-mono text-xs">
+            <div role="tablist" aria-label="Project dossier sections" class="border-b border-white/10 flex overflow-x-auto no-scrollbar whitespace-nowrap gap-2 font-mono text-xs">
               <button
                 type="button"
+                role="tab"
+                id="tab-product"
+                aria-controls="tabpanel-product"
+                [attr.aria-selected]="activeTab() === 'product'"
                 (click)="activeTab.set('product')"
-                class="pb-3 px-3.5 border-b-2 transition-all font-semibold flex-shrink-0 cursor-pointer"
+                class="min-h-[44px] pb-3 px-3.5 border-b-2 transition-all font-semibold flex-shrink-0 cursor-pointer inline-flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
                 [class]="activeTab() === 'product' ? 'border-indigo-500 text-white' : 'border-transparent text-slate-400 hover:text-slate-200'"
               >
                 1. Product & Business Value
               </button>
               <button
                 type="button"
+                role="tab"
+                id="tab-modules"
+                aria-controls="tabpanel-modules"
+                [attr.aria-selected]="activeTab() === 'modules'"
                 (click)="activeTab.set('modules')"
-                class="pb-3 px-3.5 border-b-2 transition-all font-semibold flex-shrink-0 cursor-pointer"
+                class="min-h-[44px] pb-3 px-3.5 border-b-2 transition-all font-semibold flex-shrink-0 cursor-pointer inline-flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
                 [class]="activeTab() === 'modules' ? 'border-indigo-500 text-white' : 'border-transparent text-slate-400 hover:text-slate-200'"
               >
                 2. Key Product Modules ({{ (p.keyModules || []).length }})
               </button>
               <button
                 type="button"
+                role="tab"
+                id="tab-architecture"
+                aria-controls="tabpanel-architecture"
+                [attr.aria-selected]="activeTab() === 'architecture'"
                 (click)="activeTab.set('architecture')"
-                class="pb-3 px-3.5 border-b-2 transition-all font-semibold flex-shrink-0 cursor-pointer"
+                class="min-h-[44px] pb-3 px-3.5 border-b-2 transition-all font-semibold flex-shrink-0 cursor-pointer inline-flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
                 [class]="activeTab() === 'architecture' ? 'border-indigo-500 text-white' : 'border-transparent text-slate-400 hover:text-slate-200'"
               >
                 3. System Architecture
               </button>
               <button
                 type="button"
+                role="tab"
+                id="tab-tech"
+                aria-controls="tabpanel-tech"
+                [attr.aria-selected]="activeTab() === 'tech'"
                 (click)="activeTab.set('tech')"
-                class="pb-3 px-3.5 border-b-2 transition-all font-semibold flex-shrink-0 cursor-pointer"
+                class="min-h-[44px] pb-3 px-3.5 border-b-2 transition-all font-semibold flex-shrink-0 cursor-pointer inline-flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
                 [class]="activeTab() === 'tech' ? 'border-indigo-500 text-white' : 'border-transparent text-slate-400 hover:text-slate-200'"
               >
                 4. Tech Stack ({{ p.technologies.length }})
@@ -145,7 +175,7 @@ export type CockpitTab = 'product' | 'modules' | 'architecture' | 'tech';
 
             <!-- TAB 1: Product Overview & Business Value -->
             @if (activeTab() === 'product') {
-              <div class="space-y-6">
+              <div id="tabpanel-product" role="tabpanel" aria-labelledby="tab-product" class="space-y-6">
 
                 <!-- Problem vs Solution Bento -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -193,7 +223,7 @@ export type CockpitTab = 'product' | 'modules' | 'architecture' | 'tech';
 
             <!-- TAB 2: Key Product Modules & Features -->
             @if (activeTab() === 'modules') {
-              <div class="space-y-4">
+              <div id="tabpanel-modules" role="tabpanel" aria-labelledby="tab-modules" class="space-y-4">
                 <p class="text-slate-400 text-xs sm:text-sm">
                   Functional system modules delivering core business workflows across this platform:
                 </p>
@@ -209,7 +239,7 @@ export type CockpitTab = 'product' | 'modules' | 'architecture' | 'tech';
                         <p class="text-xs text-slate-300 leading-relaxed mb-4">{{ mod.description }}</p>
 
                         <div class="space-y-1.5 border-t border-white/5 pt-3">
-                          <span class="text-[10px] uppercase font-mono text-slate-500 tracking-wider block">Key Capabilities:</span>
+                          <span class="text-[10px] uppercase font-mono text-slate-400 tracking-wider block">Key Capabilities:</span>
                           @for (cap of mod.capabilities; track cap) {
                             <div class="flex items-start gap-2 text-xs text-slate-300 font-mono">
                               <span class="text-indigo-400">✓</span>
@@ -226,7 +256,7 @@ export type CockpitTab = 'product' | 'modules' | 'architecture' | 'tech';
 
             <!-- TAB 3: System Architecture & Engineering Highlights -->
             @if (activeTab() === 'architecture') {
-              <div class="space-y-6">
+              <div id="tabpanel-architecture" role="tabpanel" aria-labelledby="tab-architecture" class="space-y-6">
 
                 <!-- Live Interactive Architectural Flow Vector Diagram -->
                 <div class="w-full rounded-2xl bg-slate-950/90 border border-white/10 p-4 shadow-xl">
@@ -239,9 +269,18 @@ export type CockpitTab = 'product' | 'modules' | 'architecture' | 'tech';
                   </div>
 
                   <div class="h-24 w-full bg-slate-900/60 rounded-xl border border-white/5 p-2 flex items-center justify-between overflow-x-auto no-scrollbar">
-                    <svg class="w-full min-w-[500px] h-full" viewBox="0 0 520 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="w-full min-w-[500px] h-full" viewBox="0 0 520 70" fill="none" xmlns="http://www.w3.org/2000/svg" role="group" aria-label="Architecture flow pipeline">
                       <!-- Stage 1: Client / Public API Entry -->
-                      <g transform="translate(10, 8)" (click)="selectedLayerIndex.set(0)" class="cursor-pointer">
+                      <g
+                        transform="translate(10, 8)"
+                        role="button"
+                        tabindex="0"
+                        (click)="selectedLayerIndex.set(0)"
+                        (keydown.enter)="selectedLayerIndex.set(0)"
+                        (keydown.space)="selectedLayerIndex.set(0)"
+                        class="cursor-pointer focus:outline-none"
+                        aria-label="Inspect Client / API Gateway tier"
+                      >
                         <rect
                           width="100"
                           height="54"
@@ -259,7 +298,16 @@ export type CockpitTab = 'product' | 'modules' | 'architecture' | 'tech';
                       <line x1="110" y1="35" x2="145" y2="35" stroke="#06B6D4" stroke-width="1.8" class="animate-data-flow" />
 
                       <!-- Stage 2: Application / MediatR CQRS -->
-                      <g transform="translate(145, 8)" (click)="selectedLayerIndex.set(1)" class="cursor-pointer">
+                      <g
+                        transform="translate(145, 8)"
+                        role="button"
+                        tabindex="0"
+                        (click)="selectedLayerIndex.set(1)"
+                        (keydown.enter)="selectedLayerIndex.set(1)"
+                        (keydown.space)="selectedLayerIndex.set(1)"
+                        class="cursor-pointer focus:outline-none"
+                        aria-label="Inspect Application & CQRS tier"
+                      >
                         <rect
                           width="105"
                           height="54"
@@ -277,7 +325,16 @@ export type CockpitTab = 'product' | 'modules' | 'architecture' | 'tech';
                       <line x1="250" y1="35" x2="285" y2="35" stroke="#6366F1" stroke-width="1.8" class="animate-data-flow" />
 
                       <!-- Stage 3: Domain Core Entities -->
-                      <g transform="translate(285, 8)" (click)="selectedLayerIndex.set(2)" class="cursor-pointer">
+                      <g
+                        transform="translate(285, 8)"
+                        role="button"
+                        tabindex="0"
+                        (click)="selectedLayerIndex.set(2)"
+                        (keydown.enter)="selectedLayerIndex.set(2)"
+                        (keydown.space)="selectedLayerIndex.set(2)"
+                        class="cursor-pointer focus:outline-none"
+                        aria-label="Inspect Domain Core tier"
+                      >
                         <rect
                           width="105"
                           height="54"
@@ -295,7 +352,16 @@ export type CockpitTab = 'product' | 'modules' | 'architecture' | 'tech';
                       <line x1="390" y1="35" x2="425" y2="35" stroke="#10B981" stroke-width="1.8" class="animate-data-flow" />
 
                       <!-- Stage 4: Infrastructure & Storage -->
-                      <g transform="translate(425, 8)" (click)="selectedLayerIndex.set(3)" class="cursor-pointer">
+                      <g
+                        transform="translate(425, 8)"
+                        role="button"
+                        tabindex="0"
+                        (click)="selectedLayerIndex.set(3)"
+                        (keydown.enter)="selectedLayerIndex.set(3)"
+                        (keydown.space)="selectedLayerIndex.set(3)"
+                        class="cursor-pointer focus:outline-none"
+                        aria-label="Inspect Data & Persistence tier"
+                      >
                         <rect
                           width="85"
                           height="54"
@@ -323,16 +389,18 @@ export type CockpitTab = 'product' | 'modules' | 'architecture' | 'tech';
 
                   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
                     @for (layer of (p.architectureLayers || defaultLayers); track layer.name; let lIdx = $index) {
-                      <div
+                      <button
+                        type="button"
                         (click)="selectedLayerIndex.set(lIdx)"
-                        class="p-4 rounded-xl border transition-all cursor-pointer flex flex-col justify-between"
+                        class="min-h-[44px] p-4 rounded-xl border transition-all cursor-pointer flex flex-col justify-between text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
                         [class]="selectedLayerIndex() === lIdx ?
                           'bg-indigo-600/20 border-indigo-500 shadow-lg shadow-indigo-600/20' :
                           'bg-slate-950/70 border-white/10 hover:border-white/20 hover:bg-slate-900'"
+                        [attr.aria-label]="'Inspect ' + layer.name + ' architectural tier'"
                       >
                         <div>
                           <div class="flex items-center justify-between text-[10px] font-mono mb-2">
-                            <span [class]="selectedLayerIndex() === lIdx ? 'text-indigo-300 font-bold' : 'text-slate-500'">
+                            <span [class]="selectedLayerIndex() === lIdx ? 'text-indigo-300 font-bold' : 'text-slate-400'">
                               ARCHITECTURE TIER
                             </span>
                             <span class="w-1.5 h-1.5 rounded-full" [class]="selectedLayerIndex() === lIdx ? 'bg-indigo-400' : 'bg-slate-700'"></span>
@@ -344,7 +412,7 @@ export type CockpitTab = 'product' | 'modules' | 'architecture' | 'tech';
                         <div class="mt-3 pt-2 border-t border-white/5 text-[10px] font-mono text-indigo-400">
                           {{ layer.pattern }}
                         </div>
-                      </div>
+                      </button>
                     }
                   </div>
 
@@ -354,7 +422,7 @@ export type CockpitTab = 'product' | 'modules' | 'architecture' | 'tech';
                     <div class="mt-4 p-4 rounded-xl bg-slate-950/80 border border-indigo-500/20 font-mono text-xs">
                       <div class="flex items-center justify-between text-indigo-300 mb-2 font-bold">
                         <span>{{ activeLayer.name }} • Enforced Boundaries</span>
-                        <span class="text-slate-500 text-[10px]">{{ activeLayer.tech }}</span>
+                        <span class="text-slate-400 text-[10px]">{{ activeLayer.tech }}</span>
                       </div>
                       <ul class="space-y-1.5 text-slate-300">
                         @for (r of activeLayer.responsibilities; track r) {
@@ -386,7 +454,7 @@ export type CockpitTab = 'product' | 'modules' | 'architecture' | 'tech';
 
             <!-- TAB 4: Tech Stack Used -->
             @if (activeTab() === 'tech') {
-              <div class="space-y-4">
+              <div id="tabpanel-tech" role="tabpanel" aria-labelledby="tab-tech" class="space-y-4">
                 <p class="text-slate-400 text-xs sm:text-sm">
                   Complete technical stack implemented across this system:
                 </p>
@@ -408,15 +476,19 @@ export type CockpitTab = 'product' | 'modules' | 'architecture' | 'tech';
             <span>Press <kbd class="px-1.5 py-0.5 rounded bg-white/10 text-white">ESC</kbd> to close</span>
             <div class="flex items-center gap-3">
               <button
+                type="button"
                 (click)="profileService.prevProject()"
-                class="text-indigo-400 hover:text-white transition-colors"
+                class="min-h-[44px] px-3 inline-flex items-center justify-center text-indigo-400 hover:text-white transition-colors cursor-pointer rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400"
+                aria-label="Previous system"
               >
                 ← Prev System
               </button>
               <span>•</span>
               <button
+                type="button"
                 (click)="profileService.nextProject()"
-                class="text-indigo-400 hover:text-white transition-colors"
+                class="min-h-[44px] px-3 inline-flex items-center justify-center text-indigo-400 hover:text-white transition-colors cursor-pointer rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400"
+                aria-label="Next system"
               >
                 Next System →
               </button>
@@ -429,8 +501,10 @@ export type CockpitTab = 'product' | 'modules' | 'architecture' | 'tech';
     }
   `
 })
-export class ProjectCockpitComponent {
+export class ProjectCockpitComponent implements OnDestroy {
   readonly profileService = inject(ProfileService);
+  private liveAnnouncer = inject(LiveAnnouncer);
+
   readonly activeTab = signal<CockpitTab>('product');
   readonly selectedLayerIndex = signal<number>(0);
 
@@ -440,6 +514,20 @@ export class ProjectCockpitComponent {
     { name: 'Domain & Core Logic', tech: 'C# .NET 9', pattern: 'MediatR CQRS & DDD', responsibilities: ['Domain aggregates', 'Business rules'] },
     { name: 'Persistence & Infrastructure', tech: 'SQL Server / EF Core / S3', pattern: 'Repository & Storage', responsibilities: ['Transactional persistence', 'Cloud assets'] }
   ];
+
+  constructor() {
+    effect(() => {
+      const isOpen = this.profileService.isCockpitOpen();
+      const proj = this.profileService.selectedProject();
+      if (isOpen && proj) {
+        this.liveAnnouncer.announce(`Project dossier opened: ${proj.name}. Press Escape to close.`, 'polite');
+      }
+    });
+  }
+
+  ngOnDestroy(): void {
+    // Angular handles host listener teardown automatically
+  }
 
   getProjectIndex(id: string): number {
     return this.profileService.projects().findIndex((p) => p.id === id);

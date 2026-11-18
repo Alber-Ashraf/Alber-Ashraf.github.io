@@ -124,7 +124,7 @@ export interface SkillCategoryGroup {
                       (click)="onSkillClick(skill)"
                       (mouseenter)="profileService.setHoveredSkill(skill)"
                       (mouseleave)="profileService.setHoveredSkill(null)"
-                      class="px-2.5 py-1.5 rounded-lg text-xs font-mono transition-all border text-left flex items-center gap-1.5 cursor-pointer group/pill"
+                      class="px-2.5 py-1.5 rounded-lg text-xs font-mono transition-all border text-left flex items-center gap-1.5 cursor-pointer group/pill focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
                       [class]="isActive ?
                         'bg-gradient-to-r from-indigo-600 to-cyan-600 text-white border-cyan-400 shadow-md shadow-cyan-500/25 font-bold scale-105' :
                         'bg-slate-900/80 text-slate-300 border-white/10 hover:border-cyan-500/40 hover:text-white hover:bg-slate-800'"
@@ -144,7 +144,7 @@ export interface SkillCategoryGroup {
                 </div>
               </div>
 
-              <div class="pt-4 mt-6 border-t border-white/5 flex items-center justify-between text-[11px] font-mono text-slate-500">
+              <div class="pt-4 mt-6 border-t border-white/5 flex items-center justify-between text-[11px] font-mono text-slate-400">
                 <span>{{ group.skills.length }} Technologies</span>
                 <span class="text-cyan-400/80">Click to filter</span>
               </div>
